@@ -26,7 +26,7 @@ const HeroSection = () => {
               wrapper="span"
               speed={5}
               repeat={Infinity}
-              className="text-3xl"
+              className="text-[28px] lg:text-[44px]"
             />
           </h1>
           <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
@@ -43,8 +43,8 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
-        <div className="col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="relative rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px]">
+        <div className="col-span-5 place-self-center pt-4 mt-4 lg:mt-0">
+          <div className="relative rounded-full bg-[#181818] w-[250px] h-[250px] lg:w-[280px] lg:h-[280px]">
             <Image
               src="/images/hero-image.png"
               alt="hero image"
