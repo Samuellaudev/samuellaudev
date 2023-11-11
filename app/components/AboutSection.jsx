@@ -8,7 +8,7 @@ const TAB_DATA = [
     id: 'skills',
     title: 'Skills',
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 h-[168px]">
         <li>JavaScript</li>
         <li>ReactJs & NextJs</li>
         <li>VueJs & NuxtJs</li>
@@ -23,7 +23,7 @@ const TAB_DATA = [
     id: 'experience',
     title: 'Experience',
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 h-[168px]">
         <li>Automated Systems (H.K.) Limited - Programmer</li>
         <li>PressLogic - Web Developer</li>
         <li>LANE EIGHT - Junior Web Developer</li>
@@ -34,7 +34,7 @@ const TAB_DATA = [
     id: 'certifications',
     title: 'Certifications',
     content: (
-      <ul className="list-disc pl-2">
+      <ul className="list-disc pl-2 h-[168px]">
         <li>AWS Certified Solution Architect </li>
         <li>
           Educative.io - Testing React Apps with Jest and React Testing Library

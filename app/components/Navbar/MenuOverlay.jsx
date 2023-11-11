@@ -11,7 +11,7 @@ const MenuOverlay = ({ links }) => {
           <NavLink href={link.path} title={link.title} />
         </li>
       ))}
-      <div class="flex justify-between w-32 py-3">
+      <div className="flex justify-between w-32 py-3">
         <a href="https://github.com/samuellaudev">
           <Image
             src="/images/icon-github.svg"
