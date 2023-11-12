@@ -35,7 +35,7 @@ const projectsData = [
     id: 4,
     title: 'Project 2',
     description: 'Project 4 description',
-    image: '/images/projects4.png',
+    image: '/images/projects/4.png',
     tag: ['All', 'Project'],
     gitUrl: '/',
     previewUrl: '/',
