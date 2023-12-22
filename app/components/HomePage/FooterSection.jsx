@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const FooterSection = () => {
   return (
     <footer className="footer border border-t-[#33353F] border-l-transparent border-r-transparent text-white">
       <div className="container p-12 flex justify-between">
@@ -11,4 +11,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterSection;

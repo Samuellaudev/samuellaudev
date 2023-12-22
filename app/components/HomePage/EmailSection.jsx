@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import GithubIcon from '../../public/images/icon-github.svg';
-import LinkedinIcon from '../../public/images/icon-linkedin.svg';
+// import GithubIcon from '../../public/images/icon-github.svg';
+// import LinkedinIcon from '../../public/images/icon-linkedin.svg';
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -71,19 +71,19 @@ const EmailSection = () => {
         <div className="socials-icon flex flex-row gap-2">
           <Link href="https://github.com/samuellaudev">
             <Image
-              src={GithubIcon}
+              src="/images/icon-github.svg"
               alt="Github Icon"
               width={30}
-              height="auto"
+              height={30}
               className="duration-200 hover:invert-0 hover:sepia-0 hover:saturate-2 hover:hue-rotate-[184deg] hover:brightness-[110%] hover:contrast-[101%]"
             />
           </Link>
           <Link href="https://www.linkedin.com/in/samuel-cf-lau/">
             <Image
-              src={LinkedinIcon}
+              src="images/icon-linkedin.svg"
               alt="Linkedin Icon"
               width={30}
-              height="auto"
+              height={30}
               className="duration-200 hover:invert-0 hover:sepia-0 hover:saturate-2 hover:hue-rotate-[184deg] hover:brightness-[110%] hover:contrast-[101%]"
             />
           </Link>

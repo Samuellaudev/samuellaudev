@@ -1,10 +1,9 @@
-import Image from 'next/image';
-import HeroSection from './components/HeroSection';
+import HeroSection from './components/HomePage/HeroSection';
 import Navbar from './components/Navbar';
-import AboutSection from './components/AboutSection';
-import ProjectsSection from './components/ProjectsSection';
-import EmailSection from './components/EmailSection';
-import Footer from './components/Footer';
+import AboutSection from './components/HomePage/AboutSection';
+import ProjectsSection from './components/HomePage/ProjectsSection';
+import EmailSection from './components/HomePage/EmailSection';
+import FooterSection from './components/HomePage/FooterSection';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
         <ProjectsSection />
         <EmailSection />
       </div>
-      <Footer />
+      <FooterSection />
     </main>
   );
 }

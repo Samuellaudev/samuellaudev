@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useTransition } from 'react';
 import Image from 'next/image';
-import TabButton from './TabButton';
+import TabButton from '../TabButton';
 
 const TAB_DATA = [
   {
@@ -40,9 +40,6 @@ const TAB_DATA = [
           Educative.io - Testing React Apps with Jest and React Testing Library
         </li>
         <li>Educative.io - Become a VueJS Developer</li>
-        <li>
-          The Mustache Academy of technology - Web Development MASTERCLASS
-        </li>
       </ul>
     ),
   },
@@ -65,7 +62,7 @@ const AboutSection = () => {
             width={500}
             height={500}
             alt="about-image"
-            className="rounded-xl"
+            className="rounded-xl hidden md:block"
           />
         </div>
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
