@@ -1,8 +1,8 @@
-import { Inter } from 'next/font/google';
 import { poppins } from '@/app/components/fonts';
+import Navbar from './components/Navbar';
+import FooterSection from './components/HomePage/FooterSection';
+import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
   title: 'Samuel Lau: Web Development',
@@ -12,7 +12,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={poppins.className}>{children}</body>
+      <body className={poppins.className}>
+        <main className="flex min-h-screen flex-col bg-black">
+          <Navbar />
+          {children}
+          <FooterSection />
+        </main>
+      </body>
     </html>
   );
 }

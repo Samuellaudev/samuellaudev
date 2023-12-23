@@ -8,20 +8,20 @@ import menuIconStyles from './navbar.module.css';
 
 const navLinks = [
   {
-    title: 'About',
-    path: '#about',
+    title: 'Home',
+    path: '/',
+  },
+  {
+    title: 'Blog',
+    path: 'blog',
   },
   {
     title: 'Projects',
-    path: '#projects',
-  },
-  {
-    title: 'Blogs',
-    path: '#blogs',
+    path: 'projects',
   },
   {
     title: 'Contact',
-    path: '#contact',
+    path: 'contact',
   },
 ];
 
