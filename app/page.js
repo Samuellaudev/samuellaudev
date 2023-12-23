@@ -5,7 +5,7 @@ import EmailSection from './components/HomePage/EmailSection';
 
 export default function Home() {
   return (
-    <div className="container mt-2 sm:mt-32 mx-auto py-4 px-12">
+    <div className="container sm:mt-32 mx-auto py-4 px-12">
       <HeroSection />
       <AboutSection />
       <ProjectsSection />

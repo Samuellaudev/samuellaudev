@@ -1,14 +1,14 @@
 import React from 'react';
-import NavLink from './NavLink';
 import Image from 'next/image';
+import NavLink from './NavLink';
 import navbarStyles from './navbar.module.css';
 
-const MenuOverlay = ({ links }) => {
+const MenuOverlay = ({ links, pathname }) => {
   return (
     <ul className="flex flex-col py-4 items-center md:hidden">
       {links.map((link, index) => (
         <li key={index}>
-          <NavLink href={link.path} title={link.title} />
+          <NavLink href={link.path} title={link.title} pathname={pathname} />
         </li>
       ))}
       <div className="flex justify-between w-32 py-3">

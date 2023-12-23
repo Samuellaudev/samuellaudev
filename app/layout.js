@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <main className="flex min-h-screen flex-col bg-black">
           <Navbar />
-          {children}
+          <div className="mt-5 md:mt-0">{children}</div>
           <FooterSection />
         </main>
       </body>
