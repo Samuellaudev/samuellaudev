@@ -2,7 +2,7 @@ import { poppins } from '@/app/components/fonts';
 import Navbar from './components/Navbar';
 import FooterSection from './components/HomePage/FooterSection';
 import 'react-toastify/dist/ReactToastify.css';
-import './globals.css';
+import '@/css/globals.css';
 
 export const metadata = {
   title: 'Samuel Lau: Web Development',

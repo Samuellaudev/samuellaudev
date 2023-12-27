@@ -26,10 +26,10 @@ const Blog = () => {
       <div className="container md:mt-20 mx-auto px-12">
         <h1 className={styles.articles__heading}>Latest Posts</h1>
         <ul className={styles.article_ul}>
-          {posts.map((post, index) => {
+          {posts.map((post) => {
             return (
-              <li key={index}>
-                <Link href="#">
+              <li key={post._id}>
+                <Link href={`/blog/${post._id}`}>
                   <span className={styles.article_list__title}>
                     {post.title}
                   </span>
