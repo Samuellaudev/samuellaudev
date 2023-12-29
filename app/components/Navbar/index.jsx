@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { ThemeContext } from '@/app/theme-provider';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
@@ -27,6 +28,9 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const { userInfo } = useContext(ThemeContext);
+  const { name = '' } = userInfo ?? {};
+
   const [navbarOpen, setNavbarOpen] = useState(false);
   const pathname = usePathname();
 
@@ -41,6 +45,7 @@ const Navbar = () => {
         </Link>
         <div className="desktop-menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+            <NavLink href={name} title={`(${name})`} pathname={pathname} />
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink
@@ -70,7 +75,9 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} pathname={pathname} /> : null}
+      {navbarOpen ? (
+        <MenuOverlay username={name} links={navLinks} pathname={pathname} />
+      ) : null}
     </nav>
   );
 };

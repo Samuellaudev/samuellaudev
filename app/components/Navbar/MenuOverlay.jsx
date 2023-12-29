@@ -1,18 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import NavLink from './NavLink';
 import navbarStyles from './navbar.module.css';
 
-const MenuOverlay = ({ links, pathname }) => {
+const MenuOverlay = ({ username, links, pathname }) => {
   return (
     <ul className="flex flex-col py-4 items-center md:hidden">
+      <NavLink href={username} title={`(${username})`} pathname={pathname} />
       {links.map((link, index) => (
         <li key={index}>
           <NavLink href={link.path} title={link.title} pathname={pathname} />
         </li>
       ))}
       <div className="flex justify-between w-32 py-3">
-        <a href="https://github.com/samuellaudev">
+        <Link href="https://github.com/samuellaudev">
           <Image
             src="/images/icon-github.svg"
             alt=""
@@ -20,8 +22,8 @@ const MenuOverlay = ({ links, pathname }) => {
             width={20}
             height={20}
           />
-        </a>
-        <a href="https://www.linkedin.com/in/lau-chun-fong/">
+        </Link>
+        <Link href="https://www.linkedin.com/in/lau-chun-fong/">
           <Image
             src="/images/icon-linkedin.svg"
             alt=""
@@ -29,8 +31,8 @@ const MenuOverlay = ({ links, pathname }) => {
             width={20}
             height={20}
           />
-        </a>
-        <a href="https://www.instagram.com/samuel_cf_lau/">
+        </Link>
+        <Link href="https://www.instagram.com/samuel_cf_lau/">
           <Image
             src="/images/icon-instagram.svg"
             alt=""
@@ -38,7 +40,7 @@ const MenuOverlay = ({ links, pathname }) => {
             width={20}
             height={20}
           />
-        </a>
+        </Link>
       </div>
     </ul>
   );

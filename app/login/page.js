@@ -1,9 +1,12 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { ThemeContext } from '../theme-provider';
 import axios from 'axios';
 import Image from 'next/image';
 
 const Login = () => {
+  const { setUserInfo } = useContext(ThemeContext);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,6 +21,7 @@ const Login = () => {
       const { data } = await response;
 
       localStorage.setItem('userInfo', JSON.stringify(data));
+      setUserInfo(data);
     } catch (error) {
       console.log(error);
     }

@@ -1,3 +1,4 @@
+import { ThemeProvider } from './theme-provider.js';
 import { poppins } from '@/app/components/fonts';
 import Navbar from './components/Navbar';
 import FooterSection from './components/HomePage/FooterSection';
@@ -13,11 +14,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body className={poppins.className}>
-        <main className="flex min-h-screen flex-col bg-black">
-          <Navbar />
-          <div className="mt-5 md:mt-0">{children}</div>
-          <FooterSection />
-        </main>
+        <ThemeProvider>
+          <main className="flex min-h-screen flex-col bg-black">
+            <Navbar />
+            <div className="mt-5 md:mt-0">{children}</div>
+            <FooterSection />
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   );
