@@ -3,12 +3,21 @@ import { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from '../theme-provider';
 import axios from 'axios';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
   const { setUserInfo } = useContext(ThemeContext);
+  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  useEffect(() => {
+    const isUserLoggedIn = localStorage.getItem('isLogin') === 'true';
+    if (isUserLoggedIn) {
+      router.push('/dashboard');
+    }
+  }, [router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,14 +27,20 @@ const Login = () => {
         email,
         password,
       });
-      const { data } = await response;
+      const { data } = response;
 
       localStorage.setItem('userInfo', JSON.stringify(data));
       setUserInfo(data);
+
+      localStorage.setItem('isLogin', true);
+      router.push('/dashboard');
     } catch (error) {
-      console.log(error);
+      console.error('Login error:', error);
     }
   };
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
     <div className="flex items-center justify-center min-h-screen">
@@ -42,7 +57,7 @@ const Login = () => {
             type="email"
             id="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleEmailChange}
             required
             placeholder="Enter email address"
             className="w-full mt-1 p-4 border text-center border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -54,7 +69,7 @@ const Login = () => {
             type="password"
             id="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handlePasswordChange}
             required
             placeholder="Enter password"
             className="w-full mt-1 p-4 border text-center border-gray-300 rounded-md placeholder:font-sans placeholder:font-light"
@@ -66,11 +81,11 @@ const Login = () => {
           </div>
           <button
             type="submit"
-            className="w-full md:w-auto flex justify-center items-center p-3 px-9 space-x-4 font-sans font-bold text-white rounded-md bg-cyan-700 shadow-cyan-100 hover:bg-opaciity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150"
+            className="w-full md:w-auto flex justify-center items-center p-3 px-9 space-x-4 font-sans font-bold text-white rounded-md bg-cyan-700 shadow-cyan-100 hover:bg-opacity-90 shadow-sm hover:shadow-lg border transition hover:-translate-y-0.5 duration-150"
           >
             <span>Next</span>
             <Image
-              src="svg/right-arrow.svg"
+              src="/svg/right-arrow.svg"
               alt=""
               width={20}
               height={20}
