@@ -1,11 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import styles from './postsStyles.module.css';
 
 const Posts = ({ pageHeading }) => {
   const [posts, setPosts] = useState([]);
+  const router = useRouter();
 
   const getPostsData = async () => {
     try {
@@ -21,9 +23,14 @@ const Posts = ({ pageHeading }) => {
     getPostsData();
   }, []);
 
+  const handleAddNewPost = () => router.push('/new-post');
+
   return (
     <div className="container md:mt-20 mx-auto px-12">
-      <h1 className={styles.articles__heading}>{pageHeading}</h1>
+      <div className="section__heading flex flex-row items-baseline justify-between">
+        <h1 className={styles.articles__heading}>{pageHeading}</h1>
+        <button onClick={handleAddNewPost}>+ Add new</button>
+      </div>
       <ul className={styles.article_ul}>
         {posts.map((post) => {
           return (
