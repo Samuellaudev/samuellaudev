@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState, useContext } from 'react';
-import { ThemeContext } from '../theme-provider';
+import { ThemeContext } from '@/context/theme-provider';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

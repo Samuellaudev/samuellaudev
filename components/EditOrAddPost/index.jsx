@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import axios from 'axios';
-import MarkdownPreview from '@/app/components/Markdown/MarkdownPreview';
+import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './editOrAddPostStyles.module.css';
 

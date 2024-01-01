@@ -1,4 +1,4 @@
-import EditOrAddNewPost from '@/app/components/EditOrAddPost';
+import EditOrAddNewPost from '@/components/EditOrAddPost';
 
 const EditPost = () => {
   return <EditOrAddNewPost postType="edit-post" />;

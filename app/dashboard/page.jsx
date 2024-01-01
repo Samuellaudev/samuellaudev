@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './dashboardStyles.module.css';
-import Posts from '../components/Posts';
+import Posts from '@/components/Posts';
 
 const Dashboard = () => {
   const router = useRouter();

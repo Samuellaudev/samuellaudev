@@ -1,7 +1,7 @@
-import { ThemeProvider } from './theme-provider.js';
-import { poppins } from '@/app/components/fonts';
-import Navbar from './components/Navbar';
-import FooterSection from './components/HomePage/FooterSection';
+import { ThemeProvider } from '@/context/theme-provider';
+import { poppins } from '@/components/fonts';
+import Navbar from '@/components/Navbar';
+import FooterSection from '@/components/HomePage/FooterSection';
 import 'react-toastify/dist/ReactToastify.css';
 import '@/css/globals.css';
 

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { ThemeContext } from '@/app/theme-provider';
+import { ThemeContext } from '@/context/theme-provider';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';

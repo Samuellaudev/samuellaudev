@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import MarkdownPreview from '@/app/components/Markdown/MarkdownPreview';
+import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import styles from './postStyles.module.css';
 
 const Post = ({ params }) => {
