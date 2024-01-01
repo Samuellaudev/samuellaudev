@@ -1,13 +1,10 @@
 'use client';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ThemeContext } from '../theme-provider';
-import axios from 'axios';
 import styles from './dashboardStyles.module.css';
 import Posts from '../components/Posts';
 
 const Dashboard = () => {
-  const { userInfo } = useContext(ThemeContext);
   const router = useRouter();
 
   const [isLogin, setIsLogin] = useState(false);
