@@ -24,8 +24,18 @@ const Posts = ({ pageHeading }) => {
   }, []);
 
   const handleAddNewPost = () => router.push('/new-post');
-  const handleEditPost = () => alert('edit');
-  const handleDeletePost = () => alert('delete');
+
+  const handleEditPost = (id) => alert('edit', id);
+
+  const handleDeletePost = async (id) => {
+    try {
+      await axios.delete(`/api/posts/${id}`);
+
+      fetchPosts();
+    } catch (error) {
+      console.log('Delete error:', error);
+    }
+  };
 
   return (
     <div className="container md:mt-20 mx-auto px-12">
@@ -69,14 +79,14 @@ const Posts = ({ pageHeading }) => {
               <div className="flex flex-row justify-end">
                 <button
                   type="button"
-                  onClick={handleEditPost}
+                  onClick={() => handleEditPost(post._id)}
                   className="text-base p-2 px-4 mb-4 font-sans text-white bg-cyan-700 hover:bg-white hover:text-cyan-700 transition duration-250"
                 >
                   Edit
                 </button>
                 <button
                   type="button"
-                  onClick={handleDeletePost}
+                  onClick={() => handleDeletePost(post._id)}
                   className="text-base p-2 px-4 mb-4 font-sans text-white bg-red-500 hover:bg-white hover:text-red-500 transition duration-250"
                 >
                   Delete
