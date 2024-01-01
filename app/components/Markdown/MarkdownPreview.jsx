@@ -4,13 +4,13 @@ import Markdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { railscasts } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const MarkdownPreview = ({ post, isEdit }) => {
-  const [input, setInput] = useState('');
-
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
-  };
-
+const MarkdownPreview = ({
+  post,
+  isEdit,
+  input,
+  setInput,
+  handleInputChange,
+}) => {
   const renderCodeBlock = ({ className, ...rest }) => {
     const match = /language-(\w+)/.exec(className || '');
 
@@ -33,17 +33,23 @@ const MarkdownPreview = ({ post, isEdit }) => {
   };
 
   return (
-    <div className="markdown-section">
+    <div
+      className={`markdown-section 
+      ${isEdit ? 'space-x-5' : ''}`}
+    >
       <textarea
-        className={`textarea ${isEdit ? 'block' : 'hidden'}`}
+        className={`textarea 
+        ${isEdit ? 'block p-2' : 'hidden'}`}
         value={input}
         onChange={handleInputChange}
         cols="50"
         rows="10"
         placeholder="Enter markdown text here"
+        required
       />
       <Markdown
-        className={`markdown ${isEdit ? 'markdown-half' : 'markdown-full'}`}
+        className={`markdown
+        ${isEdit ? 'markdown-half p-2 border' : 'markdown-full'}`}
         components={{ code: renderCodeBlock }}
       >
         {isEdit ? input : post}
