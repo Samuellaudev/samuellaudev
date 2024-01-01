@@ -39,3 +39,27 @@ export async function DELETE(request, { params }) {
     throw new Error('Failed to delete post!');
   }
 }
+
+export async function PUT(request, { params }) {
+  const { id } = params;
+  const updatedPostData = await request.json();
+
+  const cookieStore = cookies();
+  const token = cookieStore.get('jwt');
+
+  try {
+    await fetch(`${backendUrl}/api/posts/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        cookie: `jwt=${token.value}`,
+      },
+      body: JSON.stringify(updatedPostData),
+    });
+
+    return NextResponse.json({ data: { id } });
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to delete post!');
+  }
+}

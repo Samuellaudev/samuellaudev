@@ -25,7 +25,7 @@ const Posts = ({ pageHeading }) => {
 
   const handleAddNewPost = () => router.push('/new-post');
 
-  const handleEditPost = (id) => alert('edit', id);
+  const handleEditPost = (id) => router.push(`/edit-post/${id}`);
 
   const handleDeletePost = async (id) => {
     try {
