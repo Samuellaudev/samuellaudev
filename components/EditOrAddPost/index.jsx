@@ -1,7 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Link from 'next/link';
 import axios from 'axios';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import { ToastContainer, toast } from 'react-toastify';
@@ -46,14 +45,12 @@ const EditOrAddNewPost = ({ postType }) => {
   const fieldMap = {
     'new-post': {
       title: 'Add New Post',
-      goBackButton: '/dashboard',
       submitButton: 'Add',
       successMessage: 'Post created successfully',
       errorMessage: 'Unable to create post',
     },
     'edit-post': {
       title: 'Edit Post',
-      goBackButton: '/dashboard',
       submitButton: 'Edit',
       successMessage: 'Post edited successfully',
       errorMessage: 'Unable to edit post',
@@ -107,12 +104,12 @@ const EditOrAddNewPost = ({ postType }) => {
               <h1 className={styles.post__heading}>
                 {fieldMap[postType].title}
               </h1>
-              <Link
-                href={fieldMap[postType].goBackButton}
+              <button
+                onClick={() => router.back()}
                 className="border p-2 px-6 hover:bg-white hover:text-black transition duration-250"
               >
                 &larr; Back
-              </Link>
+              </button>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col">
               <label htmlFor="title" className="mt-10 text-lg">

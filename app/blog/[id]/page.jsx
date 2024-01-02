@@ -3,9 +3,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import styles from './postStyles.module.css';
+import { useRouter } from 'next/navigation';
 
 const Post = ({ params }) => {
   const [post, setPost] = useState({ title: '', body: '', createdAt: '' });
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -24,7 +27,15 @@ const Post = ({ params }) => {
 
   return (
     <div className={`container mt-16 md:mt-28 mx-auto px-12 ${styles.post}`}>
-      <h1 className={styles.post__title}>{post.title}</h1>
+      <div className="flex flex-row justify-between items-end">
+        <h1 className={styles.post__title}>{post.title}</h1>
+        <button
+          onClick={() => router.back()}
+          className="border p-2 px-6 hover:bg-white hover:text-black transition duration-250"
+        >
+          &larr; Back
+        </button>
+      </div>
       <p className={styles.post__date}>{formatDate(post.createdAt)}</p>
       <div className={styles.post__body}>
         <MarkdownPreview post={post.body} isEdit={false} />
