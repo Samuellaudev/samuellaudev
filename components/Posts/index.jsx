@@ -1,19 +1,28 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import Loading from './Loading';
 import styles from './postsStyles.module.css';
 
 const Posts = ({ pageHeading }) => {
   const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
 
   const fetchPosts = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get('/api/posts');
       const { data } = response;
+
       setPosts(data);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 500);
     } catch (error) {
       console.error('Error fetching posts:', error);
     }
@@ -32,8 +41,10 @@ const Posts = ({ pageHeading }) => {
       await axios.delete(`/api/posts/${id}`);
 
       fetchPosts();
+      toast.success('Deleted post successfully');
     } catch (error) {
       console.log('Delete error:', error);
+      toast.success('Fail to delete post');
     }
   };
 
@@ -51,55 +62,61 @@ const Posts = ({ pageHeading }) => {
           </button>
         )}
       </div>
-      <ul className={styles.article_ul}>
-        {posts.map((post) => (
-          <li key={post._id}>
-            <Link
-              href={`/blog/${post._id}`}
-              className="flex flex-row justify-between "
-            >
-              <p className={styles.article_list__title}>{post.title}</p>
-              {pageHeading === 'Latest Posts' && (
-                <p className={styles.article_list__date}>
-                  {new Date(post.updatedAt).toDateString()}
-                </p>
-              )}
-              {pageHeading === 'Dashboard' && (
-                <div className="flex flex-col">
-                  <p className={styles.article_list__date}>
-                    Updated at: {new Date(post.updatedAt).toDateString()}
-                  </p>
-                  <p className={styles.article_list__date}>
-                    Created at: {new Date(post.createdAt).toDateString()}
-                  </p>
-                </div>
-              )}
-            </Link>
-            {pageHeading === 'Dashboard' && (
-              <div className="flex flex-row justify-end">
-                <button
-                  type="button"
-                  onClick={() => handleEditPost(post._id)}
-                  className="text-base p-2 px-4 mb-4 font-sans text-white bg-cyan-700 hover:bg-white hover:text-cyan-700 transition duration-250"
+      {isLoading ? (
+        <Loading pageHeading={pageHeading} />
+      ) : (
+        <>
+          <ul className={styles.article_ul}>
+            {posts.map((post) => (
+              <li key={post._id}>
+                <Link
+                  href={`/blog/${post._id}`}
+                  className="flex flex-row justify-between "
                 >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDeletePost(post._id)}
-                  className="text-base p-2 px-4 mb-4 font-sans text-white bg-red-500 hover:bg-white hover:text-red-500 transition duration-250"
-                >
-                  Delete
-                </button>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-
-      {/* <% if (nextPage !== null) { %>
+                  <p className={styles.article_list__title}>{post.title}</p>
+                  {pageHeading === 'Latest Posts' && (
+                    <p className={styles.article_list__date}>
+                      {new Date(post.updatedAt).toDateString()}
+                    </p>
+                  )}
+                  {pageHeading === 'Dashboard' && (
+                    <div className="flex flex-col">
+                      <p className={styles.article_list__date}>
+                        Updated at: {new Date(post.updatedAt).toDateString()}
+                      </p>
+                      <p className={styles.article_list__date}>
+                        Created at: {new Date(post.createdAt).toDateString()}
+                      </p>
+                    </div>
+                  )}
+                </Link>
+                {pageHeading === 'Dashboard' && (
+                  <div className="flex flex-row justify-end">
+                    <button
+                      type="button"
+                      onClick={() => handleEditPost(post._id)}
+                      className="text-base p-2 px-4 mb-4 font-sans text-white bg-cyan-700 hover:bg-white hover:text-cyan-700 transition duration-250"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleDeletePost(post._id)}
+                      className="text-base p-2 px-4 mb-4 font-sans text-white bg-red-500 hover:bg-white hover:text-red-500 transition duration-250"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          {/* <% if (nextPage !== null) { %>
             <a href="/?page=<%= nextPage %>" className="pagination">&lt; View Older Posts</a>
           <% } %> */}
+        </>
+      )}
+      <ToastContainer />
     </div>
   );
 };
