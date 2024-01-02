@@ -5,9 +5,9 @@ import styles from './dashboardStyles.module.css';
 import Posts from '@/components/Posts';
 
 const Dashboard = () => {
-  const router = useRouter();
-
   const [isLogin, setIsLogin] = useState(false);
+
+  const router = useRouter();
 
   useEffect(() => {
     if (!localStorage.getItem('isLogin') || !localStorage.getItem('userInfo')) {
