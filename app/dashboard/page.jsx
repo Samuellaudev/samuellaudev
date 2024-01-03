@@ -22,7 +22,7 @@ const Dashboard = () => {
   // to-be-done: set loading state
 
   return (
-    <main className="flex min-h-screen flex-col bg-black">
+    <main className="flex min-h-screen flex-col">
       {isLogin && <Posts pageHeading="Dashboard" />}
     </main>
   );

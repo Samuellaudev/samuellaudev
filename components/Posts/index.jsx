@@ -49,14 +49,14 @@ const Posts = ({ pageHeading }) => {
   };
 
   return (
-    <div className="container md:mt-20 mx-auto px-12">
+    <div className="container md:mt-20 mx-auto px-12 text-[#565b5f] dark:text-white dark:bg-black">
       <div className="section__heading flex flex-row items-baseline justify-between">
         <h1 className={styles.articles__heading}>{pageHeading}</h1>
         {pageHeading === 'Dashboard' && (
           <button
             type="button"
             onClick={handleAddNewPost}
-            className="border p-2 px-6 hover:bg-white hover:text-black transition duration-250"
+            className={`${styles.light_theme_add_new_btn} dark:hover:bg-white dark:hover:text-black`}
           >
             + Add new
           </button>
@@ -95,14 +95,14 @@ const Posts = ({ pageHeading }) => {
                     <button
                       type="button"
                       onClick={() => handleEditPost(post._id)}
-                      className="text-base p-2 px-4 mb-4 font-sans text-white bg-cyan-700 hover:bg-white hover:text-cyan-700 transition duration-250"
+                      className={`${styles.light_theme_btn} bg-cyan-700 hover:text-cyan-700 hover:ring-cyan-700 dark:hover:ring-0`}
                     >
                       Edit
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDeletePost(post._id)}
-                      className="text-base p-2 px-4 mb-4 font-sans text-white bg-red-500 hover:bg-white hover:text-red-500 transition duration-250"
+                      className={`${styles.light_theme_btn} bg-red-500 hover:text-red-500 hover:ring-red-500 dark:hover:ring-0`}
                     >
                       Delete
                     </button>
