@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import './markdown.css';
+import styles from './markdown.module.css';
 import Markdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { railscasts } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -34,12 +33,12 @@ const MarkdownPreview = ({
 
   return (
     <div
-      className={`markdown-section 
-      ${isEdit ? 'space-x-5' : ''}`}
+      className={`${isEdit ? 'md:space-x-5' : ''} 
+      container flex flex-col md:flex-row`}
     >
       <textarea
-        className={`textarea 
-        ${isEdit ? 'block p-2' : 'hidden'}`}
+        className={`${isEdit ? styles.light_theme_form : 'hidden'}
+        dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
         value={input}
         onChange={handleInputChange}
         cols="50"
@@ -48,8 +47,10 @@ const MarkdownPreview = ({
         required
       />
       <Markdown
-        className={`markdown
-        ${isEdit ? 'markdown-half p-2 border' : 'markdown-full'}`}
+        className={`${
+          isEdit ? 'mt-2 md:mt-0 md:w-6/12 md:p-2 border' : `w-full`
+        } 
+        h-auto`}
         components={{ code: renderCodeBlock }}
       >
         {isEdit ? input : post}

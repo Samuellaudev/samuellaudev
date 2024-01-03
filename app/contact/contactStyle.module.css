@@ -9,7 +9,7 @@
 }
 
 .light_theme_form {
-  @apply border border-[#ADB7BE] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5;
+  @apply text-black text-sm rounded-lg block w-full p-2.5 border border-[#ADB7BE] placeholder-[#9CA2A9];
 }
 
 .light_theme_btn {
