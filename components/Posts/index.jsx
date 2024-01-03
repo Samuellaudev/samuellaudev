@@ -51,7 +51,9 @@ const Posts = ({ pageHeading }) => {
   return (
     <div className="container md:mt-20 mx-auto px-12 text-[#565b5f] dark:text-white dark:bg-black">
       <div className="section__heading flex flex-row items-baseline justify-between">
-        <h1 className={styles.articles__heading}>{pageHeading}</h1>
+        <h1 className={`${styles.articles__heading} text-[#ADB7BE]`}>
+          {pageHeading}
+        </h1>
         {pageHeading === 'Dashboard' && (
           <button
             type="button"

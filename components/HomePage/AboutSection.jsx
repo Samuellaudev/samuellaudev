@@ -66,7 +66,7 @@ const AboutSection = () => {
           />
         </div>
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
-          <h2 className="text-4xl font-bold mb-4 text-[#565b5f] dark:text-white">
+          <h2 className="text-4xl  mb-4 text-[#ADB7BE] dark:text-white">
             About Me
           </h2>
           <p className="text-base md:text-lg">
