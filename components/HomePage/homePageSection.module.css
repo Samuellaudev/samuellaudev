@@ -1,0 +1,8 @@
+.light_theme {
+  @apply bg-white text-black;
+}
+
+/* HeroSection */
+.light_theme_circle {
+  @apply bg-[#ADB7BE]
+}

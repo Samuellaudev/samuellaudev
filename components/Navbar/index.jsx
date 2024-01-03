@@ -1,10 +1,11 @@
 'use client';
 import { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
 import { ThemeContext } from '@/context/theme-provider';
-import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import axios from 'axios';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import ThemeSwitch from '../ThemeSwitch';
 import MenuOverlay from './MenuOverlay';
 import NavLink from './NavLink';
 import menuIconStyles from './navbar.module.css';
@@ -78,6 +79,7 @@ const Navbar = () => {
                 />
               </li>
             ))}
+            <ThemeSwitch className="mt-5" />
           </ul>
         </div>
         <div className="mobile-menu block md:hidden">

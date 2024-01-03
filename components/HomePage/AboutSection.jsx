@@ -54,7 +54,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="text-white">
+    <section id="about" className="text-[#565b5f] dark:text-white">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         <div className="">
           <Image
@@ -62,11 +62,13 @@ const AboutSection = () => {
             width={500}
             height={500}
             alt="about-image"
-            className="rounded-xl hidden md:block"
+            className="rounded-xl hidden md:block md:border-2 md:border-[#ADB7BE] dark:border-0"
           />
         </div>
         <div className="flex flex-col mt-4 md:mt-0 text-left h-full">
-          <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
+          <h2 className="text-4xl font-bold mb-4 text-[#565b5f] dark:text-white">
+            About Me
+          </h2>
           <p className="text-base md:text-lg">
             I&apos;m a passionate Front-end Web Developer skilled in JavaScript,
             React, Vue, Next.js, Nuxt.js, HTML, CSS, and Git. Eager to learn and

@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import NavLink from './NavLink';
+import ThemeSwitch from '../ThemeSwitch';
 import navbarStyles from './navbar.module.css';
 
 const socialLinks = [
@@ -24,7 +25,7 @@ const socialLinks = [
 
 const renderSocialLinks = () => {
   return (
-    <div className="flex justify-between w-32 py-3">
+    <div className="flex justify-between w-32 py-3 mt-4">
       {socialLinks.map((socialLink, index) => (
         <Link href={socialLink.href} key={index}>
           <Image
@@ -65,6 +66,7 @@ const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
             <NavLink href={link.path} title={link.title} pathname={pathname} />
           </li>
         ))}
+        <ThemeSwitch className="mt-5" />
       </>
     );
   };

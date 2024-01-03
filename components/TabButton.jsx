@@ -2,7 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const TabButton = ({ active, selectTab, children }) => {
-  const buttonClasses = active ? 'text-white' : 'text-[#ADB7BE]';
+  const buttonClasses = active
+    ? 'text-black dark:text-white'
+    : 'text-[#ADB7BE]';
 
   const variants = {
     default: { width: 0 },
@@ -11,7 +13,9 @@ const TabButton = ({ active, selectTab, children }) => {
 
   return (
     <button onClick={selectTab}>
-      <p className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}>
+      <p
+        className={`mr-3 font-semibold hover:text-primary-500 hover:dark:text-white ${buttonClasses}`}
+      >
         {children}
       </p>
       <motion.div
