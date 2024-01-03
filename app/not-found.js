@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="flex flex-col items-center justify-center text-center mt-52 space-y-8">
       <h2> 404 Not Found</h2>
       <p>Could not find requested resource</p>
-      <p className="border w-[200px] p-2 px-6 hover:cursor-pointer hover:bg-white hover:text-black transition duration-250">
+      <p className="border w-[200px] p-2 px-6 hover:cursor-pointer hover:bg-white hover:text-black transition duration-200">
         View <Link href="/blog">all posts</Link>
       </p>
     </div>

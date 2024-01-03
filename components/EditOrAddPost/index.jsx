@@ -106,7 +106,7 @@ const EditOrAddNewPost = ({ postType }) => {
               </h1>
               <button
                 onClick={() => router.back()}
-                className="border p-2 px-6 hover:bg-white hover:text-black transition duration-250"
+                className="border p-2 px-6 hover:bg-white hover:text-black transition duration-200"
               >
                 &larr; Back
               </button>

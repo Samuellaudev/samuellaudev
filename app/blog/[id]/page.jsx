@@ -43,7 +43,7 @@ const Post = ({ params }) => {
             <h1 className={styles.post__title}>{post.title}</h1>
             <button
               onClick={() => router.back()}
-              className="border p-2 md:px-6 hover:bg-white hover:text-black transition duration-250"
+              className="border p-2 md:px-6 hover:bg-white hover:text-black transition duration-200"
             >
               <span className="hidden md:inline">&larr; </span>Back
             </button>
