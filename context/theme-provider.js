@@ -1,6 +1,7 @@
 'use client';
 
 import { createContext, useState, useEffect } from 'react';
+import { ThemeProvider as DarkThemeProvider } from 'next-themes';
 
 const ThemeContext = createContext();
 
@@ -22,7 +23,9 @@ function ThemeProvider(props) {
 
   return (
     <ThemeContext.Provider value={themeObject}>
-      {props.children}
+      <DarkThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        {props.children}
+      </DarkThemeProvider>
     </ThemeContext.Provider>
   );
 }
