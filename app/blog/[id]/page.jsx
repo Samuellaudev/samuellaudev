@@ -34,7 +34,7 @@ const Post = ({ params }) => {
   const formatDate = (date) => new Date(date).toDateString();
 
   return (
-    <div className={`container mt-16 md:mt-28 mx-auto px-12 ${styles.post}`}>
+    <div className={`${styles.light_theme_post} dark:text-white dark:bg-black`}>
       {isLoading ? (
         <Loading />
       ) : (
@@ -43,7 +43,7 @@ const Post = ({ params }) => {
             <h1 className={styles.post__title}>{post.title}</h1>
             <button
               onClick={() => router.back()}
-              className="border p-2 md:px-6 hover:bg-white hover:text-black transition duration-200"
+              className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
             >
               <span className="hidden md:inline">&larr; </span>Back
             </button>

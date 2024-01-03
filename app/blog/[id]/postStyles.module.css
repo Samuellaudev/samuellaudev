@@ -1,10 +1,13 @@
-.post {
-  /* margin-top: 7rem; */
+.light_theme_post {
+  @apply container mt-16 md:mt-28 mx-auto px-12 text-[#565b5f];
+}
+
+.light_theme_back_btn {
+  @apply border p-2 px-6 hover:bg-black hover:text-white transition duration-200;
 }
 
 .post__title {
-  font-weight: 400;
-  font-size: 2rem;
+  line-height: 2.75rem;
 }
 
 .post__date {
