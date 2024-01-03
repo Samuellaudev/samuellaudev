@@ -96,8 +96,10 @@ const EditOrAddNewPost = ({ postType }) => {
   };
 
   return (
-    <main className="flex min-h-screen flex-col bg-black">
-      <div className="container md:my-20 mx-auto px-12">
+    <main className="flex min-h-screen flex-col">
+      <div
+        className={`${styles.light_theme_post} dark:text-white dark:bg-black`}
+      >
         {isLogin && (
           <>
             <div className="flex flex-row justify-between items-end">
@@ -106,9 +108,9 @@ const EditOrAddNewPost = ({ postType }) => {
               </h1>
               <button
                 onClick={() => router.back()}
-                className="border p-2 px-6 hover:bg-white hover:text-black transition duration-200"
+                className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
               >
-                &larr; Back
+                <span className="hidden md:inline">&larr; </span>Back
               </button>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col">
@@ -121,7 +123,7 @@ const EditOrAddNewPost = ({ postType }) => {
                 value={title}
                 onChange={handleTitleChange}
                 placeholder="Post Title"
-                className={`mt-2 text-black ${styles.post__title}`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 required
               />
               <label htmlFor="body" className="mt-4 mb-2 text-lg">
