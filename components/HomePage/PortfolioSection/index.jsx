@@ -64,6 +64,7 @@ const ProjectsSection = () => {
               gitUrl={project.gitUrl}
               previewUrl={project.previewUrl}
               isPublicLink={project.isPublicLink}
+              categories={project.categories}
             />
           </li>
         ))}

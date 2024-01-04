@@ -8,6 +8,7 @@ const ProjectCard = ({
   gitUrl,
   previewUrl,
   isPublicLink,
+  categories,
 }) => {
   return (
     <div className="rounded-md border border-[#ADB7BE]  hover:shadow-2xl hover:-translate-y-1 duration-200">
@@ -20,10 +21,13 @@ const ProjectCard = ({
           backgroundPosition: 'center',
         }}
       >
-        <div class="absolute bottom-0 left-0 right-0 p-2 px-4 text-white duration-500 bg-black opacity-0 group-hover:opacity-100 bg-opacity-60">
-          <div class="flex justify-between w-full">
-            <div class="font-normal">
-              <p class="text-sm">{description}</p>
+        <div className="absolute top-0 left-0 p-1 px-6 text-xs bg-primary-400 rounded-tl-md rounded-br-3xl text-white">
+          {categories}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 p-2 px-4 text-white duration-500 bg-black opacity-0 group-hover:opacity-100 bg-opacity-60">
+          <div className="flex justify-between w-full">
+            <div className="font-normal">
+              <p className="text-sm">{description}</p>
             </div>
           </div>
         </div>
