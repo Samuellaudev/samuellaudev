@@ -1,10 +1,13 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { TypeAnimation } from 'react-type-animation';
 import styles from './homePageSection.module.css';
 
 const HeroSection = () => {
+  const router = useRouter();
+
   return (
     <section className="hero-section pt-12">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -35,10 +38,13 @@ const HeroSection = () => {
             I am a Web Developer and a fitness enthusiast.
           </p>
           <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-white hover:bg-slate-200 text-white bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200">
+            <button
+              onClick={() => router.push('/contact')}
+              className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-white hover:bg-slate-200 text-white bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200"
+            >
               Let&apos;s talk!
             </button>
-            <button className="px-1 py-1 w-full sm:w-fit rounded-full mr-4  hover:bg-slate-800  mt-3 bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200">
+            <button className="hidden px-1 py-1 w-full sm:w-fit rounded-full mr-4  hover:bg-slate-800  mt-3 bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200">
               <span className="px-5 py-2 block text-[#565b5f] bg-white dark:bg-[#121212] dark:hover:bg-slate-800  dark:text-white rounded-full">
                 Download CV
               </span>

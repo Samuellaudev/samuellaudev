@@ -4,24 +4,7 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import ThemeSwitch from '../ThemeSwitch';
 import navbarStyles from './navbar.module.css';
-
-const socialLinks = [
-  {
-    href: 'https://github.com/samuellaudev',
-    src: '/images/icon-github.svg',
-    alt: 'GitHub',
-  },
-  {
-    href: 'https://www.linkedin.com/in/lau-chun-fong/',
-    src: '/images/icon-linkedin.svg',
-    alt: 'LinkedIn',
-  },
-  {
-    href: 'https://www.instagram.com/samuel_cf_lau/',
-    src: '/images/icon-instagram.svg',
-    alt: 'Instagram',
-  },
-];
+import { socialLinks } from '@/utils/constants';
 
 const renderSocialLinks = () => {
   return (

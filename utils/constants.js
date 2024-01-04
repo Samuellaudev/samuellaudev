@@ -1,3 +1,4 @@
+// Portfolio Section
 export const projectsData = [
   {
     id: 1,
@@ -60,4 +61,31 @@ export const projectsData = [
       'https://www.credly.com/badges/fddfd640-2746-4ccd-bd16-248db52c762d/public_url',
     isPublicLink: true,
   },
+];
+
+// Contact Section
+export const socialLinks = [
+  {
+    href: 'https://github.com/samuellaudev',
+    src: '/images/icon-github.svg',
+    alt: 'Github Icon',
+  },
+  {
+    href: 'https://www.linkedin.com/in/samuel-cf-lau/',
+    src: '/images/icon-linkedin.svg',
+    alt: 'Linkedin Icon',
+  },
+  {
+    href: 'https://www.instagram.com/samuel_cf_lau/',
+    src: '/images/icon-instagram.svg',
+    alt: 'Instagram',
+  },
+];
+
+// Navbar
+export const navLinks = [
+  { title: 'Home', path: '/' },
+  { title: 'Blog', path: '/blog' },
+  { title: 'Projects', path: '/projects' },
+  { title: 'Contact', path: '/contact' },
 ];

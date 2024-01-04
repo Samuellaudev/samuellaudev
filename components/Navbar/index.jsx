@@ -8,14 +8,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import ThemeSwitch from '../ThemeSwitch';
 import MenuOverlay from './MenuOverlay';
 import NavLink from './NavLink';
-import menuIconStyles from './navbar.module.css';
-
-const navLinks = [
-  { title: 'Home', path: '/' },
-  { title: 'Blog', path: '/blog' },
-  { title: 'Projects', path: '/projects' },
-  { title: 'Contact', path: '/contact' },
-];
+import styles from './navbar.module.css';
+import { navLinks } from '@/utils/constants';
 
 const Navbar = () => {
   const { userInfo } = useContext(ThemeContext);
@@ -85,7 +79,7 @@ const Navbar = () => {
         <div className="mobile-menu block md:hidden">
           <button
             onClick={() => setNavbarOpen((prevState) => !prevState)}
-            className={menuIconStyles.menuIcon}
+            className={styles.menuIcon}
           >
             {navbarOpen ? (
               <XMarkIcon className="h-5 w-5" />

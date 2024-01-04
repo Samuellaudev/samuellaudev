@@ -5,19 +5,7 @@ import Image from 'next/image';
 import { ArrowPathIcon } from '@heroicons/react/24/solid';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './contactStyle.module.css';
-
-const socialLinks = [
-  {
-    href: 'https://github.com/samuellaudev',
-    src: '/images/icon-github.svg',
-    alt: 'Github Icon',
-  },
-  {
-    href: 'https://www.linkedin.com/in/samuel-cf-lau/',
-    src: '/images/icon-linkedin.svg',
-    alt: 'Linkedin Icon',
-  },
-];
+import { socialLinks } from '@/utils/constants';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -89,7 +77,7 @@ const Contact = () => {
           open. Whether you have a question or just want to say hi, I&apos;ll
           try my best to get back to you!
         </p>
-        <div className="socials-icon flex flex-row gap-2">
+        <div className="socials-icon flex flex-row gap-2 space-x-6">
           {socialLinks.map((link, index) => (
             <a href={link.href} key={index} target="_blank">
               <Image
@@ -111,7 +99,7 @@ const Contact = () => {
         {isLoading ? (
           <ArrowPathIcon className="absolute h-10 w-10 text-[#ADB7BE] dark:text-white animate-spin-slow inset-y-32 inset-x-36" />
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col mb-14" onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
                 htmlFor="email"
