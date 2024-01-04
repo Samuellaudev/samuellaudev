@@ -1,7 +1,7 @@
 import HeroSection from '@/components/HomePage/HeroSection';
 import AboutSection from '@/components/HomePage/AboutSection';
 import BlogSection from '@/components/HomePage/BlogSection';
-import ProjectsSection from '@/components/HomePage/ProjectsSection';
+import PortfolioSection from '@/components/HomePage/PortfolioSection';
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <BlogSection />
-      <ProjectsSection />
+      <PortfolioSection />
     </div>
   );
 }

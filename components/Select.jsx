@@ -5,7 +5,7 @@ const tagData = [
   { id: 1, name: 'All' },
   { id: 2, name: 'Certifications' },
   { id: 3, name: 'Projects' },
-  { id: 4, name: 'Badge' },
+  { id: 4, name: 'Badges' },
 ];
 
 const Select = ({ tagName, setTagName }) => {
