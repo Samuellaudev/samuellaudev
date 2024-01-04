@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { readingTime, formatDate } from '@/utils/helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Loading from './Loading';
@@ -78,16 +79,17 @@ const Posts = ({ pageHeading }) => {
                   <p className={styles.article_list__title}>{post.title}</p>
                   {pageHeading === 'Latest Posts' && (
                     <p className={styles.article_list__date}>
-                      {new Date(post.updatedAt).toDateString()}
+                      {formatDate(post.updatedAt)}
+                      <p className="">{readingTime(post?.body)}</p>
                     </p>
                   )}
                   {pageHeading === 'Dashboard' && (
                     <div className="flex flex-col">
                       <p className={styles.article_list__date}>
-                        Updated at: {new Date(post.updatedAt).toDateString()}
+                        Updated at: {formatDate(post.updatedAt)}
                       </p>
                       <p className={styles.article_list__date}>
-                        Created at: {new Date(post.createdAt).toDateString()}
+                        Created at: {formatDate(post.createdAt)}
                       </p>
                     </div>
                   )}

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { readingTime, formatDate } from '@/utils/helpers';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import Loading from './Loading';
 import styles from './postStyles.module.css';
@@ -31,8 +32,6 @@ const Post = ({ params }) => {
     fetchPost();
   }, [params.id]);
 
-  const formatDate = (date) => new Date(date).toDateString();
-
   return (
     <div className={`${styles.light_theme_post} dark:text-white dark:bg-black`}>
       {isLoading ? (
@@ -48,7 +47,10 @@ const Post = ({ params }) => {
               <span className="hidden md:inline">&larr; </span>Back
             </button>
           </div>
-          <p className={styles.post__date}>{formatDate(post?.createdAt)}</p>
+          <p className={styles.post__date}>
+            {formatDate(post?.createdAt)}
+            <p className="">{readingTime(post?.body)}</p>
+          </p>
           <div className={styles.post__body}>
             <MarkdownPreview post={post.body} isEdit={false} />
           </div>
