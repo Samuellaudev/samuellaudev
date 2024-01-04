@@ -10,6 +10,7 @@ const EditOrAddNewPost = ({ postType }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
+  const [description, setDescription] = useState('');
 
   const router = useRouter();
   const params = useParams();
@@ -30,10 +31,11 @@ const EditOrAddNewPost = ({ postType }) => {
       try {
         const response = await axios.get(`/api/posts/${params.id}`);
         const { data: postData } = response;
-        const { title, body } = postData;
+        const { title, body, description } = postData;
 
         setTitle(title);
         setBody(body);
+        setDescription(description);
       } catch (error) {
         console.error('Error fetching post:', error);
       }
@@ -59,14 +61,15 @@ const EditOrAddNewPost = ({ postType }) => {
 
   const handleTitleChange = (e) => setTitle(e.target.value);
   const handleBodyChange = (e) => setBody(e.target.value);
+  const handleDescriptionChange = (e) => setDescription(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const postData = { title, body };
-      if (title === '' || body === '') {
-        toast.error('Please fill in the title and body');
+      const postData = { title, body, description };
+      if (title === '' || body === '' || description === '') {
+        toast.error('Please fill in the title, body and description');
         return;
       }
 
@@ -83,6 +86,7 @@ const EditOrAddNewPost = ({ postType }) => {
         if (postType === 'new-post') {
           setTitle('');
           setBody('');
+          setDescription('');
         }
 
         setTimeout(() => {
@@ -123,6 +127,18 @@ const EditOrAddNewPost = ({ postType }) => {
                 value={title}
                 onChange={handleTitleChange}
                 placeholder="Post Title"
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+                required
+              />
+              <label htmlFor="description" className="mt-10 text-lg">
+                <b>Description</b>
+              </label>
+              <input
+                type="text"
+                name="description"
+                value={description}
+                onChange={handleDescriptionChange}
+                placeholder="Post Description"
                 className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 required
               />

@@ -53,7 +53,7 @@ const BlogSection = () => {
               return (
                 <div
                   key={post._id}
-                  className="flex flex-col justify-between w-full md:w-1/3 px-8 py-4 rounded-lg shadow-md hover:-translate-y-1 duration-200 bg-white border dark:bg-black"
+                  className="flex flex-col justify-between w-full md:w-1/3 px-8 py-4 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 duration-200 bg-white border dark:bg-black"
                 >
                   <div className="upper-content">
                     <p className="font-light text-sm text-gray-600 dark:text-gray-400">
@@ -70,8 +70,8 @@ const BlogSection = () => {
                       <p className="text-sm pt-2 text-gray-600 dark:text-gray-400">
                         {readingTime(post?.body)}
                       </p>
-                      <p className="truncate mt-2 text-gray-600 dark:text-gray-300">
-                        {post?.body}
+                      <p className="mt-2 text-base text-gray-600 dark:text-gray-300">
+                        {post?.description}
                       </p>
                     </div>
                   </div>

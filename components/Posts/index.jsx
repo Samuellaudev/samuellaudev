@@ -76,7 +76,12 @@ const Posts = ({ pageHeading }) => {
                   href={`/blog/${post._id}`}
                   className="flex flex-row justify-between "
                 >
-                  <p className={styles.article_list__title}>{post.title}</p>
+                  <div className="post-title">
+                    <p className={styles.article_list__title}>{post.title}</p>
+                    <p className="text-base text-gray-600 dark:text-gray-300">
+                      {post?.description}
+                    </p>
+                  </div>
                   {pageHeading === 'Latest Posts' && (
                     <p className={styles.article_list__date}>
                       {formatDate(post.updatedAt)}
