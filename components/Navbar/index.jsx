@@ -12,8 +12,7 @@ import styles from './navbar.module.css';
 import { navLinks } from '@/utils/constants';
 
 const Navbar = () => {
-  const { userInfo } = useContext(ThemeContext);
-  const [navbarOpen, setNavbarOpen] = useState(false);
+  const { userInfo, navbarOpen, setNavbarOpen } = useContext(ThemeContext);
   const [isLogin, setIsLogin] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -37,6 +36,8 @@ const Navbar = () => {
       console.error('Logout error:', error);
     }
   };
+
+  const handleNavBarOpen = () => setNavbarOpen((prevState) => !prevState);
 
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-80 backdrop-blur-md backdrop-opacity-80">
@@ -77,10 +78,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="mobile-menu block md:hidden">
-          <button
-            onClick={() => setNavbarOpen((prevState) => !prevState)}
-            className={styles.menuIcon}
-          >
+          <button onClick={handleNavBarOpen} className={styles.menuIcon}>
             {navbarOpen ? (
               <XMarkIcon className="h-5 w-5" />
             ) : (
@@ -96,6 +94,7 @@ const Navbar = () => {
           links={navLinks}
           pathname={pathname}
           onClick={handleLogout}
+          onClickNavBar={handleNavBarOpen}
         />
       )}
     </nav>

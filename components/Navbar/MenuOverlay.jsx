@@ -26,7 +26,14 @@ const renderSocialLinks = () => {
   );
 };
 
-const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
+const MenuOverlay = ({
+  isLogin,
+  username,
+  links,
+  pathname,
+  onClick,
+  onClickNavBar,
+}) => {
   const renderLoggedInLinks = () => {
     return (
       <>
@@ -46,7 +53,12 @@ const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
         {isLogin && renderLoggedInLinks()}
         {links.map((link, index) => (
           <li key={index}>
-            <NavLink href={link.path} title={link.title} pathname={pathname} />
+            <NavLink
+              href={link.path}
+              title={link.title}
+              pathname={pathname}
+              onClick={onClickNavBar}
+            />
           </li>
         ))}
         <ThemeSwitch className="mt-5" />

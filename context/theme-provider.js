@@ -7,10 +7,13 @@ const ThemeContext = createContext();
 
 function ThemeProvider(props) {
   const [userInfo, setUserInfo] = useState({});
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
   const themeObject = {
     userInfo,
     setUserInfo,
+    navbarOpen,
+    setNavbarOpen,
   };
 
   const persistData = () => {

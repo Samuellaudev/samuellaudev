@@ -1,15 +1,22 @@
 'use client';
 
+import { ThemeContext } from '@/context/theme-provider';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 export default function ThemeSwitch() {
   const [mounted, setMounted] = useState(false);
   const { setTheme, resolvedTheme } = useTheme();
+  const { setNavbarOpen } = useContext(ThemeContext);
 
   useEffect(() => setMounted(true), []);
+
+  const handleOnClick = (theme) => {
+    setNavbarOpen((prevState) => !prevState);
+    setTheme(theme);
+  };
 
   if (!mounted)
     return (
@@ -27,7 +34,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === 'dark') {
     return (
       <FiSun
-        onClick={() => setTheme('light')}
+        onClick={() => handleOnClick('light')}
         className="text-white mt-3.5 cursor-pointer"
       />
     );
@@ -36,7 +43,7 @@ export default function ThemeSwitch() {
   if (resolvedTheme === 'light') {
     return (
       <FiMoon
-        onClick={() => setTheme('dark')}
+        onClick={() => handleOnClick('dark')}
         className="mt-3.5 cursor-pointer"
       />
     );
