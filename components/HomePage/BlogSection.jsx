@@ -32,7 +32,7 @@ const BlogSection = () => {
 
   return (
     <section id="latest-posts" className="text-[#565b5f] dark:text-white pt-20">
-      <h2 className="text-3xl md:text-4xl text-[#ADB7BE] dark:text-white text-center mb-4">
+      <h2 className="mb-9 text-3xl md:text-4xl text-[#ADB7BE] dark:text-white text-center">
         <span className="flex items-center">
           <span className="h-px flex-1 bg-[#ADB7BE]"></span>
           <span className="shrink-0 px-4 md:px-6">Latest Posts</span>

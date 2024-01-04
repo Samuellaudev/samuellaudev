@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@azz/prettier-config": "^1.0.0",
+    "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "axios": "^1.6.2",
     "clsx": "^2.0.0",
