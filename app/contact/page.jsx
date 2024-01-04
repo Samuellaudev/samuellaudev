@@ -20,9 +20,6 @@ const socialLinks = [
 ];
 
 const Contact = () => {
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
   const [formData, setFormData] = useState({
     email: '',
     subject: '',

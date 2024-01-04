@@ -31,12 +31,12 @@ const HeroSection = () => {
               className="text-[28px] lg:text-[44px]"
             />
           </h1>
-          <p className="text-[#565b5f] text-base sm:text-lg mb-6 lg:text-xl">
+          <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl">
             I am a Web Developer and a fitness enthusiast.
           </p>
           <div>
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-white hover:bg-slate-200 text-white bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200">
-              Hire Me
+              Let&apos;s talk!
             </button>
             <button className="px-1 py-1 w-full sm:w-fit rounded-full mr-4  hover:bg-slate-800  mt-3 bg-gradient-to-r from-primary-300 to-secondary-700 hover:-translate-y-1 duration-200">
               <span className="px-5 py-2 block text-[#565b5f] bg-white dark:bg-[#121212] dark:hover:bg-slate-800  dark:text-white rounded-full">
