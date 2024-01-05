@@ -3,8 +3,7 @@ import React from 'react';
 const Loading = ({ pageHeading }) => {
   const numberOfRows = [{}, {}, {}, {}, {}, {}, {}, {}];
   return (
-    <div className="animate-pulse shadow py-4 w-full mx-auto">
-      {/* <div className=" shadow py-4 w-full mx-auto"> */}
+    <div className="animate-pulse py-4 w-full mx-auto">
       {numberOfRows.map((row, index) => (
         <div
           className="flex space-x-4 mb-4 border border-b-[#4d4d4d] border-t-transparent border-l-transparent border-r-transparent"

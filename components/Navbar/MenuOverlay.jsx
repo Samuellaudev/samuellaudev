@@ -1,30 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import NavLink from './NavLink';
 import ThemeSwitch from '../ThemeSwitch';
-import navbarStyles from './navbar.module.css';
-import { socialLinks } from '@/utils/constants';
-
-const renderSocialLinks = () => {
-  return (
-    <div className="flex justify-between w-32 py-3 mt-4">
-      {socialLinks.map((socialLink, index) => (
-        <Link href={socialLink.href} key={index}>
-          <Image
-            src={socialLink.src}
-            alt={socialLink.alt}
-            className={`duration-200 ${navbarStyles.ficon} ${
-              index !== socialLinks.length - 1 ? 'mr-2' : ''
-            }`}
-            width={20}
-            height={20}
-          />
-        </Link>
-      ))}
-    </div>
-  );
-};
 
 const MenuOverlay = ({
   isLogin,
@@ -69,7 +45,6 @@ const MenuOverlay = ({
   return (
     <ul className="flex flex-col py-4 items-center md:hidden">
       {renderNavLinks()}
-      {renderSocialLinks()}
     </ul>
   );
 };

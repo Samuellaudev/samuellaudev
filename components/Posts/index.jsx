@@ -21,9 +21,9 @@ const Posts = ({ pageHeading }) => {
       const { data } = response;
 
       setPosts(data);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+      setIsLoading(false);
+      // setTimeout(() => {
+      // }, 500);
     } catch (error) {
       console.error('Error fetching posts:', error);
     }

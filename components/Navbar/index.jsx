@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '@/context/theme-provider';
 import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
@@ -41,12 +42,18 @@ const Navbar = () => {
 
   return (
     <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-80 backdrop-blur-md backdrop-opacity-80">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
+      <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-2 lg:py-4">
         <Link
           href="/"
           className="text-2xl md:text-5xl text-white font-semibold"
         >
-          LOGO
+          <Image
+            src="/images/Logo.png"
+            alt="website logo"
+            width={35}
+            height={35}
+            className="mx-auto md:mx-0 rounded"
+          />
         </Link>
         <div className="desktop-menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">

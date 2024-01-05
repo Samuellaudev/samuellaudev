@@ -21,9 +21,9 @@ const Post = ({ params }) => {
         const postData = response.data;
 
         setPost(postData);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500);
+        setIsLoading(false);
+        // setTimeout(() => {
+        // }, 500);
       } catch (error) {
         console.error('Error fetching post:', error);
       }
@@ -38,7 +38,7 @@ const Post = ({ params }) => {
         <Loading />
       ) : (
         <>
-          <div className="flex flex-row justify-between items-end">
+          <div className="flex flex-row justify-between items-start">
             <h1 className={styles.post__title}>{post.title}</h1>
             <button
               onClick={() => router.back()}
