@@ -1,8 +1,10 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { socialLinks } from '@/utils/constants';
 import styles from './homePageSection.module.css';
+import { useTheme } from 'next-themes';
 
 const renderSocialLinks = () => {
   return (
@@ -24,7 +26,13 @@ const renderSocialLinks = () => {
   );
 };
 
+const iframeStyle = {
+  colorScheme: 'none',
+};
+
 const FooterSection = () => {
+  const { resolvedTheme } = useTheme();
+
   return (
     <footer className="flex border text-slate-600 dark:text-white border-t-[#33353F] border-l-transparent border-r-transparent border-b-transparent">
       <div className="flex mx-auto container py-12 flex-col md:flex-row items-center justify-between">
@@ -41,7 +49,18 @@ const FooterSection = () => {
           />
         </Link>
         <p className="">&copy;2023 Samuel Lau. All right reserved.</p>
-        {renderSocialLinks()}
+        <div className="flex flex-col justify-center items-center">
+          {renderSocialLinks()}
+          <iframe
+            src={`https://status.samuellau.dev/badge?theme=${resolvedTheme}`}
+            width="190"
+            height="30"
+            frameborder="0"
+            scrolling="no"
+            style={iframeStyle}
+            className="bg-white dark:bg-black"
+          />
+        </div>
       </div>
     </footer>
   );
