@@ -55,7 +55,7 @@ const FooterSection = () => {
             src={`https://status.samuellau.dev/badge?theme=${resolvedTheme}`}
             width="190"
             height="30"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
             style={iframeStyle}
             className="bg-white dark:bg-black"

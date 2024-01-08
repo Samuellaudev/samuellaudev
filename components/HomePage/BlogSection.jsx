@@ -16,8 +16,8 @@ const BlogSection = () => {
     setIsLoading(true);
     try {
       const response = await axios.get('/api/posts');
-      const { data } = response;
-      const latestPosts = data.slice(0, 3);
+      const { posts } = response.data;
+      const latestPosts = posts.slice(0, 3);
 
       setPosts(latestPosts);
       setIsLoading(false);

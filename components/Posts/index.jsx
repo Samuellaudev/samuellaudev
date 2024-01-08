@@ -1,37 +1,39 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { readingTime, formatDate } from '@/utils/helpers';
+import Pagination from '@/components/Pagination';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import Loading from './Loading';
 import styles from './postsStyles.module.css';
 
 const Posts = ({ pageHeading }) => {
-  const [posts, setPosts] = useState([]);
+  const [postsData, setPostsData] = useState({ page: 1, pages: 1, posts: [] });
   const [isLoading, setIsLoading] = useState(false);
+
+  const searchParams = useSearchParams();
+  const pageNumber = searchParams.get('pageNumber');
 
   const router = useRouter();
 
-  const fetchPosts = async () => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get('/api/posts');
-      const { data } = response;
-
-      setPosts(data);
-      setIsLoading(false);
-      // setTimeout(() => {
-      // }, 500);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    }
-  };
-
   useEffect(() => {
+    const fetchPosts = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get(`/api/posts?pageNumber=${pageNumber}`);
+        const postsData = response.data;
+
+        setPostsData(postsData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+    };
+
     fetchPosts();
-  }, []);
+  }, [pageNumber]);
 
   const handleAddNewPost = () => router.push('/new-post');
 
@@ -70,7 +72,7 @@ const Posts = ({ pageHeading }) => {
       ) : (
         <>
           <ul className={styles.article_ul}>
-            {posts.map((post) => (
+            {postsData?.posts.map((post) => (
               <li key={post._id}>
                 <Link
                   href={`/blog/${post._id}`}
@@ -120,9 +122,7 @@ const Posts = ({ pageHeading }) => {
               </li>
             ))}
           </ul>
-          {/* <% if (nextPage !== null) { %>
-            <a href="/?page=<%= nextPage %>" className="pagination">&lt; View Older Posts</a>
-          <% } %> */}
+          <Pagination page={postsData?.page} pages={postsData?.pages} />
         </>
       )}
       <ToastContainer />
