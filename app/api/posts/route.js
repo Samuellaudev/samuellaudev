@@ -7,7 +7,10 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(request) {
   try {
-    const res = await fetch(`${backendUrl}/api/posts`);
+    const searchParams = request.nextUrl.searchParams;
+    const pageNumber = searchParams.get('pageNumber');
+
+    const res = await fetch(`${backendUrl}/api/posts?pageNumber=${pageNumber}`);
     const data = await res.json();
 
     return NextResponse.json(data);

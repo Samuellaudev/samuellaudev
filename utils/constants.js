@@ -90,7 +90,7 @@ export const socialLinks = [
 // Navbar
 export const navLinks = [
   { title: 'Home', path: '/' },
-  { title: 'Blog', path: '/blog' },
+  { title: 'Blog', path: '/blog?pageNumber=1' },
   { title: 'Projects', path: '/projects' },
   { title: 'Contact', path: '/contact' },
 ];
