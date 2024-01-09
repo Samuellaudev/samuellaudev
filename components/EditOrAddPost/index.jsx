@@ -145,12 +145,14 @@ const EditOrAddNewPost = ({ postType }) => {
               <label htmlFor="body" className="mt-4 mb-2 text-lg">
                 <b>Content</b>
               </label>
-              <MarkdownPreview
-                isEdit
-                input={body}
-                setInput={setBody}
-                handleInputChange={handleBodyChange}
-              />
+              <div className={styles.post__body}>
+                <MarkdownPreview
+                  isEdit
+                  input={body}
+                  setInput={setBody}
+                  handleInputChange={handleBodyChange}
+                />
+              </div>
               <button
                 type="submit"
                 className="mt-7 p-3 px-9 space-x-4 w-auto md:w-20 flex justify-center items-center font-sans font-bold text-white bg-cyan-700 border border-white hover:bg-white hover:text-cyan-700 hover:border-cyan-700 transition duration-200"
