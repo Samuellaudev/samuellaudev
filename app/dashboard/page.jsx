@@ -19,8 +19,6 @@ const Dashboard = () => {
     setIsLogin(true);
   }, [router]);
 
-  // to-be-done: set loading state
-
   return (
     <main className="flex min-h-screen flex-col">
       {isLogin && <Posts pageHeading="Dashboard" />}
