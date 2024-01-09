@@ -14,7 +14,7 @@ const MenuOverlay = ({
     return (
       <>
         <NavLink
-          href="/dashboard"
+          href="/dashboard?search=&pageNumber=1"
           title={`(${username})`}
           pathname={pathname}
         />

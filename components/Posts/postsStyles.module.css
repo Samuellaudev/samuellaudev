@@ -34,7 +34,8 @@
 }
 
 /* Dashboard */
-.light_theme_add_new_btn {
+.light_theme_add_new_btn,
+.light_theme_back_btn {
   @apply border p-2 px-6 hover:bg-black hover:text-white transition duration-200;
 }
 

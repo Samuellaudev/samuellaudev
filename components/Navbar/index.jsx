@@ -9,6 +9,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import ThemeSwitch from '../ThemeSwitch';
 import MenuOverlay from './MenuOverlay';
 import NavLink from './NavLink';
+import SearchBox from '../SearchBox';
 import styles from './navbar.module.css';
 import { navLinks } from '@/utils/constants';
 
@@ -55,12 +56,14 @@ const Navbar = () => {
             className="mx-auto md:mx-0 rounded"
           />
         </Link>
+        {/* Desktop Menu */}
         <div className="desktop-menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0 items-center">
+            {pathname === '/blog' && <SearchBox />}
             {isLogin && (
               <>
                 <NavLink
-                  href="/dashboard"
+                  href="/dashboard?search=&pageNumber=1"
                   title={`(${userInfo?.name})`}
                   pathname={pathname}
                 />
@@ -81,10 +84,16 @@ const Navbar = () => {
                 />
               </li>
             ))}
-            <ThemeSwitch className="mt-5" />
+            <ThemeSwitch />
           </ul>
         </div>
-        <div className="mobile-menu block md:hidden">
+        {/* Mobile Menu */}
+        <div className="mobile-menu md:hidden flex items-center">
+          {pathname === '/blog' && (
+            <div className="mr-4">
+              <SearchBox isMobile={true} />
+            </div>
+          )}
           <button onClick={handleNavBarOpen} className={styles.menuIcon}>
             {navbarOpen ? (
               <XMarkIcon className="h-5 w-5" />
