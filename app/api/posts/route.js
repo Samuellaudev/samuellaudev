@@ -9,8 +9,24 @@ export async function GET(request) {
   try {
     const searchParams = request.nextUrl.searchParams;
     const pageNumber = searchParams.get('pageNumber');
+    const search = searchParams.get('search');
 
-    const res = await fetch(`${backendUrl}/api/posts?pageNumber=${pageNumber}`);
+    const queryParams = [];
+
+    if (search) {
+      queryParams.push(`search=${search}`);
+    }
+    if (pageNumber) {
+      queryParams.push(`pageNumber=${pageNumber}`);
+    }
+
+    let apiUrl = `${backendUrl}/api/posts`;
+
+    if (queryParams.length > 0) {
+      apiUrl += `?${queryParams.join('&')}`;
+    }
+
+    const res = await fetch(apiUrl);
     const data = await res.json();
 
     return NextResponse.json(data);

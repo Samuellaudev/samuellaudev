@@ -90,7 +90,7 @@ const EditOrAddNewPost = ({ postType }) => {
         }
 
         setTimeout(() => {
-          router.push('/dashboard');
+          router.push('/dashboard?search=&pageNumber=1');
         }, 1000);
       }
     } catch (error) {

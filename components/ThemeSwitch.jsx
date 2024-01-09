@@ -35,7 +35,7 @@ export default function ThemeSwitch() {
     return (
       <FiSun
         onClick={() => handleOnClick('light')}
-        className="text-white mt-3.5 cursor-pointer"
+        className="text-white cursor-pointer my-3 md:my-0"
       />
     );
   }
@@ -44,7 +44,7 @@ export default function ThemeSwitch() {
     return (
       <FiMoon
         onClick={() => handleOnClick('dark')}
-        className="mt-3.5 cursor-pointer"
+        className="cursor-pointer my-3 md:my-0"
       />
     );
   }

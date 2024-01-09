@@ -15,25 +15,28 @@ const Posts = ({ pageHeading }) => {
 
   const searchParams = useSearchParams();
   const pageNumber = searchParams.get('pageNumber');
+  const search = searchParams.get('search');
 
   const router = useRouter();
 
+  const fetchPosts = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.get(
+        `/api/posts?search=${search}&pageNumber=${pageNumber}`,
+      );
+      const postsData = response.data;
+
+      setPostsData(postsData);
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      setIsLoading(true);
-      try {
-        const response = await axios.get(`/api/posts?pageNumber=${pageNumber}`);
-        const postsData = response.data;
-
-        setPostsData(postsData);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    };
-
     fetchPosts();
-  }, [pageNumber]);
+  }, [search, pageNumber]);
 
   const handleAddNewPost = () => router.push('/new-post');
 
@@ -47,7 +50,7 @@ const Posts = ({ pageHeading }) => {
       toast.success('Deleted post successfully');
     } catch (error) {
       console.log('Delete error:', error);
-      toast.success('Fail to delete post');
+      toast.error('Fail to delete post');
     }
   };
 
@@ -64,6 +67,14 @@ const Posts = ({ pageHeading }) => {
             className={`${styles.light_theme_add_new_btn} dark:hover:bg-white dark:hover:text-black`}
           >
             + Add new
+          </button>
+        )}
+        {pageHeading === 'Latest Posts' && search.length > 0 && (
+          <button
+            onClick={() => router.push('/blog?search=&pageNumber=1')}
+            className={`${styles.light_theme_back_btn} dark:border dark:border-white dark:hover:bg-white dark:hover:text-black`}
+          >
+            <span className="hidden md:inline">&larr; </span>Back
           </button>
         )}
       </div>
@@ -122,7 +133,12 @@ const Posts = ({ pageHeading }) => {
               </li>
             ))}
           </ul>
-          <Pagination page={postsData?.page} pages={postsData?.pages} />
+          <Pagination
+            page={postsData?.page}
+            pages={postsData?.pages}
+            search={search}
+            pageType={pageHeading}
+          />
         </>
       )}
       <ToastContainer />

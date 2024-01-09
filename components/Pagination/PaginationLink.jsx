@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import styles from './pagination.module.css';
 
-const PaginationLink = ({ page, pages, arrowType }) => {
+const PaginationLink = ({ arrowType, page, pages, pageType, search = '' }) => {
   return (
     <>
       {arrowType === 'left' && (
         <Link
-          href={`/blog?pageNumber=${page - 1 || 1}`}
+          href={`/${pageType}?search=${search}&pageNumber=${page - 1 || 1}`}
           disabled={page - 1 === 0}
           className={`${styles.normal_arrow} dark:bg-gray-800
           ${
@@ -31,7 +31,7 @@ const PaginationLink = ({ page, pages, arrowType }) => {
       )}
       {arrowType === 'right' && (
         <Link
-          href={`/blog?pageNumber=${page + 1 || pages}`}
+          href={`/${pageType}?search=${search}&pageNumber=${page + 1 || pages}`}
           disabled={pages - page === 0}
           className={`${styles.normal_arrow}  dark:bg-gray-800
           ${

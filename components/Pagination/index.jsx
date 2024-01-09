@@ -2,29 +2,60 @@ import Link from 'next/link';
 import PaginationLink from './PaginationLink';
 import styles from './pagination.module.css';
 
-const Paginate = ({ pages, page }) => {
+const Paginate = ({ pages, page, pageType, search = '' }) => {
+  const fieldMap = {
+    'Latest Posts': 'blog',
+    Dashboard: 'dashboard',
+  };
+
+  if (pages <= 1) {
+    return null;
+  }
+
+  const renderPageNumbers = () => {
+    return [...Array(pages).keys()].map((pageNumber) => {
+      const currentPage = pageNumber + 1;
+      const isCurrentPage = currentPage === page;
+
+      return (
+        <Link
+          key={currentPage}
+          href={`/${fieldMap[pageType]}?search=${search}&pageNumber=${currentPage}`}
+        >
+          <span
+            className={`${
+              styles.page_number
+            } dark:bg-gray-800 dark:text-white ${
+              isCurrentPage
+                ? 'text-white bg-primary-400 dark:bg-primary-400'
+                : ''
+            }`}
+          >
+            {currentPage}
+          </span>
+        </Link>
+      );
+    });
+  };
+
   return (
-    pages > 1 && (
-      <div className="flex items-center mt-8">
-        <PaginationLink page={page} pages={pages} arrowType="left" />
-        {[...Array(pages).keys()].map((x) => (
-          <Link key={x + 1} href={`/blog?pageNumber=${x + 1}`}>
-            <span
-              className={`${
-                styles.page_number
-              } dark:bg-gray-800 dark:text-white ${
-                x + 1 === page
-                  ? 'text-white bg-primary-400 dark:bg-primary-400'
-                  : ''
-              }`}
-            >
-              {x + 1}
-            </span>
-          </Link>
-        ))}
-        <PaginationLink page={page} pages={pages} arrowType="right" />
-      </div>
-    )
+    <div className="flex items-center mt-8">
+      <PaginationLink
+        arrowType="left"
+        page={page}
+        pages={pages}
+        search={search}
+        pageType={fieldMap[pageType]}
+      />
+      {renderPageNumbers()}
+      <PaginationLink
+        arrowType="right"
+        page={page}
+        pages={pages}
+        search={search}
+        pageType={fieldMap[pageType]}
+      />
+    </div>
   );
 };
 
