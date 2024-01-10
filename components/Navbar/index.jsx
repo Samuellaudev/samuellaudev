@@ -115,7 +115,9 @@ const Navbar = () => {
           onClickNavBar={handleNavBarOpen}
         />
       )}
-      <VerifyEmailReminder pathname={pathname} userInfo={userInfo} />
+      {isLogin && (
+        <VerifyEmailReminder pathname={pathname} userInfo={userInfo} />
+      )}
     </nav>
   );
 };
