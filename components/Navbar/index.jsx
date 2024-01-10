@@ -30,14 +30,12 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post('/api/users/logout');
+      await axios.post('/api/users/logout');
 
-      if (response.status === 200) {
-        localStorage.removeItem('userInfo');
-        localStorage.removeItem('isLogin');
-        router.push('/');
-        setIsLogin(false);
-      }
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('isLogin');
+      router.push('/');
+      setIsLogin(false);
     } catch (error) {
       console.error('Logout error:', error);
     }
