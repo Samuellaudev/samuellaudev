@@ -31,6 +31,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       await axios.post('/api/users/logout');
+
       localStorage.removeItem('userInfo');
       localStorage.removeItem('isLogin');
       router.push('/');
