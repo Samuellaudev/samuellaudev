@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LoginOrSignUp = ({
   pageType,
@@ -77,9 +78,12 @@ const LoginOrSignUp = ({
         )}
         <div className="flex flex-col items-center justify-between mt-4 md:flex-row md:space-x-4">
           {pageType === 'login' && (
-            <div className="font-thin text-cyan-700 mb-5 md:mb-0">
+            <Link
+              href="/emails/forgot-password"
+              className="font-thin text-cyan-700 mb-5 md:mb-0"
+            >
               Forgot password
-            </div>
+            </Link>
           )}
           <button
             type="submit"
