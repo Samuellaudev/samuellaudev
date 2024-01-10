@@ -1,18 +1,13 @@
 import { NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 
 const backendUrl = process.env.BACKEND_URL;
 
 export async function POST(request) {
   try {
-    const response = await fetch(`${backendUrl}/api/users/logout`, {
-      method: 'POST',
-    });
+    cookies().delete('jwt');
 
-    if (response.ok) {
-      return response;
-    } else {
-      throw new Error('Failed to logout');
-    }
+    return NextResponse.json({ message: 'Logged out successfully' });
   } catch (error) {
     return NextResponse.json({ error });
   }

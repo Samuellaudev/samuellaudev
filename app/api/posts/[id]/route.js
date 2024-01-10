@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 
 const backendUrl = process.env.BACKEND_URL;
 
-export const dynamic = 'force-dynamic';
+// export const dynamic = 'force-dynamic';
 
 export async function GET(request, { params }) {
   try {
