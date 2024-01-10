@@ -10,6 +10,7 @@ import ThemeSwitch from '../ThemeSwitch';
 import MenuOverlay from './MenuOverlay';
 import NavLink from './NavLink';
 import SearchBox from '../SearchBox';
+import VerifyEmailReminder from '../Email/VerifyEmailReminder';
 import styles from './navbar.module.css';
 import { navLinks } from '@/utils/constants';
 
@@ -113,6 +114,7 @@ const Navbar = () => {
           onClickNavBar={handleNavBarOpen}
         />
       )}
+      <VerifyEmailReminder pathname={pathname} userInfo={userInfo} />
     </nav>
   );
 };
