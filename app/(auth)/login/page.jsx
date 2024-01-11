@@ -1,4 +1,5 @@
 'use client';
+import { USERS_URL } from '@/utils/constants';
 import { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from '@/context/theme-provider';
 import axios from 'axios';
@@ -23,7 +24,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/users/login', {
+      const response = await axios.post(`${USERS_URL}/login`, {
         email,
         password,
       });

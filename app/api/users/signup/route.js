@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
+import { USERS_URL } from '@/utils/constants';
 
 const backendUrl = process.env.BACKEND_URL;
 
 export async function POST(request) {
   try {
     const requestData = await request.json();
-    const response = await fetch(`${backendUrl}/api/users/signup`, {
+    const response = await fetch(`${backendUrl}${USERS_URL}/signup`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

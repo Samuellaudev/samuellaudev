@@ -94,3 +94,9 @@ export const navLinks = [
   { title: 'Projects', path: '/projects' },
   { title: 'Contact', path: '/contact' },
 ];
+
+// API path
+export const USERS_URL = '/api/users';
+export const POSTS_URL = '/api/posts';
+export const EMAILS_URL = '/api/emails';
+export const UPLOAD_URL = '/api/upload';
