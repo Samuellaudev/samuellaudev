@@ -1,13 +1,13 @@
 import { NextResponse } from 'next/server';
-import { USERS_URL } from '@/utils/constants';
 
 const backendUrl = process.env.BACKEND_URL;
 
-export async function POST(request) {
+export async function PUT(request) {
   try {
     const requestData = await request.json();
-    const response = await fetch(`${backendUrl}${USERS_URL}/login`, {
-      method: 'POST',
+
+    const response = await fetch(`${backendUrl}/api/emails/forgot-password`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },

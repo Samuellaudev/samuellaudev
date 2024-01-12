@@ -1,4 +1,5 @@
 'use client';
+import { USERS_URL } from '@/utils/constants';
 import { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '@/context/theme-provider';
 import { usePathname, useRouter } from 'next/navigation';
@@ -30,7 +31,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('/api/users/logout');
+      await axios.post(`${USERS_URL}/logout`);
 
       localStorage.removeItem('userInfo');
       localStorage.removeItem('isLogin');

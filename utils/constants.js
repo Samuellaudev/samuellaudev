@@ -94,3 +94,25 @@ export const navLinks = [
   { title: 'Projects', path: '/projects' },
   { title: 'Contact', path: '/contact' },
 ];
+
+// API path
+export const USERS_URL = '/api/users';
+export const POSTS_URL = '/api/posts';
+export const EMAILS_URL = '/api/emails';
+export const UPLOAD_URL = '/api/uploads';
+
+// EditOrAddNewPost
+export const fieldMap = {
+  'new-post': {
+    title: 'Add New Post',
+    submitButton: 'Add',
+    successMessage: 'Post created successfully',
+    errorMessage: 'Unable to create post',
+  },
+  'edit-post': {
+    title: 'Edit Post',
+    submitButton: 'Edit',
+    successMessage: 'Post edited successfully',
+    errorMessage: 'Unable to edit post',
+  },
+};

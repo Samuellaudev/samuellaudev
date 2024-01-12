@@ -1,6 +1,9 @@
 'use client';
+
+import { UPLOAD_URL, POSTS_URL, fieldMap } from '@/utils/constants';
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import Image from 'next/image';
 import axios from 'axios';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +14,7 @@ const EditOrAddNewPost = ({ postType }) => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
 
   const router = useRouter();
   const params = useParams();
@@ -29,13 +33,14 @@ const EditOrAddNewPost = ({ postType }) => {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`/api/posts/${params.id}`);
+        const response = await axios.get(`${POSTS_URL}/${params.id}`);
         const { data: postData } = response;
-        const { title, body, description } = postData;
+        const { title, body, description, image } = postData;
 
         setTitle(title);
         setBody(body);
         setDescription(description);
+        setImage(image);
       } catch (error) {
         console.error('Error fetching post:', error);
       }
@@ -44,32 +49,52 @@ const EditOrAddNewPost = ({ postType }) => {
     if (params.id) fetchPost();
   }, [params.id]);
 
-  const fieldMap = {
-    'new-post': {
-      title: 'Add New Post',
-      submitButton: 'Add',
-      successMessage: 'Post created successfully',
-      errorMessage: 'Unable to create post',
-    },
-    'edit-post': {
-      title: 'Edit Post',
-      submitButton: 'Edit',
-      successMessage: 'Post edited successfully',
-      errorMessage: 'Unable to edit post',
-    },
-  };
-
   const handleTitleChange = (e) => setTitle(e.target.value);
   const handleBodyChange = (e) => setBody(e.target.value);
   const handleDescriptionChange = (e) => setDescription(e.target.value);
+  const handleImageChange = (e) => setImage(e.target.value);
+
+  const handleUploadFile = async (e) => {
+    const formData = new FormData();
+    formData.append('image', e.target.files[0]);
+
+    try {
+      const res = await axios.post(`${UPLOAD_URL}`, formData);
+      const { image, message } = res.data;
+
+      if (res.status === 200) {
+        toast.success(message);
+        setImage(image);
+      }
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isFormInvalid = ({ title, body, description }) => {
+      return title === '' || body === '' || description === '';
+    };
+
+    const resetForm = () => {
+      setTitle('');
+      setBody('');
+      setDescription('');
+    };
+
+    const redirectToDashboard = () => {
+      setTimeout(() => {
+        router.push('/dashboard?search=&pageNumber=1');
+      }, 500);
+    };
+
     try {
-      const postData = { title, body, description };
-      if (title === '' || body === '' || description === '') {
-        toast.error('Please fill in the title, body and description');
+      const postData = { title, body, description, image };
+
+      if (isFormInvalid(postData)) {
+        toast.error('Please fill in the title, body, and description');
         return;
       }
 
@@ -84,14 +109,10 @@ const EditOrAddNewPost = ({ postType }) => {
         toast.success(fieldMap[postType].successMessage);
 
         if (postType === 'new-post') {
-          setTitle('');
-          setBody('');
-          setDescription('');
+          resetForm();
         }
 
-        setTimeout(() => {
-          router.push('/dashboard?search=&pageNumber=1');
-        }, 1000);
+        redirectToDashboard();
       }
     } catch (error) {
       console.log(error);
@@ -117,7 +138,33 @@ const EditOrAddNewPost = ({ postType }) => {
                 <span className="hidden md:inline">&larr; </span>Back
               </button>
             </div>
+            {image}
+            {/* <Image
+              alt="post image"
+              width={100}
+              height={100}
+              src={`http://localhost:8080${image}`}
+            /> */}
             <form onSubmit={handleSubmit} className="flex flex-col">
+              <label htmlFor="image" className="mt-10 text-lg">
+                <b>Image</b>
+              </label>
+              <input
+                type="text"
+                name="image"
+                value={image}
+                onChange={handleImageChange}
+                placeholder="Enter image url"
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+                // required
+              />
+              <input
+                type="file"
+                name="file"
+                label="Choose File"
+                onChange={(e) => handleUploadFile(e)}
+              />
+
               <label htmlFor="title" className="mt-10 text-lg">
                 <b>Title</b>
               </label>
