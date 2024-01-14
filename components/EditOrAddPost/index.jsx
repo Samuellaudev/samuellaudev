@@ -1,20 +1,22 @@
 'use client';
 
-import { UPLOAD_URL, POSTS_URL, fieldMap } from '@/utils/constants';
+import { AWS_S3_UPLOAD_URL, POSTS_URL, fieldMap } from '@/utils/constants';
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import axios from 'axios';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
+import S3UploadForm from '@/components/S3UploadForm';
 import { ToastContainer, toast } from 'react-toastify';
 import styles from './editOrAddPostStyles.module.css';
+import { modifiedImageName, originalImageName } from '@/utils/helpers';
 
 const EditOrAddNewPost = ({ postType }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState({});
 
   const router = useRouter();
   const params = useParams();
@@ -28,46 +30,41 @@ const EditOrAddNewPost = ({ postType }) => {
     };
 
     checkLogin();
-  }, [router]);
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      try {
-        const response = await axios.get(`${POSTS_URL}/${params.id}`);
-        const { data: postData } = response;
-        const { title, body, description, image } = postData;
+    if (params.id) {
+      const fetchPost = async () => {
+        try {
+          const response = await axios.get(`${POSTS_URL}/${params.id}`);
+          const { data: postData } = response;
+          const { title, body, description, image } = postData;
 
-        setTitle(title);
-        setBody(body);
-        setDescription(description);
-        setImage(image);
-      } catch (error) {
-        console.error('Error fetching post:', error);
-      }
-    };
+          setTitle(title);
+          setBody(body);
+          setDescription(description);
+          setImage(image);
+        } catch (error) {
+          console.error('Error fetching post:', error);
+        }
+      };
 
-    if (params.id) fetchPost();
-  }, [params.id]);
+      fetchPost();
+    }
+  }, [router, params.id]);
 
-  const handleTitleChange = (e) => setTitle(e.target.value);
-  const handleBodyChange = (e) => setBody(e.target.value);
-  const handleDescriptionChange = (e) => setDescription(e.target.value);
-  const handleImageChange = (e) => setImage(e.target.value);
+  const handleInputChange = (e, updateFunction) =>
+    updateFunction(e.target.value);
+  const handleImageChange = (e) => setImage(e.target.files[0]);
 
-  const handleUploadFile = async (e) => {
-    const formData = new FormData();
-    formData.append('image', e.target.files[0]);
-
+  const uploadImage = async (formData) => {
     try {
-      const res = await axios.post(`${UPLOAD_URL}`, formData);
-      const { image, message } = res.data;
+      const response = await fetch(`${AWS_S3_UPLOAD_URL}`, {
+        method: 'POST',
+        body: formData,
+      });
 
-      if (res.status === 200) {
-        toast.success(message);
-        setImage(image);
-      }
-    } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      await response.json();
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -78,10 +75,29 @@ const EditOrAddNewPost = ({ postType }) => {
       return title === '' || body === '' || description === '';
     };
 
+    const handleImage = (image) => {
+      if (image?.name) {
+        const newImage = new File(
+          [image],
+          modifiedImageName(params.id, image?.name),
+          {
+            type: image.type,
+            lastModified: image.lastModified,
+          },
+        );
+
+        const formData = new FormData();
+        formData.append('image', newImage);
+
+        uploadImage(formData);
+      }
+    };
+
     const resetForm = () => {
       setTitle('');
       setBody('');
       setDescription('');
+      setImage({});
     };
 
     const redirectToDashboard = () => {
@@ -91,7 +107,16 @@ const EditOrAddNewPost = ({ postType }) => {
     };
 
     try {
-      const postData = { title, body, description, image };
+      const postData = {
+        title,
+        body,
+        description,
+        image: {
+          name: modifiedImageName(params.id, image?.name),
+          type: image?.type,
+          lastModified: image?.lastModified,
+        },
+      };
 
       if (isFormInvalid(postData)) {
         toast.error('Please fill in the title, body, and description');
@@ -100,10 +125,12 @@ const EditOrAddNewPost = ({ postType }) => {
 
       let response;
       if (postType === 'edit-post') {
-        response = await axios.put(`/api/posts/${params.id}`, postData);
+        response = await axios.put(`${POSTS_URL}/${params.id}`, postData);
       } else if (postType === 'new-post') {
-        response = await axios.post('/api/posts', postData);
+        response = await axios.post(`${POSTS_URL}`, postData);
       }
+
+      handleImage(image);
 
       if (response.status === 200) {
         toast.success(fieldMap[postType].successMessage);
@@ -138,53 +165,43 @@ const EditOrAddNewPost = ({ postType }) => {
                 <span className="hidden md:inline">&larr; </span>Back
               </button>
             </div>
-            {image}
-            {/* <Image
-              alt="post image"
-              width={100}
-              height={100}
-              src={`http://localhost:8080${image}`}
-            /> */}
             <form onSubmit={handleSubmit} className="flex flex-col">
-              <label htmlFor="image" className="mt-10 text-lg">
+              <label htmlFor="image" className="mt-10 mb-2 text-lg">
                 <b>Image</b>
               </label>
               <input
-                type="text"
-                name="image"
-                value={image}
-                onChange={handleImageChange}
-                placeholder="Enter image url"
-                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
-                // required
+                disabled
+                value={originalImageName(image?.name)}
+                className={`${styles.light_theme_form} mb-2 dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
               />
               <input
                 type="file"
-                name="file"
+                name="image"
                 label="Choose File"
-                onChange={(e) => handleUploadFile(e)}
+                accept="image/*"
+                onChange={(e) => handleImageChange(e)}
+                className="w-auto md:w-[24rem]"
               />
-
-              <label htmlFor="title" className="mt-10 text-lg">
+              <label htmlFor="title" className="mt-10 mb-2 text-lg">
                 <b>Title</b>
               </label>
               <input
                 type="text"
                 name="title"
                 value={title}
-                onChange={handleTitleChange}
+                onChange={(e) => handleInputChange(e, setTitle)}
                 placeholder="Post Title"
                 className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 required
               />
-              <label htmlFor="description" className="mt-10 text-lg">
+              <label htmlFor="description" className="mt-10 mb-2 text-lg">
                 <b>Description</b>
               </label>
               <input
                 type="text"
                 name="description"
                 value={description}
-                onChange={handleDescriptionChange}
+                onChange={(e) => handleInputChange(e, setDescription)}
                 placeholder="Post Description"
                 className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 required
@@ -197,7 +214,7 @@ const EditOrAddNewPost = ({ postType }) => {
                   isEdit
                   input={body}
                   setInput={setBody}
-                  handleInputChange={handleBodyChange}
+                  handleInputChange={(e) => handleInputChange(e, setBody)}
                 />
               </div>
               <button
