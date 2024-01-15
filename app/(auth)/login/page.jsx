@@ -5,6 +5,7 @@ import { ThemeContext } from '@/context/theme-provider';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import LoginOrSignup from '@/components/LoginOrSignup';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
   const { setUserInfo } = useContext(ThemeContext);
@@ -28,7 +29,13 @@ const Login = () => {
         email,
         password,
       });
+
       const { data } = response;
+
+      if (data?.status === 500 || data?.status === 401) {
+        toast.error(data.message || 'Error');
+        return;
+      }
 
       localStorage.setItem('userInfo', JSON.stringify(data));
       setUserInfo(data);
@@ -44,13 +51,16 @@ const Login = () => {
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   return (
-    <LoginOrSignup
-      pageType="login"
-      input={{ email, password }}
-      handleSubmit={handleSubmit}
-      handleEmailChange={handleEmailChange}
-      handlePasswordChange={handlePasswordChange}
-    />
+    <>
+      <LoginOrSignup
+        pageType="login"
+        input={{ email, password }}
+        handleSubmit={handleSubmit}
+        handleEmailChange={handleEmailChange}
+        handlePasswordChange={handlePasswordChange}
+      />
+      <ToastContainer />
+    </>
   );
 };
 

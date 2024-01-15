@@ -14,11 +14,18 @@ export async function POST(request) {
       body: JSON.stringify(requestData),
     });
 
-    if (!response.ok) {
-      throw new Error('Failed to fetch data');
+    const { status } = response;
+
+    if (status === 200) {
+      return response;
     }
 
-    return response;
+    const errorMessage =
+      status === 500 || status === 401
+        ? 'Sorry! There was an error with your login. Please try again.'
+        : 'Unexpected error during login.';
+
+    return NextResponse.json({ status, message: errorMessage });
   } catch (error) {
     return NextResponse.json({ error });
   }
