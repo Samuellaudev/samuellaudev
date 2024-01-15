@@ -25,8 +25,9 @@ const Post = ({ params }) => {
   const retrieveImage = async (imageName) => {
     try {
       const res = await axios.get(`${AWS_S3_GET_URL}/${imageName}`);
-      const { data } = res;
-      setImgLink(data.url);
+      const { url } = res.data;
+
+      setImgLink(url);
     } catch (error) {
       console.log(error);
     }
