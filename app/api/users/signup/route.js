@@ -3,6 +3,9 @@ import { USERS_URL } from '@/utils/constants';
 
 const backendUrl = process.env.BACKEND_URL;
 
+// @desc    Register/Sign up a new user
+// @route   POST /api/users/signup
+// @access  Public
 export async function POST(request) {
   try {
     const requestData = await request.json();

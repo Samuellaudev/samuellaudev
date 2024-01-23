@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 const backendUrl = process.env.BACKEND_URL;
 
+// @desc   Confirm email to reset password from registered account
+// @route  PUT /api/emails/forgot-password
+// @access Private
 export async function PUT(request) {
   try {
     const requestData = await request.json();

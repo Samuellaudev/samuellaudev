@@ -3,6 +3,9 @@ import { USERS_URL } from '@/utils/constants';
 
 const backendUrl = process.env.BACKEND_URL;
 
+// @desc   Auth user & get token
+// @route  POST /api/users/login
+// @access Public
 export async function POST(request) {
   try {
     const requestData = await request.json();

@@ -3,6 +3,9 @@ import { BACKEND_URL, AWS_S3_GET_URL } from '@/utils/constants';
 
 export const dynamic = 'force-dynamic';
 
+// @desc    Retrieve image file from AWS S3 bucket (Cyclic)
+// @route   GET /api/aws-s3/:imgName
+// @access  Private
 export async function GET(request, { params }) {
   const { image: imgName } = params;
 

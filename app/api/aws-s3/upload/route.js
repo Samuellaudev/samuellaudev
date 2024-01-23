@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import { BACKEND_URL, AWS_S3_UPLOAD_URL } from '@/utils/constants';
 import { cookies } from 'next/headers';
 
+// @desc    Upload image file to AWS S3 bucket (Cyclic)
+// @route   POST /api/aws-s3/upload
+// @access  Private
 export async function POST(request) {
   const formData = await request.formData();
 

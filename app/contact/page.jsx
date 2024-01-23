@@ -112,7 +112,7 @@ const Contact = () => {
                 type="email"
                 id="email"
                 required
-                className={`${styles.light_theme_form} dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 placeholder="sample@example.com"
                 value={formData.email}
                 onChange={handleChange}
@@ -130,7 +130,7 @@ const Contact = () => {
                 type="text"
                 id="subject"
                 required
-                className={`${styles.light_theme_form} dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 placeholder="Just saying hi"
                 value={formData.subject}
                 onChange={handleChange}
@@ -146,7 +146,7 @@ const Contact = () => {
               <textarea
                 name="message"
                 id="message"
-                className={`${styles.light_theme_form} dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
                 placeholder="Let's talk about..."
                 value={formData.message}
                 onChange={handleChange}

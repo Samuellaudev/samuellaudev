@@ -97,7 +97,7 @@ const Posts = ({ pageHeading }) => {
                   </div>
                   {pageHeading === 'Latest Posts' && (
                     <p className={styles.article_list__date}>
-                      {formatDate(post.updatedAt)}
+                      {formatDate(post.createdAt)}
                       <p className="">{readingTime(post?.body)}</p>
                     </p>
                   )}

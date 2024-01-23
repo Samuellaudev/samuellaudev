@@ -5,6 +5,9 @@ const backendUrl = process.env.BACKEND_URL;
 
 export const dynamic = 'force-dynamic';
 
+// @desc   Fetch all blog posts
+// @route  GET /api/posts
+// @access Public
 export async function GET(request) {
   try {
     const searchParams = request.nextUrl.searchParams;
@@ -35,6 +38,9 @@ export async function GET(request) {
   }
 }
 
+// @desc   Create single blog post
+// @route  POST /api/posts
+// @access Private
 export async function POST(request) {
   const postData = await request.json();
 

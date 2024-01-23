@@ -5,6 +5,9 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
+// @desc   Send email through resend
+// @route  GET /api/send
+// @access Public
 export async function POST(req, res) {
   const { email, subject, message } = await req.json();
   console.log(email, subject, message);

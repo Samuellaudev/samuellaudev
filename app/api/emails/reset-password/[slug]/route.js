@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 const backendUrl = process.env.BACKEND_URL;
 
+// @desc   Reset password for registered account
+// @route  PUT /api/emails/reset-password/:passwordResetCode
+// @access Private
 export async function PUT(request, { params }) {
   try {
     const { slug: passwordResetCode } = params;

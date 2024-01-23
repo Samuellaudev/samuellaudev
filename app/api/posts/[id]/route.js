@@ -5,6 +5,9 @@ const backendUrl = process.env.BACKEND_URL;
 
 export const dynamic = 'force-dynamic';
 
+// @desc   Fetch single blog post
+// @route  GET /api/posts/:id
+// @access Public
 export async function GET(request, { params }) {
   try {
     const { id } = params;
@@ -18,6 +21,9 @@ export async function GET(request, { params }) {
   }
 }
 
+// @desc   Delete single blog post
+// @route  DELETE /api/posts/:id
+// @access Private
 export async function DELETE(request, { params }) {
   const { id } = params;
 
@@ -40,6 +46,9 @@ export async function DELETE(request, { params }) {
   }
 }
 
+// @desc   Update single blog post
+// @route  PUT /api/posts/:id
+// @access Private
 export async function PUT(request, { params }) {
   const { id } = params;
   const updatedPostData = await request.json();
