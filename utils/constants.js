@@ -4,7 +4,7 @@ export const projectsData = [
     id: 1,
     title: 'AWS Certified Solutions Architect – Associate',
     description: 'AWS Certified Solutions Architect – Associate',
-    image: '/images/projects/aws-certified-solutions-architect-associate.png',
+    image: '/images/badges/aws-certified-solutions-architect-associate.png',
     tag: ['All', 'Badges'],
     gitUrl: '/',
     previewUrl:
@@ -17,7 +17,7 @@ export const projectsData = [
     title: 'AWS Certified Solutions Architect – Associate',
     description: 'Verification - AWS Certified Solutions Architect – Associate',
     image:
-      '/images/projects/aws-Verification_AWS_Certified_Solutions_Architect_Associate_certificate.png',
+      '/images/certifications/aws-Verification_AWS_Certified_Solutions_Architect_Associate_certificate.png',
     tag: ['All', 'Certifications'],
     gitUrl: '/',
     previewUrl:
@@ -30,7 +30,7 @@ export const projectsData = [
     title: 'React-Tutorial.app',
     description:
       'Cover fundamental and advanced concepts such as component-based architecture, state management, JSX syntax, and routing.',
-    image: '/images/projects/react-tutorial-app.png',
+    image: '/images/certifications/react-tutorial-app.png',
     tag: ['All', 'Certifications'],
     gitUrl: '/',
     previewUrl:
@@ -45,7 +45,7 @@ export const projectsData = [
     description:
       'Cover how to create reliable, resilient automated tests in React using Jest and React Testing Library,',
     image:
-      '/images/projects/Testing_React_Apps_with_Jest_and_React_Testing_Library.png',
+      '/images/certifications/Testing_React_Apps_with_Jest_and_React_Testing_Library.png',
     tag: ['All', 'Certifications'],
     gitUrl: '/',
     previewUrl:
@@ -58,12 +58,48 @@ export const projectsData = [
     title: 'Educative.io: Become a VueJS Developer',
     description:
       'Hands-on experience to create responsive VueJS single-page applications',
-    image: '/images/projects/Become_a_VueJS_Developer.png',
+    image: '/images/certifications/Become_a_VueJS_Developer.png',
     tag: ['All', 'Certifications'],
     gitUrl: '/',
     previewUrl:
       'https://www.educative.io/verify-certificate/RgxzXQFQwWo1BnJn7FQ4vZn4765zU6',
     categories: 'Certification',
+    isPublicLink: true,
+  },
+  {
+    id: 6,
+    title: 'NextJs - Blogging CMS with MongoDb',
+    description:
+      'Next.js + MongoDB: Effortlessly manage and publish blog content with Markdown for a flexible and dynamic web experience.',
+    image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
+    previewUrl: 'https://nextjs-blog-samuellau.vercel.app/',
+    categories: 'Projects',
+    isPublicLink: true,
+  },
+  {
+    id: 7,
+    title: 'Portfolio website V1',
+    description:
+      'My first portfolio website that built using Hugo and hosted on GitHub Pages',
+    image: '/images/projects/Portfolio_website_v1_Hugo.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/samuellaudev.github.io',
+    previewUrl: 'https://samuellaudev.github.io/',
+    categories: 'Projects',
+    isPublicLink: true,
+  },
+  {
+    id: 8,
+    title: 'Portfolio website V2',
+    description:
+      'My second portfolio website that built using Nuxt2 and hosted on Netlify',
+    image: '/images/projects/Portfolio_website_v2_Nuxt2.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/nuxt-blog',
+    previewUrl: 'https://samuellaudev-v2.netlify.app/',
+    categories: 'Projects',
     isPublicLink: true,
   },
 ];
@@ -72,17 +108,17 @@ export const projectsData = [
 export const socialLinks = [
   {
     href: 'https://github.com/samuellaudev',
-    src: '/images/icon-github.svg',
+    src: '/svg/socialMedia/icon-github.svg',
     alt: 'Github Icon',
   },
   {
     href: 'https://www.linkedin.com/in/samuel-cf-lau/',
-    src: '/images/icon-linkedin.svg',
+    src: '/svg/socialMedia/icon-linkedin.svg',
     alt: 'Linkedin Icon',
   },
   {
     href: 'https://www.instagram.com/samuel_cf_lau/',
-    src: '/images/icon-instagram.svg',
+    src: '/svg/socialMedia/icon-instagram.svg',
     alt: 'Instagram',
   },
 ];
