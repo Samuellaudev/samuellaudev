@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/context/theme-provider';
 import { poppins } from '@/components/fonts';
 import Navbar from '@/components/Navbar';
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
             <FooterSection />
           </main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
