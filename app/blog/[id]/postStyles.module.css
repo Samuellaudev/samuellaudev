@@ -1,5 +1,5 @@
 .light_theme_post {
-  @apply container mt-16 md:mt-28 mx-auto px-12 text-[#565b5f];
+  @apply container mt-16 md:mt-28 md:px-24 mx-auto px-12 text-[#565b5f];
 }
 
 .light_theme_back_btn {

@@ -62,7 +62,7 @@ const Contact = () => {
   };
 
   return (
-    <section
+    <div
       id="contact"
       className="container mx-auto px-6 md:mt-20 grid md:grid-cols-2 gap-4 text-[#565b5f] dark:text-white"
     >
@@ -162,7 +162,7 @@ const Contact = () => {
         )}
       </div>
       <ToastContainer />
-    </section>
+    </div>
   );
 };
 

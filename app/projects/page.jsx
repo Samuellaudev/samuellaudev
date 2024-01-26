@@ -163,7 +163,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <div className="container mx-auto px-6 md:px-24 md:mt-20 text-[#565b5f] dark:text-white">
         <h2
           className={`${styles.project__heading} mb-10 dark:text-white text-[#ADB7BE]`}
@@ -174,7 +174,7 @@ const Projects = () => {
           {isLoading ? renderLoading() : renderProject()}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

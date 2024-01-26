@@ -20,9 +20,9 @@ const Dashboard = () => {
   }, [router]);
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col md:px-24">
       {isLogin && <Posts pageHeading="Dashboard" />}
-    </main>
+    </div>
   );
 };
 

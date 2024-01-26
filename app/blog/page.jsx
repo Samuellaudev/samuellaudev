@@ -5,9 +5,9 @@ const Blog = () => {
   revalidatePath('/blog', 'page');
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col md:px-24">
       <Posts pageHeading="Latest Posts" />
-    </main>
+    </div>
   );
 };
 

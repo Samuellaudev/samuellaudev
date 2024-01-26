@@ -147,7 +147,7 @@ const EditOrAddNewPost = ({ postType }) => {
   };
 
   return (
-    <main className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <div
         className={`${styles.light_theme_post} dark:text-white dark:bg-black`}
       >
@@ -227,7 +227,7 @@ const EditOrAddNewPost = ({ postType }) => {
         )}
       </div>
       <ToastContainer />
-    </main>
+    </div>
   );
 };
 
