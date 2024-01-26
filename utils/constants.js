@@ -68,7 +68,7 @@ export const projectsData = [
   },
   {
     id: 6,
-    title: 'NextJs - Blogging CMS with MongoDb',
+    title: 'NextJs - Blogging CMS with MongoDB in Serverless Architecture',
     description:
       'Next.js + MongoDB: Effortlessly manage and publish blog content with Markdown for a flexible and dynamic web experience.',
     image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
@@ -154,3 +154,41 @@ export const fieldMap = {
     errorMessage: 'Unable to edit post',
   },
 };
+
+// Projects Information
+export const featuredProjects = [
+  {
+    id: 1,
+    image: {
+      path: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
+      alt: 'Featured Project: Next.js Blog with MongoDB',
+    },
+    title: 'Next.js CMS Blog with MongoDB',
+    description:
+      'A serverless web application that utilizes Next.js and MongoDB to create a custom-built content management system for managing and publishing blog content.',
+    gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
+    projectUrl: 'https://nextjs-blog-samuellau.vercel.app/',
+    projectDetails: '/projects/nextjs-blog-with-mongodb',
+    techStack: ['Next.js', 'MongoDB', 'Stripe API', 'AWS-S3'],
+  },
+];
+export const otherProjects = [
+  {
+    id: 1,
+    title: 'Portfolio Project V2',
+    description:
+      'My second portfolio website that built using Nuxt2 and hosted on Netlify.',
+    gitUrl: 'https://github.com/Samuellaudev/nuxt-blog',
+    projectUrl: 'https://samuellaudev-v2.netlify.app/',
+    techStack: ['Nuxt.js', 'SCSS', 'Element UI'],
+  },
+  {
+    id: 2,
+    title: 'Portfolio Project V1',
+    description:
+      'First version of my personal website built with Hugo and hosted on GitHub Pages.',
+    gitUrl: 'https://github.com/Samuellaudev/samuellaudev.github.io',
+    projectUrl: 'https://samuellaudev.github.io/',
+    techStack: ['Hugo', 'Markdown'],
+  },
+];
