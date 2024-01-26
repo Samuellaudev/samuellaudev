@@ -74,7 +74,7 @@ export const projectsData = [
     image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
-    previewUrl: 'https://nextjs-blog-samuellau.vercel.app/',
+    previewUrl: 'https://nextjs-mongodb-cms.vercel.app/',
     categories: 'Projects',
     isPublicLink: true,
   },
@@ -167,7 +167,7 @@ export const featuredProjects = [
     description:
       'A serverless web application that utilizes Next.js and MongoDB to create a custom-built content management system for managing and publishing blog content.',
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
-    projectUrl: 'https://nextjs-blog-samuellau.vercel.app/',
+    projectUrl: 'https://nextjs-mongodb-cms.vercel.app/',
     projectDetails: '/projects/nextjs-blog-with-mongodb',
     techStack: ['Next.js', 'MongoDB', 'Stripe API', 'AWS-S3'],
   },
