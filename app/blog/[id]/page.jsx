@@ -2,6 +2,7 @@
 
 import { POSTS_URL, AWS_S3_GET_URL } from '@/utils/constants';
 import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import axios from 'axios';
@@ -9,8 +10,10 @@ import { readingTime, formatDate } from '@/utils/helpers';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
 import Loading from './Loading';
 import styles from './postStyles.module.css';
+import Giscus from '@giscus/react';
 
 const Post = ({ params }) => {
+  const { resolvedTheme } = useTheme();
   const [post, setPost] = useState({
     title: '',
     body: '',
@@ -56,7 +59,7 @@ const Post = ({ params }) => {
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <div className="mb-10">
           {imgLink ? (
             <div className="mb-6">
               <Image
@@ -86,7 +89,22 @@ const Post = ({ params }) => {
           <div className={styles.post__body}>
             <MarkdownPreview post={post.body} isEdit={false} />
           </div>
-        </>
+          <Giscus
+            id="comments"
+            repo="Samuellaudev/samuellaudev"
+            repoId="R_kgDOKsiPlA"
+            category="Announcements"
+            categoryId="DIC_kwDOKsiPlM4CcwNK"
+            mapping="pathname"
+            term="Welcome!"
+            reactionsEnabled="1"
+            emitMetadata="0"
+            inputPosition="top"
+            theme={resolvedTheme}
+            lang="en"
+            loading="lazy"
+          />
+        </div>
       )}
     </div>
   );
