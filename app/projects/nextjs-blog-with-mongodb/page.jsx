@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
@@ -332,12 +333,12 @@ const NextJsCMSBlogPage = () => {
             <p>
               The details of the code to image upload and retrieval operations
               can be seen in{' '}
-              <a
+              <Link
                 className="text-primary-500"
-                href="https://vercel.com/templates/next.js/aws-s3-image-upload-nextjs"
+                href="https://www.samuellau.dev/blog/65b67b3ce459da735d7cca9b"
               >
                 this article
-              </a>
+              </Link>
               .
             </p>
           </div>

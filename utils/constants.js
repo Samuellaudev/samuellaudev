@@ -74,7 +74,7 @@ export const projectsData = [
     image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
-    previewUrl: 'https://nextjs-mongodb-cms.vercel.app/',
+    previewUrl: 'https://www.samuellau.dev/projects/nextjs-blog-with-mongodb',
     categories: 'Projects',
     isPublicLink: true,
   },
