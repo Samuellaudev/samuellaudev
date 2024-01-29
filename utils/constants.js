@@ -102,6 +102,18 @@ export const projectsData = [
     categories: 'Projects',
     isPublicLink: true,
   },
+  {
+    id: 9,
+    title: 'Feedback UI',
+    description:
+      'A React app to leave feedback for a product or service utilizing Context API',
+    image: '/images/projects/OtherProjects/Project_Feedback_UI.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/feedback-app',
+    previewUrl: 'https://feedback-app-usecontext.vercel.app/',
+    categories: 'Projects',
+    isPublicLink: true,
+  },
 ];
 
 // Contact Section
@@ -190,5 +202,14 @@ export const otherProjects = [
     gitUrl: 'https://github.com/Samuellaudev/samuellaudev.github.io',
     projectUrl: 'https://samuellaudev.github.io/',
     techStack: ['Hugo', 'Markdown'],
+  },
+  {
+    id: 3,
+    title: 'Feedback UI',
+    description:
+      'A React app to leave feedback for a product or service utilizing Context API',
+    gitUrl: 'https://github.com/Samuellaudev/feedback-app',
+    projectUrl: 'https://feedback-app-usecontext.vercel.app/',
+    techStack: ['React', 'Context API'],
   },
 ];
