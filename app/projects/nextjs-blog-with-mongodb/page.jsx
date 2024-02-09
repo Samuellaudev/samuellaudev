@@ -42,7 +42,7 @@ const NextJsCMSBlogPage = () => {
         />
       </div>
       <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
-        <div className="flex flex-col md:flex-row justify-between my-16">
+        <section className="flex flex-col md:flex-row justify-between my-16">
           <div className="flex flex-col space-y-1 mb-4 md:mr-24">
             <h2 className="font-semibold">Project Description</h2>
             <p>
@@ -78,8 +78,8 @@ const NextJsCMSBlogPage = () => {
               </a>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Features</h2>
             <div className="feature-one space-y-1 mb-6">
@@ -132,8 +132,8 @@ const NextJsCMSBlogPage = () => {
               <li> Implementing Dark Mode using Tailwind CSS</li>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">CMS Blogging Platform</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -167,8 +167,8 @@ const NextJsCMSBlogPage = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Responsive Design</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -202,8 +202,8 @@ const NextJsCMSBlogPage = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Admin Dashboard</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -237,8 +237,8 @@ const NextJsCMSBlogPage = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Dark Mode</h2>
             <div className="grid md:grid-cols-2 gap-4">
@@ -258,8 +258,8 @@ const NextJsCMSBlogPage = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Challenge</h2>
             <div className="feature-one space-y-1 ">
@@ -275,8 +275,8 @@ const NextJsCMSBlogPage = () => {
               </p>
             </div>
           </div>
-        </div>
-        <div className="flex flex-col md:flex-row justify-between my-10">
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
             <h2 className="font-semibold mb-3">Solution</h2>
             <p>
@@ -342,7 +342,7 @@ const NextJsCMSBlogPage = () => {
               .
             </p>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

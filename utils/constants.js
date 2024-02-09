@@ -74,12 +74,24 @@ export const projectsData = [
     image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
-    previewUrl: 'https://www.samuellau.dev/projects/nextjs-blog-with-mongodb',
+    previewUrl: `${process.env.FRONTEND_URL}/projects/nextjs-blog-with-mongodb`,
     categories: 'Projects',
     isPublicLink: true,
   },
   {
     id: 7,
+    title: 'MERN Stack & Redux - eCommerce Platform',
+    description:
+      'MERN Stack & Redux: A kettlebell eCommerce platform. Integrate MongoDB, Express, React, Node.js, and Redux for enhanced functionality and scalable performance.',
+    image: '/images/projects/Kettlebell_Gear_MERN_Stack.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
+    previewUrl: `${process.env.FRONTEND_URL}/projects/mern-stack-kettlebell-gear`,
+    categories: 'Projects',
+    isPublicLink: true,
+  },
+  {
+    id: 8,
     title: 'Portfolio website V1',
     description:
       'My first portfolio website that built using Hugo and hosted on GitHub Pages',
@@ -91,7 +103,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 8,
+    id: 9,
     title: 'Portfolio website V2',
     description:
       'My second portfolio website that built using Nuxt2 and hosted on Netlify',
@@ -103,7 +115,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 9,
+    id: 10,
     title: 'Feedback UI',
     description:
       'A React app to leave feedback for a product or service utilizing Context API',
@@ -182,6 +194,29 @@ export const featuredProjects = [
     projectUrl: 'https://nextjs-mongodb-cms.vercel.app/',
     projectDetails: '/projects/nextjs-blog-with-mongodb',
     techStack: ['Next.js', 'MongoDB', 'Tailwind CSS', 'Stripe API', 'AWS-S3'],
+  },
+  {
+    id: 2,
+    image: {
+      path: '/images/projects/Kettlebell_Gear_MERN_Stack.png',
+      alt: 'Featured Project: MERN Stack & Redux - eCommerce Platform',
+    },
+    title: 'MERN Stack & Redux - eCommerce Platform',
+    description:
+      'An dynamic eCommerce platform powered by the MERN Stack, streamlining online retail with MongoDB, Express, React, Node.js, and Redux. Efficiently manages inventory, transactions, and improves the shopping journey.',
+    gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
+    projectUrl: 'https://www.kettlebell-gear.com/',
+    projectDetails: '/projects/mern-stack-kettlebell-gear',
+    techStack: [
+      'React.js',
+      'MongoDB',
+      'Node.js',
+      'Express.js',
+      'Redux',
+      'Tailwind-CSS',
+      'PayPal',
+      'AWS-S3',
+    ],
   },
 ];
 export const otherProjects = [

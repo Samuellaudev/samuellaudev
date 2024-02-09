@@ -32,7 +32,9 @@ const Projects = () => {
   };
 
   const alternateOrder = (id) =>
-    Number(id) % 2 === 0 ? 'md:order-last md:text-right' : 'md:order-first';
+    Number(id) % 2 !== 0
+      ? 'md:order-first'
+      : 'md:order-last md:text-right px-1';
 
   const renderProject = () => {
     return (
@@ -50,10 +52,10 @@ const Projects = () => {
                     width={600}
                     height={500}
                     alt={project.image.alt}
-                    className="w-screen shadow-xl rounded-md hover:-translate-y-2 duration-200"
+                    className="w-full shadow-xl rounded-md hover:-translate-y-2 duration-200"
                   />
                 </Link>
-                <div className={`py-6 ${alternateOrder(project.id)}`}>
+                <div className={`py-6 md:w-1/2 ${alternateOrder(project.id)}`}>
                   <p className="pb-2">
                     <code>Featured Project</code>
                   </p>
@@ -61,7 +63,7 @@ const Projects = () => {
                     <h2 className="font-semibold ">{project.title}</h2>
                     <div
                       className={`${
-                        Number(project.id) % 2 === 0 ? 'md:ml-8' : 'md:mr-8'
+                        Number(project.id) % 2 !== 0 ? 'md:mr-8' : 'md:ml-8'
                       } my-7 md:p-6 rounded-md text-gray-100 md:bg-gradient-to-r from-primary-500/90 to-primary-800/30`}
                     >
                       {project.description}
@@ -74,9 +76,9 @@ const Projects = () => {
                   </div>
                   <div
                     className={`${
-                      Number(project.id) % 2 === 0
-                        ? 'md:justify-end'
-                        : 'md:justify-start'
+                      Number(project.id) % 2 !== 0
+                        ? 'md:justify-start'
+                        : 'md:justify-end'
                     }
                   flex space-x-3`}
                   >
