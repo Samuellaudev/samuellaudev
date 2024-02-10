@@ -213,9 +213,9 @@ export const featuredProjects = [
       'Node.js',
       'Express.js',
       'Redux',
-      'Tailwind-CSS',
       'PayPal',
       'AWS-S3',
+      'Tailwind-CSS',
     ],
   },
 ];
