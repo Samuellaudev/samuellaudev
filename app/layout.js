@@ -8,8 +8,31 @@ import '@/css/globals.css';
 import style from './homePage.module.css';
 
 export const metadata = {
-  title: 'Samuel Lau: Web Development',
+  generator: 'Next.js',
+  applicationName: 'Samuel Lau: Web Development',
   description: 'Everything about web development',
+  referrer: 'origin-when-cross-origin',
+  keywords: [
+    'Next.js',
+    'React.js',
+    'JavaScript',
+    'AWS',
+    'Amazon Web Services',
+    'Web Development',
+    'Node.js',
+    'Express.js',
+  ],
+  authors: [{ name: 'Samuel Lau', url: `${process.env.FRONTEND_URL}` }],
+  creator: 'Samuel Lau',
+  publisher: 'Samuel Lau',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  verification: {
+    google: 'google',
+  },
 };
 
 export default function RootLayout({ children }) {
