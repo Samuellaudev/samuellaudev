@@ -118,7 +118,7 @@ export const projectsData = [
     id: 10,
     title: 'Feedback UI',
     description:
-      'A React app to leave feedback for a product or service utilizing Context API',
+      'A React app (in TypeScript) for leaving feedback on a product or service using the Context API.',
     image: '/images/projects/OtherProjects/Project_Feedback_UI.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/feedback-app',
@@ -242,9 +242,9 @@ export const otherProjects = [
     id: 3,
     title: 'Feedback UI',
     description:
-      'A React app to leave feedback for a product or service utilizing Context API',
+      'A React app (in TypeScript) for leaving feedback on a product or service using the Context API.',
     gitUrl: 'https://github.com/Samuellaudev/feedback-app',
     projectUrl: 'https://feedback-app-usecontext.vercel.app/',
-    techStack: ['React', 'Context API'],
+    techStack: ['React', 'TypeScript', 'Context-API'],
   },
 ];
