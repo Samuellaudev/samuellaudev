@@ -16,6 +16,7 @@ export const metadata = {
     'Next.js',
     'React.js',
     'JavaScript',
+    'TypeScript',
     'AWS',
     'Amazon Web Services',
     'Web Development',

@@ -10,6 +10,7 @@ const TAB_DATA = [
     content: (
       <ul className="list-disc pl-2 h-[168px]">
         <li>JavaScript</li>
+        <li>TypeScript</li>
         <li>ReactJs & NextJs</li>
         <li>VueJs & NuxtJs</li>
         <li>Node.js</li>
@@ -71,11 +72,11 @@ const AboutSection = () => {
           </h2>
           <p className="text-base md:text-lg">
             I&apos;m a passionate Front-end Web Developer skilled in JavaScript,
-            React, Vue, Next.js, Nuxt.js, HTML, CSS, and Git. Eager to learn and
-            expand my skill set, I thrive on creating interactive and responsive
-            web applications. With a collaborative mindset, I enjoy working with
-            others to deliver amazing digital experiences. Let&apos;s build
-            something amazing together!
+            TypeScript, React, Vue, Next.js, Nuxt.js, HTML, CSS, and Git. Eager
+            to learn and expand my skill set, I thrive on creating interactive
+            and responsive web applications. With a collaborative mindset, I
+            enjoy working with others to deliver amazing digital experiences.
+            Let&apos;s build something amazing together!
           </p>
           <div className="flex flex-row mt-8">
             <TabButton

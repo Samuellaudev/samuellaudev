@@ -82,7 +82,7 @@ export const projectsData = [
     id: 7,
     title: 'MERN Stack & Redux - eCommerce Platform',
     description:
-      'MERN Stack & Redux: A kettlebell eCommerce platform. Integrate MongoDB, Express, React, Node.js, and Redux for enhanced functionality and scalable performance.',
+      'MERN Stack & Redux: A kettlebell eCommerce platform. Integrate MongoDB, Express, React, Node.js, TypeScript and Redux for enhanced functionality and scalable performance.',
     image: '/images/projects/Kettlebell_Gear_MERN_Stack.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
@@ -203,7 +203,7 @@ export const featuredProjects = [
     },
     title: 'MERN Stack & Redux - eCommerce Platform',
     description:
-      'An dynamic eCommerce platform powered by the MERN Stack, streamlining online retail with MongoDB, Express, React, Node.js, and Redux. Efficiently manages inventory, transactions, and improves the shopping journey.',
+      'An dynamic eCommerce platform powered by the MERN Stack, streamlining online retail with MongoDB, Express, React, Node.js, TypeScript and Redux. Efficiently manages inventory, transactions, and improves the shopping journey.',
     gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
     projectUrl: 'https://www.kettlebell-gear.com/',
     projectDetails: '/projects/mern-stack-kettlebell-gear',
@@ -212,6 +212,7 @@ export const featuredProjects = [
       'MongoDB',
       'Node.js',
       'Express.js',
+      'TypeScript',
       'Redux',
       'PayPal',
       'AWS-S3',

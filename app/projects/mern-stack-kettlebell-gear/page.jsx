@@ -41,9 +41,9 @@ const NextJsCMSBlogPage = () => {
             <p>
               A dynamic eCommerce platform leveraging the MERN Stack & Redux for
               seamless online retail operations. Built with MongoDB, Express,
-              React, Node.js, and Redux, it offers a scalable solution for
-              managing inventory, processing transactions, and enhancing the
-              shopping experience.
+              React, Node.js, TypeScript and Redux, it offers a scalable
+              solution for managing inventory, processing transactions, and
+              enhancing the shopping experience.
             </p>
           </div>
           <div className="flex flex-col w-full">
@@ -59,8 +59,8 @@ const NextJsCMSBlogPage = () => {
             <div className="project-technologies space-y-1 mb-4">
               <p className="font-semibold">Technologies</p>
               <p>
-                React.js, MongoDB, Node.js, Express.js, Redux, Tailwind CSS, AWS
-                S3, PayPal API
+                React.js, MongoDB, Node.js, Express.js, TypeScript, Redux,
+                Tailwind CSS, AWS S3, PayPal API
               </p>
             </div>
             <div className="project-source-code">
