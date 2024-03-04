@@ -217,6 +217,8 @@ export const featuredProjects = [
       'PayPal',
       'AWS-S3',
       'Tailwind-CSS',
+      'Google API',
+      'OAuth',
     ],
   },
 ];

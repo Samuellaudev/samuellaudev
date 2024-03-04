@@ -60,7 +60,7 @@ const NextJsCMSBlogPage = () => {
               <p className="font-semibold">Technologies</p>
               <p>
                 React.js, MongoDB, Node.js, Express.js, TypeScript, Redux,
-                Tailwind CSS, AWS S3, PayPal API
+                Tailwind CSS, AWS S3, PayPal API, Google API, OAuth
               </p>
             </div>
             <div className="project-source-code">
@@ -128,6 +128,18 @@ const NextJsCMSBlogPage = () => {
                 offering customers flexibility and convenience in completing
                 their purchases while ensuring a smooth and reliable checkout
                 experience
+              </li>
+            </div>
+            <div className="feature-one space-y-1 mb-6">
+              <p className="font-semibold">Google OAuth Login Authentication</p>
+              <li>
+                Easily access the platform using one&apos;s own Google
+                credentials, streamlining the login process.
+              </li>
+              <li>
+                Streamlined account management for users and administrators:
+                Users effortlessly manage their accounts, while administrators
+                oversee authentication activities with ease.
               </li>
             </div>
           </div>
@@ -236,6 +248,20 @@ const NextJsCMSBlogPage = () => {
             <div className="grid md:grid-cols-2 gap-4">
               <Image
                 src="/images/projects/Kettlebell_Gear_MERN_Stack/PayPal_Payment_Gateway/Page_Order.png"
+                alt="Website image"
+                width={650}
+                height={650}
+                className="rounded-sm mx-auto shadow-md dark:border"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="flex flex-col md:flex-row justify-between my-10">
+          <div className="flex flex-col mb-4">
+            <h2 className="font-semibold mb-3">Google OAuth Login</h2>
+            <div className="grid md:grid-cols-2 gap-4">
+              <Image
+                src="/images/projects/Kettlebell_Gear_MERN_Stack/Google_Oauth_Login/Page_Login.png"
                 alt="Website image"
                 width={650}
                 height={650}
