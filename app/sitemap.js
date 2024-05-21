@@ -18,14 +18,14 @@ export default async function sitemap() {
     }
   };
 
-  // const posts = await fetchPosts();
+  const posts = await fetchPosts();
 
-  // const result = posts?.map((item) => ({
-  //   url: `${frontendUrl}/blog/${item._id}`,
-  //   lastModified: item.updatedAt,
-  //   changeFrequency: 'monthly',
-  //   priority: 1,
-  // }));
+  const result = posts?.map((item) => ({
+    url: `${frontendUrl}/blog/${item._id}`,
+    lastModified: item.updatedAt,
+    changeFrequency: 'monthly',
+    priority: 1,
+  }));
 
   return [
     {
@@ -52,6 +52,6 @@ export default async function sitemap() {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
-    // ...result,
+    ...result,
   ];
 }

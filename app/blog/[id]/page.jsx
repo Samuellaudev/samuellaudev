@@ -60,7 +60,8 @@ const Post = ({ params }) => {
         <Loading />
       ) : (
         <div className="mb-10">
-          {imgLink ? (
+          {/* Reactivate until migrate to Cloudinary */}
+          {/* {imgLink ? (
             <div className="mb-6">
               <Image
                 src={imgLink}
@@ -72,7 +73,7 @@ const Post = ({ params }) => {
             </div>
           ) : (
             <></>
-          )}
+          )} */}
           <div className="flex flex-row justify-between items-start">
             <h1 className={styles.post__title}>{post.title}</h1>
             <button
