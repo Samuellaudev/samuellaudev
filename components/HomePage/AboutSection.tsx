@@ -2,6 +2,7 @@
 import React, { useState, useTransition } from 'react';
 import Image from 'next/image';
 import TabButton from '../TabButton';
+import { TabDataType } from '@/types/share.type';
 
 const TAB_DATA = [
   {
@@ -44,14 +45,14 @@ const TAB_DATA = [
       </ul>
     ),
   },
-];
+] as TabDataType[];
 
 const AboutSection = () => {
   const [tab, setTab] = useState('skills');
   const [isPending, startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
-    startTransition(() => setTab(id));
+  const handleTabChange = (tab: string) => {
+    startTransition(() => setTab(tab));
   };
 
   return (
@@ -99,7 +100,7 @@ const AboutSection = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((item) => item.id === tab).content}
+            {TAB_DATA.find((item) => item.id === tab)?.content}
           </div>
         </div>
       </div>
