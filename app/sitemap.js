@@ -20,7 +20,7 @@ export default async function sitemap() {
 
   const posts = await fetchPosts();
 
-  const result = posts.map((item) => ({
+  const result = posts?.map((item) => ({
     url: `${frontendUrl}/blog/${item._id}`,
     lastModified: item.updatedAt,
     changeFrequency: 'monthly',
