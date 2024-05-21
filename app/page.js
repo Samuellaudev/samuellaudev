@@ -8,7 +8,7 @@ export default function Home() {
     <div className="container sm:mt-32 mx-auto py-4 px-6">
       <HeroSection />
       <AboutSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <PortfolioSection />
     </div>
   );
