@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { revalidatePath } from 'next/cache';
 
 const backendUrl = process.env.BACKEND_URL;
 
@@ -11,17 +12,16 @@ export const dynamic = 'force-dynamic';
 export async function GET(request) {
   try {
     const searchParams = request.nextUrl.searchParams;
-    const pageNumber = searchParams.get('pageNumber');
+    const pageNumber = searchParams.get('pageNumber') || 1;
     const search = searchParams.get('search');
 
     const queryParams = [];
 
-    if (search) {
+    if (search && search !== 'null') {
       queryParams.push(`search=${search}`);
     }
-    if (pageNumber) {
-      queryParams.push(`pageNumber=${pageNumber}`);
-    }
+
+    queryParams.push(`pageNumber=${pageNumber}`);
 
     let apiUrl = `${backendUrl}/api/posts`;
 
@@ -31,6 +31,8 @@ export async function GET(request) {
 
     const res = await fetch(apiUrl);
     const data = await res.json();
+
+    revalidatePath('/blog', 'page');
 
     return NextResponse.json(data);
   } catch (error) {

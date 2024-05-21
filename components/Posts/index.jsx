@@ -1,6 +1,7 @@
 'use client';
+
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { readingTime, formatDate } from '@/utils/helpers';
 import Pagination from '@/components/Pagination';
@@ -11,11 +12,17 @@ import styles from './postsStyles.module.css';
 
 const Posts = ({ pageHeading }) => {
   const [postsData, setPostsData] = useState({ page: 1, pages: 1, posts: [] });
+  const [pageNumber, setPageNumber] = useState(1);
+  const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const searchParams = useSearchParams();
-  const pageNumber = searchParams.get('pageNumber');
-  const search = searchParams.get('search');
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const pageNumber = parseInt(searchParams.get('pageNumber')) || 1;
+    const search = searchParams.get('search') || '';
+    setPageNumber(pageNumber);
+    setSearch(search);
+  }, [search, pageNumber]);
 
   const router = useRouter();
 
@@ -28,9 +35,10 @@ const Posts = ({ pageHeading }) => {
       const postsData = response.data;
 
       setPostsData(postsData);
-      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching posts:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -69,7 +77,7 @@ const Posts = ({ pageHeading }) => {
             + Add new
           </button>
         )}
-        {pageHeading === 'Latest Posts' && search.length > 0 && (
+        {pageHeading === 'Latest Posts' && search && search.length > 0 && (
           <button
             onClick={() => router.push('/blog?search=&pageNumber=1')}
             className={`${styles.light_theme_back_btn} dark:border dark:border-white dark:hover:bg-white dark:hover:text-black`}
@@ -83,7 +91,7 @@ const Posts = ({ pageHeading }) => {
       ) : (
         <>
           <ul className={styles.article_ul}>
-            {postsData?.posts.map((post) => (
+            {postsData?.posts?.map((post) => (
               <li key={post._id}>
                 <Link
                   href={`/blog/${post._id}`}

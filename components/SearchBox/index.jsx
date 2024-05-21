@@ -24,6 +24,7 @@ const SearchBox = ({ isMobile = false }) => {
       router.push('/blog?search');
     }
   };
+
   return (
     <>
       {isMobile ? (

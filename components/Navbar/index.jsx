@@ -62,7 +62,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="desktop-menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0 items-center">
-            {pathname === '/blog' && <SearchBox />}
+            {/* {pathname === '/blog' && <SearchBox />} */}
             {isLogin && (
               <>
                 <NavLink
@@ -92,11 +92,11 @@ const Navbar = () => {
         </div>
         {/* Mobile Menu */}
         <div className="mobile-menu md:hidden flex items-center">
-          {pathname === '/blog' && (
+          {/* {pathname === '/blog' && (
             <div className="mr-4">
               <SearchBox isMobile={true} />
             </div>
-          )}
+          )} */}
           <button onClick={handleNavBarOpen} className={styles.menuIcon}>
             {navbarOpen ? (
               <XMarkIcon className="h-5 w-5" />
