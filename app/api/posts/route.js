@@ -31,7 +31,7 @@ export async function GET(request) {
 
     const res = await fetch(apiUrl);
     const data = await res.json();
-
+    return NextResponse.json({ error });
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ error });
