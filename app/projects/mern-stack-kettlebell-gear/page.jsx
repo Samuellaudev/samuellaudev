@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from '../projectsStyles.module.css';
 
-const NextJsCMSBlogPage = () => {
+const MernStackKettlebellGearPage = () => {
   const router = useRouter();
 
   return (
@@ -60,7 +60,7 @@ const NextJsCMSBlogPage = () => {
               <p className="font-semibold">Technologies</p>
               <p>
                 React.js, MongoDB, Node.js, Express.js, TypeScript, Redux,
-                Tailwind CSS, AWS S3, PayPal API, Google API, OAuth
+                Tailwind CSS, Cloudinary, PayPal API, Google API, OAuth
               </p>
             </div>
             <div className="project-source-code">
@@ -112,13 +112,20 @@ const NextJsCMSBlogPage = () => {
                 enhancing data privacy and user authentication mechanisms
               </li>
             </div>
-            <div className="feature-one space-y-1 mb-6">
+            <div className="feature-one space-y-1 mb-6 line-through">
               <p className="font-semibold">
                 AWS S3 Image Upload and Presigned URLs
               </p>
               <li>
                 Easily upload images via AWS S3 and access them securely using
                 pre-signed URLs for retrieval
+              </li>
+            </div>
+            <div className="feature-one space-y-1 mb-6">
+              <p className="font-semibold">Cloudinary Image Upload</p>
+              <li>
+                Easily upload images via Cloudinary and access them using
+                secured image URLs for retrieval
               </li>
             </div>
             <div className="feature-one space-y-1 mb-6">
@@ -275,4 +282,4 @@ const NextJsCMSBlogPage = () => {
   );
 };
 
-export default NextJsCMSBlogPage;
+export default MernStackKettlebellGearPage;

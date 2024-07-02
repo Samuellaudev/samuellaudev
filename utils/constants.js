@@ -215,7 +215,7 @@ export const featuredProjects = [
       'TypeScript',
       'Redux',
       'PayPal',
-      'AWS-S3',
+      'Cloudinary',
       'Tailwind-CSS',
       'Google API',
       'OAuth',
