@@ -193,7 +193,7 @@ export const featuredProjects = [
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
     projectUrl: 'https://nextjs-mongodb-cms.vercel.app/',
     projectDetails: '/projects/nextjs-blog-with-mongodb',
-    techStack: ['Next.js', 'MongoDB', 'Tailwind CSS', 'Stripe API', 'AWS-S3'],
+    techStack: ['Next.js', 'MongoDB', 'Tailwind CSS', 'Stripe API', 'Cloudinary'],
   },
   {
     id: 2,

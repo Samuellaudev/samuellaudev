@@ -63,7 +63,7 @@ const NextJsCMSBlogPage = () => {
             </div>
             <div className="project-technologies space-y-1 mb-4">
               <p className="font-semibold">Technologies</p>
-              <p>Next.js, MongoDB, Tailwind CSS, AWS S3, Stripe API</p>
+              <p>Next.js, MongoDB, Tailwind CSS, Cloudinary, Stripe API</p>
             </div>
             <div className="project-source-code">
               <p className="font-semibold">Source Code</p>
@@ -102,13 +102,20 @@ const NextJsCMSBlogPage = () => {
                 database management
               </li>
             </div>
-            <div className="feature-one space-y-1 mb-6">
+            <div className="feature-one space-y-1 mb-6 line-through">
               <p className="font-semibold">
                 AWS S3 Image Upload and Presigned URLs
               </p>
               <li>
                 Easily upload images via AWS S3 and access them securely using
                 pre-signed URLs for retrieval
+              </li>
+            </div>
+            <div className="feature-one space-y-1 mb-6 ">
+              <p className="font-semibold">Cloudinary Image Upload</p>
+              <li>
+                Easily upload images via Cloudinary and access them using
+                secured image URLs for retrieval
               </li>
             </div>
             <div className="feature-one space-y-1 mb-6">
@@ -261,6 +268,10 @@ const NextJsCMSBlogPage = () => {
         </section>
         <section className="flex flex-col md:flex-row justify-between my-10">
           <div className="flex flex-col mb-4">
+            <p className="font-semibold mb-4 italic">
+              (Update on July 2, 2024: The image upload process now uses
+              Cloudinary instead of AWS S3.)
+            </p>
             <h2 className="font-semibold mb-3">Challenge</h2>
             <div className="feature-one space-y-1 ">
               <p className="font-semibold mb-4">
