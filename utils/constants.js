@@ -92,6 +92,18 @@ export const projectsData = [
   },
   {
     id: 8,
+    title: 'RentEase',
+    description:
+      'A property rental platform created with Next.js, TailwindCSS, TypeScript, and Shadcn/UI.',
+    image: '/images/projects/RentEase.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/rentease',
+    previewUrl: 'https://www.samuellau.dev/projects/rentease',
+    categories: 'Projects',
+    isPublicLink: true,
+  },
+  {
+    id: 9,
     title: 'Portfolio website V1',
     description:
       'My first portfolio website that built using Hugo and hosted on GitHub Pages',
@@ -103,7 +115,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 9,
+    id: 10,
     title: 'Portfolio website V2',
     description:
       'My second portfolio website that built using Nuxt2 and hosted on Netlify',
@@ -115,7 +127,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 10,
+    id: 11,
     title: 'Feedback UI',
     description:
       'A React app (in TypeScript) for leaving feedback on a product or service using the Context API.',
@@ -125,7 +137,7 @@ export const projectsData = [
     previewUrl: 'https://feedback-app-usecontext.vercel.app/',
     categories: 'Projects',
     isPublicLink: true,
-  },
+  }
 ];
 
 // Contact Section
@@ -193,7 +205,7 @@ export const featuredProjects = [
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
     projectUrl: 'https://nextjs-mongodb-cms.vercel.app/',
     projectDetails: '/projects/nextjs-blog-with-mongodb',
-    techStack: ['Next.js', 'MongoDB', 'Tailwind CSS', 'Stripe API', 'Cloudinary'],
+    techStack: ['Next.js', 'MongoDB', 'TailwindCSS', 'Stripe API', 'Cloudinary'],
   },
   {
     id: 2,
@@ -216,12 +228,35 @@ export const featuredProjects = [
       'Redux',
       'PayPal',
       'Cloudinary',
-      'Tailwind-CSS',
+      'TailwindCSS',
       'Google API',
       'OAuth',
     ],
   },
+  {
+    id: 3,
+    image: {
+      path: '/images/projects/RentEase.png',
+      alt: 'Featured Project: RentEase',
+    },
+    title: 'RentEase - Property Rental Platform',
+    description:
+      'A versatile property rental platform created with Next.js, TailwindCSS, TypeScript, and Shadcn/UI, designed to highlight modern web development techniques.',
+    gitUrl: 'https://github.com/Samuellaudev/rentease',
+    projectUrl: 'https://rentease-dev.netlify.app/',
+    projectDetails: '/projects/rentease',
+    techStack: [
+      'Next.js',
+      'MongoDB',
+      'TypeScript',
+      'Shadcn/UI',
+      'Cloudinary',
+      'TailwindCSS',
+      'Next-Auth'
+    ],
+  },
 ];
+
 export const otherProjects = [
   {
     id: 1,

@@ -61,7 +61,7 @@ const FeaturedProjects = () => {
                   }
                 flex space-x-3`}
                 >
-                  <a href={project.gitUrl}>
+                  <a href={project.gitUrl} target="_blank">
                     <Image
                       src="/svg/socialMedia/icon-github.svg"
                       alt="github icon"
@@ -70,7 +70,7 @@ const FeaturedProjects = () => {
                       className={`${styles.project__icon} `}
                     />
                   </a>
-                  <a href={project.projectUrl}>
+                  <a href={project.projectUrl} target="_blank">
                     <IconContext.Provider value={{ size: '30px' }}>
                       <IoOpenOutline
                         className={`hover:text-gray-300 ${styles.project__icon}`}
