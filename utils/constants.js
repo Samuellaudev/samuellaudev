@@ -70,7 +70,7 @@ export const projectsData = [
     id: 6,
     title: 'NextJs - Blogging CMS with MongoDB in Serverless Architecture',
     description:
-      'Next.js + MongoDB: Effortlessly manage and publish blog content with Markdown for a flexible and dynamic web experience.',
+      'Effortlessly manage and publish blog content with Markdown for a flexible and dynamic web experience.',
     image: '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/nextjs-blog',
@@ -82,7 +82,7 @@ export const projectsData = [
     id: 7,
     title: 'MERN Stack & Redux - eCommerce Platform',
     description:
-      'MERN Stack & Redux: A kettlebell eCommerce platform. Integrate MongoDB, Express, React, Node.js, TypeScript and Redux for enhanced functionality and scalable performance.',
+      'A kettlebell eCommerce platform. Integrate MongoDB, Express, React, Node.js, TypeScript and Redux for enhanced functionality and scalable performance.',
     image: '/images/projects/Kettlebell_Gear_MERN_Stack.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
@@ -104,6 +104,18 @@ export const projectsData = [
   },
   {
     id: 9,
+    title: 'WebDevSpark',
+    description:
+      'A WordPress Theme project, encompassing a wide range of features, such as custom post types, search functionality and WP REST API.',
+    image: '/images/projects/WebDevSpark.png',
+    tag: ['All', 'Projects'],
+    gitUrl: 'https://github.com/Samuellaudev/webdevspark',
+    previewUrl: 'https://www.webdevspark.com/',
+    categories: 'Projects',
+    isPublicLink: true,
+  },
+  {
+    id: 10,
     title: 'Portfolio website V1',
     description:
       'My first portfolio website that built using Hugo and hosted on GitHub Pages',
@@ -115,7 +127,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 10,
+    id: 11,
     title: 'Portfolio website V2',
     description:
       'My second portfolio website that built using Nuxt2 and hosted on Netlify',
@@ -127,7 +139,7 @@ export const projectsData = [
     isPublicLink: true,
   },
   {
-    id: 11,
+    id: 12,
     title: 'Feedback UI',
     description:
       'A React app (in TypeScript) for leaving feedback on a product or service using the Context API.',
@@ -253,6 +265,26 @@ export const featuredProjects = [
       'Cloudinary',
       'TailwindCSS',
       'Next-Auth'
+    ],
+  },
+  {
+    id: 4,
+    image: {
+      path: '/images/projects/WebDevSpark.png',
+      alt: 'Featured Project: WebDevSpark',
+    },
+    title: 'WebDevSpark - Property Rental Platform',
+    description:
+      'A WordPress Theme project, encompassing a wide range of features, such as custom post types, search functionality and WP REST API.',
+    gitUrl: 'https://github.com/Samuellaudev/webdevspark',
+    projectUrl: 'https://www.webdevspark.com/',
+    projectDetails: '/projects/webdevspark',
+    techStack: [
+      'JavaScript',
+      'PHP',
+      'React.js',
+      'TailwindCSS',
+      'WordPress'
     ],
   },
 ];
