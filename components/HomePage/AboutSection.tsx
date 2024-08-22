@@ -10,14 +10,16 @@ const TAB_DATA = [
     title: 'Skills',
     content: (
       <ul className="list-disc pl-2 h-[168px]">
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>ReactJs & NextJs</li>
-        <li>VueJs & NuxtJs</li>
-        <li>Node.js</li>
-        <li>Jest</li>
         <li>AWS Cloud Services</li>
         <li>HTML5 + CSS3</li>
+        <li>Jest</li>
+        <li>JavaScript</li>
+        <li>Node.js</li>
+        <li>PHP</li>
+        <li>ReactJs & NextJs</li>
+        <li>TypeScript</li>
+        <li>VueJs & NuxtJs</li>
+        <li>WordPress</li>
       </ul>
     ),
   },
@@ -61,8 +63,8 @@ const AboutSection = () => {
         <div className="notebook-image">
           <Image
             src="/images/about-image.png"
-            width={500}
-            height={500}
+            width={ 500 }
+            height={ 500 }
             alt="about-image"
             className="rounded-xl hidden md:block md:border-2 md:border-[#ADB7BE] dark:border-0"
           />
@@ -81,26 +83,26 @@ const AboutSection = () => {
           </p>
           <div className="flex flex-row mt-8">
             <TabButton
-              selectTab={() => handleTabChange('skills')}
-              active={tab === 'skills'}
+              selectTab={ () => handleTabChange('skills') }
+              active={ tab === 'skills' }
             >
               Skills
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange('experience')}
-              active={tab === 'experience'}
+              selectTab={ () => handleTabChange('experience') }
+              active={ tab === 'experience' }
             >
               Experience
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange('certifications')}
-              active={tab === 'certifications'}
+              selectTab={ () => handleTabChange('certifications') }
+              active={ tab === 'certifications' }
             >
               Certifications
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((item) => item.id === tab)?.content}
+            { TAB_DATA.find((item) => item.id === tab)?.content }
           </div>
         </div>
       </div>

@@ -67,15 +67,20 @@ const NextJsCMSBlogPage = () => {
             </div>
             <div className="project-source-code">
               <p className="font-semibold">Source Code</p>
-              <a href="https://github.com/Samuellaudev/nextjs-blog">
-                <Image
-                  src="/svg/socialMedia/icon-github.svg"
-                  alt="github icon"
-                  width={25}
-                  height={25}
-                  className="pt-2 cursor-pointer duration-200 brightness-0 hover:brightness-[50%] hover:contrast-[100%]"
-                />
-              </a>
+              <div className="flex flex-row space-x-2">
+                <a
+                  href="https://github.com/Samuellaudev/nextjs-blog"
+                  target="_blank"
+                >
+                  <Image
+                    src="/svg/socialMedia/icon-github.svg"
+                    alt="github icon"
+                    width={25}
+                    height={25}
+                    className="pt-2 cursor-pointer duration-200 brightness-0 hover:brightness-[50%] hover:contrast-[100%] dark:brightness-200"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </section>
