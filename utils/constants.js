@@ -110,7 +110,7 @@ export const projectsData = [
     image: '/images/projects/WebDevSpark.png',
     tag: ['All', 'Projects'],
     gitUrl: 'https://github.com/Samuellaudev/webdevspark',
-    previewUrl: 'https://www.webdevspark.com/',
+    previewUrl: 'https://www.samuellau.dev/projects/webdevspark',
     categories: 'Projects',
     isPublicLink: true,
   },
@@ -273,7 +273,7 @@ export const featuredProjects = [
       path: '/images/projects/WebDevSpark.png',
       alt: 'Featured Project: WebDevSpark',
     },
-    title: 'WebDevSpark - Property Rental Platform',
+    title: 'WebDevSpark - WordPress Theme Development',
     description:
       'A WordPress Theme project, encompassing a wide range of features, such as custom post types, search functionality and WP REST API.',
     gitUrl: 'https://github.com/Samuellaudev/webdevspark',

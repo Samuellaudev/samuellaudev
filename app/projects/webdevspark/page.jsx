@@ -15,7 +15,7 @@ const WebDevSparkPage = () => {
           <h2
             className={`${styles.project__heading} mb-10 text-gray-600 dark:text-white`}
           >
-            WebDevSpark - WordPress Theme project
+            WebDevSpark - WordPress Theme Development
           </h2>
           <button
             onClick={() => router.back()}
