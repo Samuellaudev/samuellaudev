@@ -10,7 +10,7 @@
 
 :root {
   --black: #1c1c1c;
-  --gray: #7E7E7E;
+  --gray: #7e7e7e;
   --gray-light: #4d4d4d;
   --red: #b30000;
   --font-size-base: 1rem;
@@ -21,6 +21,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --color-primary: theme('colors.primary.500');
+  --color-secondary: theme('colors.secondary.500');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -63,14 +65,14 @@ footer {
   margin-top: auto;
 }
 
-code[node="[object Object]"] {
+code[node='[object Object]'] {
   background-color: #e4e4e4;
   padding: 3px 5px;
   border-radius: 5px;
 }
 
 @media (prefers-color-scheme: dark) {
-  code[node="[object Object]"] {
+  code[node='[object Object]'] {
     color: black;
   }
 }
