@@ -6,6 +6,7 @@ import { IconContext } from 'react-icons';
 import { IoOpenOutline } from 'react-icons/io5';
 import { CiFolderOn } from 'react-icons/ci';
 import { otherProjects } from '@/utils/constants';
+import Spotlight from '@/components/Animation/Spotlight';
 
 const OtherProjects = () => {
   return (
@@ -16,9 +17,9 @@ const OtherProjects = () => {
       <div className="md:grid md:grid-cols-3 gap-4">
         {otherProjects.map((project) => {
           return (
-            <div
+            <Spotlight
               key={project.id}
-              className="text-white mb-5 p-6 rounded-md shadow-md text-left bg-gradient-to-r from-gray-500/90 to-gray-800 transition hover:-translate-y-2 duration-200 dark:border dark:bg-none"
+              className="text-[#565b5f] mb-5 p-6 rounded-md shadow-md text-left transition hover:-translate-y-2 duration-200 dark:text-white border dark:border-zinc-800"
             >
               <div className="flex flex-col">
                 <div className="flex justify-between items-center">
@@ -34,7 +35,7 @@ const OtherProjects = () => {
                         alt="github icon"
                         width={25}
                         height={25}
-                        className={`${styles.project__icon}`}
+                        className={`${styles.other__project__icon}`}
                       />
                     </a>
                     <a href={project.projectUrl}>
@@ -49,7 +50,7 @@ const OtherProjects = () => {
                 <div className="py-6">
                   <a href={project.projectUrl}>
                     <h2 className="font-semibold ">{project.title}</h2>
-                    <div className="text-gray-200  my-3">
+                    <div className="text-[#565b5f] dark:text-gray-200  my-3">
                       {project.description}
                     </div>
                     <div className="text-sm space-x-3 pt-4">
@@ -60,7 +61,7 @@ const OtherProjects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </Spotlight>
           );
         })}
       </div>

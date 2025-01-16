@@ -1,10 +1,12 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 import { readingTime, formatDate } from '@/utils/helpers';
 import { BlogPostLoading as Loading } from './Loading';
 import styles from './homePageSection.module.css';
+import Spotlight from '../Animation/Spotlight';
 
 const BlogSection = () => {
   const [posts, setPosts] = useState([]);
@@ -51,9 +53,9 @@ const BlogSection = () => {
           <>
             {posts.map((post) => {
               return (
-                <div
+                <Spotlight
                   key={post._id}
-                  className="flex flex-col justify-between w-full md:w-1/3 px-8 py-4 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 duration-200 bg-white border dark:bg-black"
+                  className="flex flex-col justify-between w-full md:w-1/3 px-8 py-4 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 duration-200 bg-white border"
                 >
                   <div className="upper-content">
                     <p className="font-light text-sm text-gray-600 dark:text-gray-400">
@@ -83,7 +85,7 @@ const BlogSection = () => {
                   >
                     Read more
                   </Link>
-                </div>
+                </Spotlight>
               );
             })}
           </>
