@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { readingTime, formatDate } from '@/utils/helpers';
@@ -18,15 +18,15 @@ const Posts = ({ pageHeading }) => {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    const pageNumber = parseInt(searchParams.get('pageNumber')) || 1;
-    const search = searchParams.get('search') || '';
-    setPageNumber(pageNumber);
-    setSearch(search);
-  }, [search, pageNumber]);
+    // const pageNumber = parseInt(searchParams.get('pageNumber')) || 1;
+    // const search = searchParams.get('search') || '';
+    setPageNumber(parseInt(searchParams.get('pageNumber')) || 1);
+    setSearch(searchParams.get('search') || '');
+  }, []);
 
   const router = useRouter();
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     setIsLoading(true);
     try {
       const response = await axios.get(
@@ -36,15 +36,16 @@ const Posts = ({ pageHeading }) => {
 
       setPostsData(postsData);
     } catch (error) {
+      toast.error('Failed to fetch posts');
       console.error('Error fetching posts:', error);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [search, pageNumber]);
 
   useEffect(() => {
     fetchPosts();
-  }, [search, pageNumber]);
+  }, [fetchPosts]);
 
   const handleAddNewPost = () => router.push('/new-post');
 
@@ -104,10 +105,10 @@ const Posts = ({ pageHeading }) => {
                     </p>
                   </div>
                   {pageHeading === 'Latest Posts' && (
-                    <p className={styles.article_list__date}>
+                    <div className={styles.article_list__date}>
                       {formatDate(post.createdAt)}
-                      <p className="">{readingTime(post?.body)}</p>
-                    </p>
+                      <div className="">{readingTime(post?.body)}</div>
+                    </div>
                   )}
                   {pageHeading === 'Dashboard' && (
                     <div className="flex flex-col">
