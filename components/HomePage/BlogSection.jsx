@@ -42,20 +42,20 @@ const BlogSection = () => {
         </span>
       </h2>
 
-      <div className="flex flex-col space-y-5 md:flex-row md:space-x-5 md:space-y-0">
+      <>
         {isLoading ? (
-          <>
+          <div className="flex space-x-4">
             {numberOfPosts.map((item, index) => (
               <Loading key={index} />
             ))}
-          </>
+          </div>
         ) : (
-          <>
+          <div className="flex space-x-4 overflow-x-auto no-scrollbar">
             {posts.map((post) => {
               return (
                 <Spotlight
                   key={post._id}
-                  className="flex flex-col justify-between w-full md:w-1/3 px-8 py-4 rounded-lg shadow-md hover:shadow-2xl hover:-translate-y-1 duration-200 bg-white border"
+                  className="flex flex-col justify-between shrink-0 md:shrink w-[300px] md:w-1/3 px-8 py-4 my-2 rounded-lg shadow-md hover:shadow-lg hover:-translate-y-1 duration-200 bg-white border dark:border-none"
                 >
                   <div className="upper-content">
                     <p className="font-light text-sm text-gray-600 dark:text-gray-400">
@@ -88,9 +88,9 @@ const BlogSection = () => {
                 </Spotlight>
               );
             })}
-          </>
+          </div>
         )}
-      </div>
+      </>
     </section>
   );
 };
