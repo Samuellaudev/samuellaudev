@@ -44,7 +44,7 @@ const BlogSection = () => {
 
       <>
         {isLoading ? (
-          <div className="flex space-x-4">
+          <div className="flex space-x-2 md:space-x-10 overflow-x-auto">
             {numberOfPosts.map((item, index) => (
               <Loading key={index} />
             ))}
@@ -62,13 +62,9 @@ const BlogSection = () => {
                       {formatDate(post?.createdAt)}
                     </p>
                     <div className="mt-2">
-                      <Link
-                        href={`/blog/${post?._id}`}
-                        className="text-lg font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200 hover:underline"
-                        role="link"
-                      >
+                      <p className="text-lg font-bold text-gray-700 dark:text-white hover:text-gray-600 dark:hover:text-gray-200">
                         {post?.title}
-                      </Link>
+                      </p>
                       <p className="text-sm pt-2 text-gray-600 dark:text-gray-400">
                         {readingTime(post?.body)}
                       </p>

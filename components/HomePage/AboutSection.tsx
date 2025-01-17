@@ -1,61 +1,50 @@
 'use client';
-import React, { useState, useTransition } from 'react';
-import Image from 'next/image';
-import TabButton from '../TabButton';
-import { TabDataType } from '@/types/share.type';
 
-const TAB_DATA = [
-  {
-    id: 'skills',
-    title: 'Skills',
-    content: (
-      <ul className="list-disc pl-2 h-[168px]">
-        <li>AWS Cloud Services</li>
-        <li>HTML5 + CSS3</li>
-        <li>Jest</li>
-        <li>JavaScript</li>
-        <li>Node.js</li>
-        <li>PHP</li>
-        <li>ReactJs & NextJs</li>
-        <li>TypeScript</li>
-        <li>VueJs & NuxtJs</li>
-        <li>WordPress</li>
-      </ul>
-    ),
-  },
-  {
-    id: 'experience',
-    title: 'Experience',
-    content: (
-      <ul className="list-disc pl-2 h-[168px]">
-        <li>Automated Systems (H.K.) Limited - Programmer</li>
-        <li>PressLogic - Web Developer</li>
-        <li>LANE EIGHT - Junior Web Developer</li>
-      </ul>
-    ),
-  },
-  {
-    id: 'certifications',
-    title: 'Certifications',
-    content: (
-      <ul className="list-disc pl-2 h-[168px]">
-        <li>AWS Certified Solution Architect </li>
-        <li>
-          Educative.io - Testing React Apps with Jest and React Testing Library
-        </li>
-        <li>Educative.io - Become a VueJS Developer</li>
-      </ul>
-    ),
-  },
-] as TabDataType[];
+import Image from 'next/image';
+import SharedTabsLayout from '@/components/Animation/SharedTabsLayout';
 
 const AboutSection = () => {
-  const [tab, setTab] = useState('skills');
-  const [isPending, startTransition] = useTransition();
-
-  const handleTabChange = (tab: string) => {
-    startTransition(() => setTab(tab));
-  };
+  const TAB_DATA = [
+    {
+      label: 'Skills',
+      content: (
+        <ul className="list-disc space-y-1">
+          <li>AWS Cloud Services</li>
+          <li>HTML5 + CSS3</li>
+          <li>Jest</li>
+          <li>JavaScript</li>
+          <li>Node.js</li>
+          <li>PHP</li>
+          <li>ReactJs & NextJs</li>
+          <li>TypeScript</li>
+          <li>VueJs & NuxtJs</li>
+          <li>WordPress</li>
+        </ul>
+      ),
+    },
+    {
+      label: 'Experience',
+      content: (
+        <ul className="list-disc space-y-1">
+          <li>Automated Systems (H.K.) Limited - Programmer</li>
+          <li>PressLogic - Web Developer</li>
+          <li>LANE EIGHT - Junior Web Developer</li>
+        </ul>
+      ),
+    },
+    {
+      label: 'Certifications',
+      content: (
+        <ul className="list-disc space-y-1">
+          <li>AWS Certified Solution Architect </li>
+          <li>
+            Educative.io - Testing React Apps with Jest and React Testing Library
+          </li>
+          <li>Educative.io - Become a VueJS Developer</li>
+        </ul>
+      ),
+    },
+  ];
 
   return (
     <section id="about" className="text-[#565b5f] dark:text-white pt-20">
@@ -81,29 +70,7 @@ const AboutSection = () => {
             enjoy working with others to deliver amazing digital experiences.
             Let&apos;s build something amazing together!
           </p>
-          <div className="flex flex-row mt-8">
-            <TabButton
-              selectTab={ () => handleTabChange('skills') }
-              active={ tab === 'skills' }
-            >
-              Skills
-            </TabButton>
-            <TabButton
-              selectTab={ () => handleTabChange('experience') }
-              active={ tab === 'experience' }
-            >
-              Experience
-            </TabButton>
-            <TabButton
-              selectTab={ () => handleTabChange('certifications') }
-              active={ tab === 'certifications' }
-            >
-              Certifications
-            </TabButton>
-          </div>
-          <div className="mt-8">
-            { TAB_DATA.find((item) => item.id === tab)?.content }
-          </div>
+          <SharedTabsLayout tabs={ TAB_DATA } />
         </div>
       </div>
     </section>
