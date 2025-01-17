@@ -14,6 +14,7 @@ import SearchBox from '../SearchBox';
 import VerifyEmailReminder from '../Email/VerifyEmailReminder';
 import styles from './navbar.module.css';
 import { navLinks } from '@/utils/constants';
+import SliderToggle from '@/components/Animation/SliderToggle';
 
 const Navbar = () => {
   const { userInfo, navbarOpen, setNavbarOpen } = useContext(ThemeContext);
@@ -87,7 +88,8 @@ const Navbar = () => {
                 />
               </li>
             ))}
-            <ThemeSwitch />
+            <SliderToggle />
+            {/* <ThemeSwitch /> */}
           </ul>
         </div>
         {/* Mobile Menu */}
