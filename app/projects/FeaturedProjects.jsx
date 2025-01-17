@@ -33,7 +33,7 @@ const FeaturedProjects = () => {
                   <p className="pb-2">
                     <code>Featured Project</code>
                   </p>
-                  <Link href={project.projectDetails}>
+                  <div>
                     <h2 className="font-semibold ">{project.title}</h2>
                     <div
                       className={`${
@@ -42,7 +42,7 @@ const FeaturedProjects = () => {
                     >
                       {project.description}
                     </div>
-                  </Link>
+                  </div>
                   <div
                     className={`${
                       Number(project.id) % 2 !== 0 ? 'md:mr-8' : 'md:ml-8'
