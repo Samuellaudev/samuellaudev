@@ -10,41 +10,34 @@ const MenuOverlay = ({
   onClick,
   onClickNavBar,
 }) => {
-  const renderLoggedInLinks = () => {
-    return (
-      <>
-        <NavLink
-          href="/dashboard?search=&pageNumber=1"
-          title={`(${username})`}
-          pathname={pathname}
-        />
-        <NavLink href="" title="Logout" pathname="/logout" onClick={onClick} />
-      </>
-    );
-  };
-
-  const renderNavLinks = () => {
-    return (
-      <>
-        {isLogin && renderLoggedInLinks()}
-        {links.map((link, index) => (
-          <li key={index}>
-            <NavLink
-              href={link.path}
-              title={link.title}
-              pathname={pathname}
-              onClick={onClickNavBar}
-            />
-          </li>
-        ))}
-        <ThemeSwitch className="mt-5" />
-      </>
-    );
-  };
-
   return (
     <ul className="flex flex-col py-4 items-center md:hidden">
-      {renderNavLinks()}
+      {isLogin && (
+        <>
+          <NavLink
+            href="/dashboard?search=&pageNumber=1"
+            title={`(${username})`}
+            pathname={pathname}
+          />
+          <NavLink
+            href=""
+            title="Logout"
+            pathname="/logout"
+            onClick={onClick}
+          />
+        </>
+      )}
+      {links.map((link, index) => (
+        <li key={index}>
+          <NavLink
+            href={link.path}
+            title={link.title}
+            pathname={pathname}
+            onClick={onClickNavBar}
+          />
+        </li>
+      ))}
+      <ThemeSwitch className="mt-5" />
     </ul>
   );
 };

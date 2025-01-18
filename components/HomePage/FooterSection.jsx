@@ -45,7 +45,7 @@ const FooterSection = () => {
             alt="website logo"
             width={35}
             height={35}
-            className="mb-6 md:mb-0 mx-auto md:mx-0 rounded"
+            className="mb-6 md:mb-0 mx-auto md:mx-0 rounded-full"
           />
         </Link>
         <p className="">

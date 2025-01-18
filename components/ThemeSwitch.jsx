@@ -44,7 +44,7 @@ export default function ThemeSwitch() {
     return (
       <FiMoon
         onClick={() => handleOnClick('dark')}
-        className="cursor-pointer my-3 md:my-0"
+        className="text-slate-900 cursor-pointer my-3 md:my-0"
       />
     );
   }

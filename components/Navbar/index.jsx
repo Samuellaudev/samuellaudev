@@ -1,20 +1,20 @@
 'use client';
-import { USERS_URL } from '@/utils/constants';
+import { USERS_URL, navLinks, logo } from '@/utils/constants';
 import { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '@/context/theme-provider';
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
-import MenuOverlay from './MenuOverlay';
-import NavLink from './NavLink';
-import SearchBox from '../SearchBox';
-import VerifyEmailReminder from '../Email/VerifyEmailReminder';
-import styles from './navbar.module.css';
-import { navLinks, logo } from '@/utils/constants';
+import MenuOverlay from '@/components/Navbar/MenuOverlay';
+import NavLink from '@/components/Navbar/NavLink';
 import SliderToggle from '@/components/Animation/SliderToggle';
+import SearchBox from '@/components/SearchBox';
+import VerifyEmailReminder from '@/components/Email/VerifyEmailReminder';
+
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import styles from './navbar.module.css';
 
 const Navbar = () => {
   const { userInfo, navbarOpen, setNavbarOpen } = useContext(ThemeContext);
@@ -46,7 +46,7 @@ const Navbar = () => {
   const handleNavBarOpen = () => setNavbarOpen((prevState) => !prevState);
 
   return (
-    <nav className="fixed mx-auto border border-[#33353F] top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-[#121212] bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
+    <nav className="fixed mx-auto border border-[#33353F] top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-white dark:bg-[#121212] bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-2 lg:py-4">
         <Link
           href="/"
