@@ -21,7 +21,7 @@ const WebDevSparkPage = () => {
               WebDevSpark - WordPress Theme Development
             </h2>
             <button
-              onClick={() => router.back()}
+              onClick={() => router.push('/projects')}
               className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
             >
               <span className="hidden md:inline">&larr; </span>Back
