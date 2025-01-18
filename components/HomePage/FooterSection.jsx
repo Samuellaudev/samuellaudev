@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { socialLinks } from '@/utils/constants';
+import { socialLinks, logo } from '@/utils/constants';
 import styles from './homePageSection.module.css';
 import { useTheme } from 'next-themes';
 
@@ -41,7 +41,7 @@ const FooterSection = () => {
           className="text-2xl md:text-5xl text-white font-semibold"
         >
           <Image
-            src="/images/Logo.png"
+            src={logo}
             alt="website logo"
             width={35}
             height={35}

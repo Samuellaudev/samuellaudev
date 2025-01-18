@@ -179,6 +179,8 @@ export const navLinks = [
   { title: 'Contact', path: '/contact' },
 ];
 
+export const logo = '/images/logo.png'
+
 // API path
 export const BACKEND_URL = process.env.BACKEND_URL;
 export const USERS_URL = '/api/users';
