@@ -20,21 +20,22 @@ const Post = ({ params }) => {
     createdAt: '',
     image: {},
   });
-  const [imgLink, setImgLink] = useState('');
+  // const [imgLink, setImgLink] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
 
-  const retrieveImage = async (imageName) => {
-    try {
-      const res = await axios.get(`${AWS_S3_GET_URL}/${imageName}`);
-      const { url } = res.data;
+  // Reactivate until migrate to Cloudinary
+  // const retrieveImage = async (imageName) => {
+  //   try {
+  //     const res = await axios.get(`${AWS_S3_GET_URL}/${imageName}`);
+  //     const { url } = res.data;
 
-      setImgLink(url);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     setImgLink(url);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -43,7 +44,7 @@ const Post = ({ params }) => {
         const response = await axios.get(`${POSTS_URL}/${params.id}`);
         const postData = response.data;
 
-        await retrieveImage(postData?.image?.name);
+        // await retrieveImage(postData?.image?.name);
         setPost(postData);
         setIsLoading(false);
       } catch (error) {
@@ -74,8 +75,12 @@ const Post = ({ params }) => {
           ) : (
             <></>
           )} */}
-          <div className="flex flex-row justify-between items-start">
-            <h1 className={styles.post__title}>{post.title}</h1>
+          <h1 className="my-5">{post.title}</h1>
+          <div className="flex justify-between">
+            <div className={styles.post__date}>
+              {formatDate(post?.createdAt)}
+              <p className="">{readingTime(post?.body)}</p>
+            </div>
             <button
               onClick={() => router.back()}
               className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
@@ -83,10 +88,6 @@ const Post = ({ params }) => {
               <span className="hidden md:inline">&larr; </span>Back
             </button>
           </div>
-          <p className={styles.post__date}>
-            {formatDate(post?.createdAt)}
-            <p className="">{readingTime(post?.body)}</p>
-          </p>
           <div className={styles.post__body}>
             <MarkdownPreview post={post.body} isEdit={false} />
           </div>
