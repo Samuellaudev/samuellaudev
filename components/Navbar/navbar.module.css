@@ -1,5 +1,5 @@
 .menuIcon {
-  @apply flex items-center px-2 py-2 border rounded-full border-slate-600 text-slate-600 hover:text-[#ADB7BE] hover:border-[#ADB7BE] hover:dark:text-white hover:dark:border-white transition duration-200;
+  @apply flex items-center px-2 py-2 border rounded-full border-slate-600 text-slate-600 hover:text-[#ADB7BE] hover:border-[#ADB7BE] transition duration-200;
 }
 
 .ficon:hover {

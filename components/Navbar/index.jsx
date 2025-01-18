@@ -1,4 +1,5 @@
 'use client';
+
 import { USERS_URL, navLinks, logo } from '@/utils/constants';
 import { useState, useEffect, useContext } from 'react';
 import { ThemeContext } from '@/context/theme-provider';
@@ -12,9 +13,6 @@ import NavLink from '@/components/Navbar/NavLink';
 import SliderToggle from '@/components/Animation/SliderToggle';
 import SearchBox from '@/components/SearchBox';
 import VerifyEmailReminder from '@/components/Email/VerifyEmailReminder';
-
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import styles from './navbar.module.css';
 
 const Navbar = () => {
   const { userInfo, navbarOpen, setNavbarOpen } = useContext(ThemeContext);
@@ -43,13 +41,12 @@ const Navbar = () => {
     }
   };
 
-  const handleNavBarOpen = () => setNavbarOpen((prevState) => !prevState);
-
   return (
-    <nav className="fixed mx-auto border border-[#33353F] top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-white dark:bg-[#121212] bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
+    <nav className="fixed mx-auto border border-[#33353F] top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-white dark:bg-[#121212]/80 bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-2 lg:py-4">
         <Link
           href="/"
+          onClick={() => (navbarOpen ? setNavbarOpen((pv) => !pv) : null)}
           className="text-2xl md:text-5xl text-white font-semibold"
         >
           <Image
@@ -57,7 +54,7 @@ const Navbar = () => {
             alt="website logo"
             width={35}
             height={35}
-            className="mx-auto md:mx-0 rounded-full"
+            className="mx-auto md:mx-0 rounded-full dark:border dark:border-slate-800"
           />
         </Link>
 
@@ -100,25 +97,15 @@ const Navbar = () => {
               <SearchBox isMobile={true} />
             </div>
           )} */}
-          <button onClick={handleNavBarOpen} className={styles.menuIcon}>
-            {navbarOpen ? (
-              <XMarkIcon className="h-5 w-5" />
-            ) : (
-              <Bars3Icon className="h-5 w-5" />
-            )}
-          </button>
+          <MenuOverlay
+            isLogin={isLogin}
+            username={userInfo?.name}
+            links={navLinks}
+            pathname={pathname}
+            onClick={handleLogout}
+          />
         </div>
       </div>
-      {navbarOpen && (
-        <MenuOverlay
-          isLogin={isLogin}
-          username={userInfo?.name}
-          links={navLinks}
-          pathname={pathname}
-          onClick={handleLogout}
-          onClickNavBar={handleNavBarOpen}
-        />
-      )}
       {isLogin && (
         <VerifyEmailReminder pathname={pathname} userInfo={userInfo} />
       )}
