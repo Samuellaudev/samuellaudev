@@ -7,7 +7,7 @@ const NavLink = ({ href, title, pathname, onClick }) => {
   const linkClasses = clsx(
     'block mt-2 py-2 pl-3 pr-4 text-slate-900 dark:text-[#ADB7BE] sm:text-lg rounded md:p-0 hover:text-[#ADB7BE] hover:dark:text-white',
     {
-      'text-white': isActive,
+      'text-[#ADB7BE]': isActive,
     },
   );
 
