@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from '@/context/theme-provider';
 import { poppins } from '@/components/fonts';
 import Navbar from '@/components/Navbar';
+import BackToTop from '@/components/BackToTop';
 import FooterSection from '@/components/HomePage/FooterSection';
 import 'react-toastify/dist/ReactToastify.css';
 import '@/css/globals.css';
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
       <body className={ `${ poppins.className }` }>
         <ThemeProvider>
           <main className='flex min-h-screen flex-col bg-white text-black dark:bg-black dark:text-black'>
+            <BackToTop />
             <Navbar />
             <div className="mt-10 md:mt-5">{ children }</div>
             <FooterSection />
