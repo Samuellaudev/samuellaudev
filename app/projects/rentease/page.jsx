@@ -3,6 +3,7 @@
 import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
+import ProjectFeatures from '@/components/Projects/ProjectFeatures';
 import Image from 'next/image';
 
 const RentEasePage = () => {
@@ -33,7 +34,7 @@ const RentEasePage = () => {
           imagePath="/images/projects/RentEase.png"
         />
 
-        {/* Project Description*/}
+        {/* Project Details*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
           <ProjectDescription
             projectDescription={projectDetails.description}
@@ -42,81 +43,8 @@ const RentEasePage = () => {
             sourceCode={projectDetails.sourceCode}
           />
 
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Features</h2>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Property search, listing CRUD operations
-                </p>
-                <li>
-                  Set up property search and listing CRUD operations to manage
-                  real estate content effectively
-                </li>
-                <li>
-                  Create, read, update, and delete property listings for
-                  streamlined data management, and integrate search
-                  functionality to help users find properties based on various
-                  criteria, ensuring a user-friendly experience for both
-                  administrators and visitors
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  User authentication with Google and Next Auth
-                </p>
-                <li>
-                  Implement user authentication using Google and Next Auth to
-                  ensure secure and efficient login processes
-                </li>
-                <li>
-                  Enable users to sign in with their Google accounts,
-                  streamlining the authentication process and enhancing security
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Photoswipe image gallery and Cloudinary for image storage
-                </p>
-                <li>
-                  Create interactive and responsive image galleries using
-                  Photoswipe, integrated with Cloudinary for effortless image
-                  storage and management
-                </li>
-                <li>
-                  Cloudinary handles hosting and delivery, ensuring
-                  high-performance image loading
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  TypeScript support for type-safe development and improved code
-                  quality
-                </p>
-                <li>
-                  Incorporate TypeScript to achieve type-safe development and
-                  improved code quality
-                </li>
-                <li>
-                  Utilizing TypeScript provides stronger type checking and error
-                  prevention, resulting in more reliable and maintainable code
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Responsive design: TailwindCSS and Shadcn/UI
-                </p>
-                <li>
-                  Utilize TailwindCSS and Shadcn/UI for responsive design and
-                  consistent, reusable UI components
-                </li>
-                <li>
-                  TailwindCSS ensures flexible, responsive layouts, while
-                  Shadcn/UI provides a library of cohesive, reusable components
-                </li>
-              </div>
-            </div>
-          </section>
+          <ProjectFeatures projectFeatures={projectFeatures} />
+
           <section className="flex flex-col md:flex-row justify-between my-10">
             <div className="flex flex-col mb-4">
               <h2 className="font-semibold mb-3">Property search</h2>
@@ -210,3 +138,47 @@ const RentEasePage = () => {
 };
 
 export default RentEasePage;
+
+const projectFeatures = [
+  {
+    title: 'Property search, listing CRUD operations',
+    content: [
+      'Set up property search and listing CRUD operations to manage real estate content effectively',
+      'Create, read, update, and delete property listings for streamlined data management, and integrate search functionality to help users find properties based on various criteria, ensuring a user-friendly experience for both administrators and visitors',
+    ],
+    removed: false,
+  },
+  {
+    title: 'User authentication with Google and Next Auth',
+    content: [
+      'Implement user authentication using Google and Next Auth to ensure secure and efficient login processes',
+      'Enable users to sign in with their Google accounts, streamlining the authentication process and enhancing security',
+    ],
+    removed: false,
+  },
+  {
+    title: 'Photoswipe image gallery and Cloudinary for image storage',
+    content: [
+      'Create interactive and responsive image galleries using Photoswipe, integrated with Cloudinary for effortless image storage and management',
+      'Cloudinary handles hosting and delivery, ensuring high-performance image loading',
+    ],
+    removed: false,
+  },
+  {
+    title:
+      'TypeScript support for type-safe development and improved code quality',
+    content: [
+      'Incorporate TypeScript to achieve type-safe development and improved code quality',
+      'Utilizing TypeScript provides stronger type checking and error prevention, resulting in more reliable and maintainable code',
+    ],
+    removed: false,
+  },
+  {
+    title: 'Responsive design: TailwindCSS and Shadcn/UI',
+    content: [
+      'Utilize TailwindCSS and Shadcn/UI for responsive design and consistent, reusable UI components',
+      'TailwindCSS ensures flexible, responsive layouts, while Shadcn/UI provides a library of cohesive, reusable components',
+    ],
+    removed: false,
+  },
+];

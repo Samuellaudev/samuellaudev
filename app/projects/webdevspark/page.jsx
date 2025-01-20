@@ -3,6 +3,7 @@
 import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
+import ProjectFeatures from '@/components/Projects/ProjectFeatures';
 import Image from 'next/image';
 
 const WebDevSparkPage = () => {
@@ -41,53 +42,8 @@ const WebDevSparkPage = () => {
             sourceCode={projectDetails.sourceCode}
           />
 
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Features</h2>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">Custom Post Types and ACF</p>
-                <li>
-                  Define and manage custom post types to extend WordPress beyond
-                  standard posts and pages, allowing for the creation of various
-                  content structures such as ‘Project’ and ‘Language’.
-                </li>
-                <li>
-                  ACF (Advanced Custom Fields) enable the addition of specific
-                  data like text, images, and relationships.
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Search Functionality and WP REST API
-                </p>
-                <li>
-                  Enhance the user experience with powerful search functionality
-                  by integrating the WP REST API using plain JavaScript. This
-                  approach enables dynamic search queries and responses,
-                  offering a flexible and scalable search solution.
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">React and Gutenberg Block Type</p>
-                <li>
-                  Build interactive Gutenberg blocks using React to create
-                  custom, dynamic content elements. This method leverages
-                  React’s capabilities for a modern, responsive editing
-                  experience within WordPress.
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  TailwindCSS and Mobile-First Design
-                </p>
-                <li>
-                  Use TailwindCSS, as well as SCSS, to create fully responsive
-                  designs, ensuring the site performs well on any device with
-                  easy adjustments for different screen sizes.
-                </li>
-              </div>
-            </div>
-          </section>
+          <ProjectFeatures projectFeatures={projectFeatures} />
+
           <section className="flex flex-col md:flex-row justify-between my-10">
             <div className="flex flex-col mb-4">
               <h2 className="font-semibold mb-3">Custom Post Types and ACF</h2>
@@ -162,3 +118,35 @@ const WebDevSparkPage = () => {
 };
 
 export default WebDevSparkPage;
+
+const projectFeatures = [
+  {
+    title: 'Custom Post Types and ACF',
+    content: [
+      'Define and manage custom post types to extend WordPress beyond standard posts and pages, allowing for the creation of various content structures such as ‘Project’ and ‘Language’.',
+      'ACF (Advanced Custom Fields) enable the addition of specific data like text, images, and relationships.',
+    ],
+    removed: false,
+  },
+  {
+    title: 'Search Functionality and WP REST API',
+    content: [
+      'Enhance the user experience with powerful search functionality by integrating the WP REST API using plain JavaScript. This approach enables dynamic search queries and responses, offering a flexible and scalable search solution.',
+    ],
+    removed: false,
+  },
+  {
+    title: 'React and Gutenberg Block Type',
+    content: [
+      'Build interactive Gutenberg blocks using React to create custom, dynamic content elements. This method leverages React’s capabilities for a modern, responsive editing experience within WordPress.',
+    ],
+    removed: false,
+  },
+  {
+    title: 'TailwindCSS and Mobile-First Design',
+    content: [
+      'Use TailwindCSS, as well as SCSS, to create fully responsive designs, ensuring the site performs well on any device with easy adjustments for different screen sizes.',
+    ],
+    removed: false,
+  },
+];

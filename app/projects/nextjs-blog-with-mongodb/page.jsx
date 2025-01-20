@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
+import ProjectFeatures from '@/components/Projects/ProjectFeatures';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -26,6 +27,57 @@ const NextJsCMSBlogPage = () => {
     sourceCode: 'https://github.com/Samuellaudev/nextjs-blog',
   };
 
+  const projectFeatures = [
+    {
+      title: 'CMS Blogging system',
+      content: [
+        "Display all posts on the home and blog pages, depending on the user's login status",
+        'Add, edit or delete post in Admin account in Markdown syntax',
+      ],
+      removed: false,
+    },
+    {
+      title: 'Interact with MongoDB via Vercel Functions',
+      content: [
+        "Vercel's Serverless Functions simplifies MongoDB interaction, offering cost-effective, secure, and hassle-free database management",
+      ],
+      removed: false,
+    },
+    {
+      title: 'AWS S3 Image Upload and Presigned URLs',
+      content: [
+        'Easily upload images via AWS S3 and access them securely using pre-signed URLs for retrieval',
+      ],
+      removed: true,
+    },
+    {
+      title: 'Cloudinary Image Upload',
+      content: [
+        'Easily upload images via Cloudinary and access them using secured image URLs for retrieval',
+      ],
+      removed: false,
+    },
+    {
+      title: 'JWT authorization with HttpOnly Cookie',
+      content: [
+        'Manage users with JWT authorization and secure HttpOnly Cookies for enhanced authentication and security',
+      ],
+      removed: false,
+    },
+    {
+      title: 'Stripe Payment Gateway',
+      content: [
+        'Enable Stripe payment gateway in Test Mode to grant access to premium content for users',
+      ],
+      removed: false,
+    },
+    {
+      title: 'Dark Mode',
+      content: ['Implementing Dark Mode using Tailwind CSS'],
+      removed: false,
+    },
+  ];
+
   return (
     <>
       <ScrollBar />
@@ -40,7 +92,7 @@ const NextJsCMSBlogPage = () => {
           }
         />
 
-        {/* Project Description*/}
+        {/* Project Details*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
           <ProjectDescription
             projectDescription={projectDetails.description}
@@ -49,67 +101,8 @@ const NextJsCMSBlogPage = () => {
             sourceCode={projectDetails.sourceCode}
           />
 
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Features</h2>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">CMS Blogging system</p>
-                <li>
-                  Display all posts on the home and blog pages, depending on the
-                  user&apos;s login status
-                </li>
-                <li>
-                  Add, edit or delete post in Admin account in Markdown syntax
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Interact with MongoDB via Vercel Functions
-                </p>
-                <li>
-                  Vercel&apos;s Serverless Functions simplifies MongoDB
-                  interaction, offering cost-effective, secure, and hassle-free
-                  database management
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6 line-through">
-                <p className="font-semibold">
-                  AWS S3 Image Upload and Presigned URLs
-                </p>
-                <li>
-                  Easily upload images via AWS S3 and access them securely using
-                  pre-signed URLs for retrieval
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6 ">
-                <p className="font-semibold">Cloudinary Image Upload</p>
-                <li>
-                  Easily upload images via Cloudinary and access them using
-                  secured image URLs for retrieval
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  JWT authorization with HttpOnly Cookie
-                </p>
-                <li>
-                  Manage users with JWT authorization and secure HttpOnly
-                  Cookies for enhanced authentication and security
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold"> Stripe Payment Gateway</p>
-                <li>
-                  Enable Stripe payment gateway in Test Mode to grant access to
-                  premium content for users
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">Dark Mode</p>
-                <li> Implementing Dark Mode using Tailwind CSS</li>
-              </div>
-            </div>
-          </section>
+          <ProjectFeatures projectFeatures={projectFeatures} />
+
           <section className="flex flex-col md:flex-row justify-between my-10">
             <div className="flex flex-col mb-4">
               <h2 className="font-semibold mb-3">CMS Blogging Platform</h2>

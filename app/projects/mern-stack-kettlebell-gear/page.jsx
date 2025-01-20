@@ -3,6 +3,7 @@
 import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
+import ProjectFeatures from '@/components/Projects/ProjectFeatures';
 import Image from 'next/image';
 
 const MernStackKettlebellGearPage = () => {
@@ -23,6 +24,61 @@ const MernStackKettlebellGearPage = () => {
     sourceCode: 'https://github.com/Samuellaudev/kettlebell-gear',
   };
 
+  const projectFeatures = [
+    {
+      title: 'Complete shopping cart features',
+      content: [
+        'Showcase all products on the homepage and shopping page',
+        'Enable administrators to manage products through functions like addition, modification, and removal for efficient content editing',
+      ],
+      removed: false,
+    },
+    {
+      title: 'Product reviews, ratings and pagination',
+      content: [
+        'Enables users to provide feedback and ratings for products, while implementing pagination to efficiently manage and navigate through the vast array of products',
+      ],
+      removed: false,
+    },
+    {
+      title:
+        'Products, users and orders management system using JWT authorization with HttpOnly Cookie',
+      content: [
+        'Employs JWT authorization with HttpOnly Cookie, ensuring secure access and management of products, users, and orders, thereby enhancing data privacy and user authentication mechanisms',
+      ],
+      removed: false,
+    },
+    {
+      title: 'AWS S3 Image Upload and Presigned URLs',
+      content: [
+        'Easily upload images via AWS S3 and access them securely using pre-signed URLs for retrieval',
+      ],
+      removed: true,
+    },
+    {
+      title: 'Cloudinary Image Upload',
+      content: [
+        'Easily upload images via Cloudinary and access them using secured image URLs for retrieval',
+      ],
+      removed: false,
+    },
+    {
+      title: 'PayPal Payment Gateway',
+      content: [
+        'Enables secure payment transactions for checkout process, offering customers flexibility and convenience in completing their purchases while ensuring a smooth and reliable checkout experience',
+      ],
+      removed: false,
+    },
+    {
+      title: 'Google OAuth Login Authentication',
+      content: [
+        'Easily access the platform using one’s own Google credentials, streamlining the login process.',
+        'Streamlined account management for users and administrators: Users effortlessly manage their accounts, while administrators oversee authentication activities with ease.',
+      ],
+      removed: false,
+    },
+  ];
+
   return (
     <>
       <ScrollBar />
@@ -33,7 +89,7 @@ const MernStackKettlebellGearPage = () => {
           imagePath="/images/projects/Kettlebell_Gear_MERN_Stack.png"
         />
 
-        {/* Project Description*/}
+        {/* Project Details*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
           <ProjectDescription
             projectDescription={projectDetails.description}
@@ -42,81 +98,8 @@ const MernStackKettlebellGearPage = () => {
             sourceCode={projectDetails.sourceCode}
           />
 
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Features</h2>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">Complete shopping cart features</p>
-                <li>Showcase all products on the homepage and shopping page</li>
-                <li>
-                  Enable administrators to manage products through functions
-                  like addition, modification, and removal for efficient content
-                  editing
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Product reviews, ratings and pagination
-                </p>
-                <li>
-                  Enables users to provide feedback and ratings for products,
-                  while implementing pagination to efficiently manage and
-                  navigate through the vast array of products
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Products, users and orders management system using JWT
-                  authorization with HttpOnly Cookie
-                </p>
-                <li>
-                  Employs JWT authorization with HttpOnly Cookie, ensuring
-                  secure access and management of products, users, and orders,
-                  thereby enhancing data privacy and user authentication
-                  mechanisms
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6 line-through">
-                <p className="font-semibold">
-                  AWS S3 Image Upload and Presigned URLs
-                </p>
-                <li>
-                  Easily upload images via AWS S3 and access them securely using
-                  pre-signed URLs for retrieval
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">Cloudinary Image Upload</p>
-                <li>
-                  Easily upload images via Cloudinary and access them using
-                  secured image URLs for retrieval
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold"> PayPal Payment Gateway</p>
-                <li>
-                  Enables secure payment transactions for checkout process,
-                  offering customers flexibility and convenience in completing
-                  their purchases while ensuring a smooth and reliable checkout
-                  experience
-                </li>
-              </div>
-              <div className="feature-one space-y-1 mb-6">
-                <p className="font-semibold">
-                  Google OAuth Login Authentication
-                </p>
-                <li>
-                  Easily access the platform using one&apos;s own Google
-                  credentials, streamlining the login process.
-                </li>
-                <li>
-                  Streamlined account management for users and administrators:
-                  Users effortlessly manage their accounts, while administrators
-                  oversee authentication activities with ease.
-                </li>
-              </div>
-            </div>
-          </section>
+          <ProjectFeatures projectFeatures={projectFeatures} />
+
           <section className="flex flex-col md:flex-row justify-between my-10">
             <div className="flex flex-col mb-4">
               <h2 className="font-semibold mb-3">
