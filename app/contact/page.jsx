@@ -67,11 +67,9 @@ const Contact = () => {
       className="container mx-auto px-6 md:mt-20 grid md:grid-cols-2 gap-4 text-[#565b5f] dark:text-white"
     >
       <div className="social-area">
-        <h2
-          className={`font-bold dark:text-white text-[#ADB7BE] ${styles.contact__heading}`}
-        >
-          Let&apos;s Connect
-        </h2>
+        <h1 className="mt-16 font-normal text-3xl md:mt-12 mb-4 text-[#ADB7BE]">
+          Let&apos;s Connect!
+        </h1>
         <p className="dark:text-white mb-4 max-w-md">
           I&apos;m currently looking for new opportunities, my inbox is always
           open. Whether you have a question or just want to say hi, I&apos;ll
