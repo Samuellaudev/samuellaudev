@@ -1,49 +1,37 @@
 'use client';
 
-import React from 'react';
-import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import ScrollBar from '@/components/Animation/ScrollBar';
+import ProjectHeader from '@/components/Projects/ProjectHeader';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../projectsStyles.module.css';
 
 const NextJsCMSBlogPage = () => {
   const { resolvedTheme } = useTheme();
-  const router = useRouter();
+
+  const paths = [
+    { title: 'Projects', link: '/projects' },
+    {
+      title: 'Next.js CMS Blog with MongoDB',
+      link: '/nextjs-blog-with-mongodb',
+    },
+  ];
 
   return (
     <>
       <ScrollBar />
       <div className="flex min-h-screen flex-col">
-        <div className="container mx-auto px-6 md:px-24 md:mt-20 text-[#565b5f] dark:text-white">
-          <div className="flex flex-row justify-between items-center">
-            <h2
-              className={`${styles.project__heading} mb-10 text-gray-600 dark:text-white`}
-            >
-              Next.js CMS Blog with MongoDB
-            </h2>
-            <button
-              onClick={() => router.push('/projects')}
-              className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
-            >
-              <span className="hidden md:inline">&larr; </span>Back
-            </button>
-          </div>
-        </div>
-        <div className="project-image p-6 bg-gradient-to-r from-primary-400/80 to-primary-600/90">
-          <Image
-            src={
-              resolvedTheme === 'light'
-                ? '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB/Page_Home/Light.png'
-                : '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB/Page_Home/Dark.png'
-            }
-            alt="Website image"
-            width={650}
-            height={650}
-            className="rounded-md mx-auto shadow-md"
-          />
-        </div>
+        <ProjectHeader
+          breadCrumbPaths={paths}
+          heading="Next.js CMS Blog with MongoDB"
+          imagePath={
+            resolvedTheme === 'light'
+              ? '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB/Page_Home/Light.png'
+              : '/images/projects/NextJs_v14_Blog_CMS_with_MongoDB/Page_Home/Dark.png'
+          }
+        />
+
+        {/* Project Description*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
           <section className="flex flex-col md:flex-row justify-between my-16">
             <div className="flex flex-col space-y-1 mb-4 md:mr-24">

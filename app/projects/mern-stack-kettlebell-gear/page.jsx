@@ -1,42 +1,29 @@
 'use client';
 
-import React from 'react';
-import { useRouter } from 'next/navigation';
 import ScrollBar from '@/components/Animation/ScrollBar';
+import ProjectHeader from '@/components/Projects/ProjectHeader';
 import Image from 'next/image';
-import styles from '../projectsStyles.module.css';
 
 const MernStackKettlebellGearPage = () => {
-  const router = useRouter();
+  const paths = [
+    { title: 'Projects', link: '/projects' },
+    {
+      title: 'MERN Stack & Redux - eCommerce Platform',
+      link: '/mern-stack-kettlebell-gear',
+    },
+  ];
 
   return (
     <>
       <ScrollBar />
       <div className="flex min-h-screen flex-col">
-        <div className="container mx-auto px-6 md:px-24 md:mt-20 text-[#565b5f] dark:text-white">
-          <div className="flex flex-row justify-between items-center">
-            <h2
-              className={`${styles.project__heading} mb-10 text-gray-600 dark:text-white`}
-            >
-              MERN Stack & Redux - eCommerce Platform
-            </h2>
-            <button
-              onClick={() => router.push('/projects')}
-              className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
-            >
-              <span className="hidden md:inline">&larr; </span>Back
-            </button>
-          </div>
-        </div>
-        <div className="project-image p-6 bg-gradient-to-r from-primary-400/80 to-primary-600/90">
-          <Image
-            src="/images/projects/Kettlebell_Gear_MERN_Stack.png"
-            alt="Website image"
-            width={650}
-            height={650}
-            className="rounded-md mx-auto shadow-md"
-          />
-        </div>
+        <ProjectHeader
+          breadCrumbPaths={paths}
+          heading="MERN Stack & Redux - eCommerce Platform"
+          imagePath="/images/projects/Kettlebell_Gear_MERN_Stack.png"
+        />
+
+        {/* Project Description*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
           <section className="flex flex-col md:flex-row justify-between my-16">
             <div className="flex flex-col space-y-1 mb-4 md:mr-24">
