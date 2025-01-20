@@ -8,6 +8,7 @@ import Image from 'next/image';
 import axios from 'axios';
 import { readingTime, formatDate } from '@/utils/helpers';
 import MarkdownPreview from '@/components/Markdown/MarkdownPreview';
+import ScrollBar from '@/components/Animation/ScrollBar';
 import Loading from './Loading';
 import styles from './postStyles.module.css';
 import Giscus from '@giscus/react';
@@ -56,59 +57,64 @@ const Post = ({ params }) => {
   }, [params.id]);
 
   return (
-    <div className={`${styles.light_theme_post} dark:text-white dark:bg-black`}>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <div className="mb-10">
-          {/* Reactivate until migrate to Cloudinary */}
-          {/* {imgLink ? (
-            <div className="mb-6">
-              <Image
-                src={imgLink}
-                alt="post image"
-                width={650}
-                height={650}
-                className="rounded-md mx-auto"
-              />
+    <>
+      <ScrollBar />
+      <div
+        className={`${styles.light_theme_post} dark:text-white dark:bg-black`}
+      >
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="mb-10">
+            {/* Reactivate until migrate to Cloudinary */}
+            {/* {imgLink ? (
+              <div className="mb-6">
+                <Image
+                  src={imgLink}
+                  alt="post image"
+                  width={650}
+                  height={650}
+                  className="rounded-md mx-auto"
+                />
+              </div>
+            ) : (
+              <></>
+            )} */}
+            <h1 className="my-5">{post.title}</h1>
+            <div className="flex justify-between">
+              <div className={styles.post__date}>
+                {formatDate(post?.createdAt)}
+                <p className="">{readingTime(post?.body)}</p>
+              </div>
+              <button
+                onClick={() => router.back()}
+                className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
+              >
+                <span className="hidden md:inline">&larr; </span>Back
+              </button>
             </div>
-          ) : (
-            <></>
-          )} */}
-          <h1 className="my-5">{post.title}</h1>
-          <div className="flex justify-between">
-            <div className={styles.post__date}>
-              {formatDate(post?.createdAt)}
-              <p className="">{readingTime(post?.body)}</p>
+            <div className={styles.post__body}>
+              <MarkdownPreview post={post.body} isEdit={false} />
             </div>
-            <button
-              onClick={() => router.back()}
-              className={`${styles.light_theme_back_btn} dark:hover:bg-white dark:hover:text-black`}
-            >
-              <span className="hidden md:inline">&larr; </span>Back
-            </button>
+            <Giscus
+              id="comments"
+              repo="Samuellaudev/samuellaudev"
+              repoId="R_kgDOKsiPlA"
+              category="Announcements"
+              categoryId="DIC_kwDOKsiPlM4CcwNK"
+              mapping="pathname"
+              term="Welcome!"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              inputPosition="top"
+              theme={resolvedTheme}
+              lang="en"
+              loading="lazy"
+            />
           </div>
-          <div className={styles.post__body}>
-            <MarkdownPreview post={post.body} isEdit={false} />
-          </div>
-          <Giscus
-            id="comments"
-            repo="Samuellaudev/samuellaudev"
-            repoId="R_kgDOKsiPlA"
-            category="Announcements"
-            categoryId="DIC_kwDOKsiPlM4CcwNK"
-            mapping="pathname"
-            term="Welcome!"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            inputPosition="top"
-            theme={resolvedTheme}
-            lang="en"
-            loading="lazy"
-          />
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

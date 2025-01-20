@@ -37,7 +37,7 @@ const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
         animate={navbarOpen ? 'open' : 'closed'}
         variants={wrapperVariants}
         style={{ originY: 'top', translateX: '-85%' }}
-        className="absolute flex flex-col min-w-[21.9rem] p-2 top-[160%] items-center md:hidden bg-white dark:bg-[#121212] border rounded-lg border-slate-600"
+        className="absolute flex flex-col min-w-[21.9rem] p-2 top-[160%] items-center md:hidden bg-white dark:bg-[#121212] border rounded-lg border-slate-800"
       >
         {isLogin && (
           <>

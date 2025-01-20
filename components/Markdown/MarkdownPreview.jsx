@@ -38,7 +38,7 @@ const MarkdownPreview = ({
     >
       <textarea
         className={`${isEdit ? styles.light_theme_form : 'hidden'}
-        dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+        dark:text-white dark:bg-[#18191E] dark:border-slate-800`}
         value={input}
         onChange={handleInputChange}
         cols="50"

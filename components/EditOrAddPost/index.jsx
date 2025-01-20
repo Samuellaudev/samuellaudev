@@ -171,7 +171,7 @@ const EditOrAddNewPost = ({ postType }) => {
               <input
                 disabled
                 value={originalImageName(image?.name)}
-                className={`${styles.light_theme_form} mb-2 dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} mb-2 dark:text-white dark:bg-[#18191E] dark:border-slate-800`}
               />
               <input
                 type="file"
@@ -190,7 +190,7 @@ const EditOrAddNewPost = ({ postType }) => {
                 value={title}
                 onChange={(e) => handleInputChange(e, setTitle)}
                 placeholder="Post Title"
-                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-slate-800`}
                 required
               />
               <label htmlFor="description" className="mt-10 mb-2 text-lg">
@@ -202,7 +202,7 @@ const EditOrAddNewPost = ({ postType }) => {
                 value={description}
                 onChange={(e) => handleInputChange(e, setDescription)}
                 placeholder="Post Description"
-                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-[#33353F]`}
+                className={`${styles.light_theme_form} dark:text-white dark:bg-[#18191E] dark:border-slate-800`}
                 required
               />
               <label htmlFor="body" className="mt-4 mb-2 text-lg">

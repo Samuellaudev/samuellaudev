@@ -34,7 +34,7 @@ const FooterSection = () => {
   const { resolvedTheme } = useTheme();
 
   return (
-    <footer className="flex border text-slate-600 dark:text-white border-t-[#33353F] border-l-transparent border-r-transparent border-b-transparent">
+    <footer className="flex border text-slate-600 dark:text-white border-t-slate-800 border-l-transparent border-r-transparent border-b-transparent">
       <div className="flex mx-auto container py-12 flex-col md:flex-row items-center justify-between">
         <Link
           href="/"

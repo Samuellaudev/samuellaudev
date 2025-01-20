@@ -42,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed mx-auto border border-[#33353F] top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-white dark:bg-[#121212]/80 bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
+    <nav className="fixed mx-auto border border-slate-800 top-5 left-5 right-5 md:left-20 md:right-20 z-10 bg-white dark:bg-[#121212]/80 bg-opacity-80 backdrop-blur-md backdrop-opacity-80 rounded-3xl">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-2 lg:py-4">
         <Link
           href="/"
