@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
+import ProjectDescription from '@/components/Projects/ProjectDescription';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -16,6 +17,14 @@ const NextJsCMSBlogPage = () => {
       link: '/nextjs-blog-with-mongodb',
     },
   ];
+
+  const projectDetails = {
+    description:
+      'A serverless web application built with Next.js and MongoDB, designed to facilitate the management and publication of blog content through a custom content management system.',
+    url: 'https://nextjs-mongodb-cms.vercel.app/',
+    technologies: 'Next.js, MongoDB, Tailwind CSS, Cloudinary, Stripe API',
+    sourceCode: 'https://github.com/Samuellaudev/nextjs-blog',
+  };
 
   return (
     <>
@@ -33,48 +42,13 @@ const NextJsCMSBlogPage = () => {
 
         {/* Project Description*/}
         <div className="project-info container mx-auto px-6 md:px-24 text-[#565b5f] dark:text-white">
-          <section className="flex flex-col md:flex-row justify-between my-16">
-            <div className="flex flex-col space-y-1 mb-4 md:mr-24">
-              <h2 className="font-semibold">Project Description</h2>
-              <p>
-                A serverless web application built with Next.js and MongoDB,
-                designed to facilitate the management and publication of blog
-                content through a custom content management system.
-              </p>
-            </div>
-            <div className="flex flex-col w-full">
-              <div className="project-url mb-4">
-                <p className="font-semibold pb-1">URL</p>
-                <a
-                  href="https://nextjs-mongodb-cms.vercel.app/"
-                  className="hover:text-primary-500"
-                >
-                  https://nextjs-mongodb-cms.vercel.app/
-                </a>
-              </div>
-              <div className="project-technologies space-y-1 mb-4">
-                <p className="font-semibold">Technologies</p>
-                <p>Next.js, MongoDB, Tailwind CSS, Cloudinary, Stripe API</p>
-              </div>
-              <div className="project-source-code">
-                <p className="font-semibold">Source Code</p>
-                <div className="flex flex-row space-x-2">
-                  <a
-                    href="https://github.com/Samuellaudev/nextjs-blog"
-                    target="_blank"
-                  >
-                    <Image
-                      src="/svg/socialMedia/icon-github.svg"
-                      alt="github icon"
-                      width={25}
-                      height={25}
-                      className="pt-2 cursor-pointer duration-200 brightness-0 hover:brightness-[50%] hover:contrast-[100%] dark:brightness-200"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+          <ProjectDescription
+            projectDescription={projectDetails.description}
+            url={projectDetails.url}
+            technologies={projectDetails.technologies}
+            sourceCode={projectDetails.sourceCode}
+          />
+
           <section className="flex flex-col md:flex-row justify-between my-10">
             <div className="flex flex-col mb-4">
               <h2 className="font-semibold mb-3">Features</h2>
