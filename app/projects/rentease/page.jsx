@@ -4,26 +4,9 @@ import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
 import ProjectFeatures from '@/components/Projects/ProjectFeatures';
-import Image from 'next/image';
+import ProjectScreens from '@/components/Projects/ProjectScreens';
 
 const RentEasePage = () => {
-  const paths = [
-    { title: 'Projects', link: '/projects' },
-    {
-      title: 'RentEase - Property Rental Platform',
-      link: '/rentease',
-    },
-  ];
-
-  const projectDetails = {
-    description:
-      'A versatile property rental platform created with Next.js, TailwindCSS, TypeScript, and Shadcn/UI, designed to highlight modern web development techniques. This project showcases responsive design, type-safe coding, and reusable UI components, offering an insightful example of advanced web application development.',
-    url: 'https://rentease-dev.netlify.app/',
-    technologies:
-      'Next.js, MongoDB, TypeScript, Shadcn/UI, TailwindCSS, Cloudinary, Next-Auth',
-    sourceCode: 'https://github.com/Samuellaudev/rentease',
-  };
-
   return (
     <>
       <ScrollBar />
@@ -42,95 +25,8 @@ const RentEasePage = () => {
             technologies={projectDetails.technologies}
             sourceCode={projectDetails.sourceCode}
           />
-
           <ProjectFeatures projectFeatures={projectFeatures} />
-
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Property search</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/RentEase/RentEase_HomgPage.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/RentEase/RentEase_PropertiesPage.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Listing CRUD operations</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/RentEase/RentEase_AddPropertyPage_TopPart.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/RentEase/RentEase_AddPropertyPage_BottomPart.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/RentEase/RentEase_EditPropertyPage.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">
-                User authentication with Google and Next Auth
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/RentEase/RentEase_NextAuth_GoogleSignIn.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/RentEase/RentEase_UserProfilePage.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Responsive Design</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/RentEase/RentEase_ResponsiveDesign.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
+          <ProjectScreens projectScreens={projectScreens} />
         </div>
       </div>
     </>
@@ -138,6 +34,23 @@ const RentEasePage = () => {
 };
 
 export default RentEasePage;
+
+const paths = [
+  { title: 'Projects', link: '/projects' },
+  {
+    title: 'RentEase - Property Rental Platform',
+    link: '/rentease',
+  },
+];
+
+const projectDetails = {
+  description:
+    'A versatile property rental platform created with Next.js, TailwindCSS, TypeScript, and Shadcn/UI, designed to highlight modern web development techniques. This project showcases responsive design, type-safe coding, and reusable UI components, offering an insightful example of advanced web application development.',
+  url: 'https://rentease-dev.netlify.app/',
+  technologies:
+    'Next.js, MongoDB, TypeScript, Shadcn/UI, TailwindCSS, Cloudinary, Next-Auth',
+  sourceCode: 'https://github.com/Samuellaudev/rentease',
+};
 
 const projectFeatures = [
   {
@@ -180,5 +93,34 @@ const projectFeatures = [
       'TailwindCSS ensures flexible, responsive layouts, while Shadcn/UI provides a library of cohesive, reusable components',
     ],
     removed: false,
+  },
+];
+
+const projectScreens = [
+  {
+    title: 'Property search',
+    images: [
+      '/images/projects/RentEase/RentEase_HomgPage.png',
+      '/images/projects/RentEase/RentEase_PropertiesPage.png',
+    ],
+  },
+  {
+    title: 'Listing CRUD operations',
+    images: [
+      '/images/projects/RentEase/RentEase_AddPropertyPage_TopPart.png',
+      '/images/projects/RentEase/RentEase_AddPropertyPage_BottomPart.png',
+      '/images/projects/RentEase/RentEase_EditPropertyPage.png',
+    ],
+  },
+  {
+    title: 'User authentication with Google and Next Auth',
+    images: [
+      '/images/projects/RentEase/RentEase_NextAuth_GoogleSignIn.png',
+      '/images/projects/RentEase/RentEase_UserProfilePage.png',
+    ],
+  },
+  {
+    title: 'Responsive Design',
+    images: ['/images/projects/RentEase/RentEase_ResponsiveDesign.png'],
   },
 ];

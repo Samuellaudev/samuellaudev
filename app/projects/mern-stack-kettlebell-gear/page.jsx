@@ -4,81 +4,9 @@ import ScrollBar from '@/components/Animation/ScrollBar';
 import ProjectHeader from '@/components/Projects/ProjectHeader';
 import ProjectDescription from '@/components/Projects/ProjectDescription';
 import ProjectFeatures from '@/components/Projects/ProjectFeatures';
-import Image from 'next/image';
+import ProjectScreens from '@/components/Projects/ProjectScreens';
 
 const MernStackKettlebellGearPage = () => {
-  const paths = [
-    { title: 'Projects', link: '/projects' },
-    {
-      title: 'MERN Stack & Redux - eCommerce Platform',
-      link: '/mern-stack-kettlebell-gear',
-    },
-  ];
-
-  const projectDetails = {
-    description:
-      'A dynamic eCommerce platform leveraging the MERN Stack & Redux for seamless online retail operations. Built with MongoDB, Express, React, Node.js, TypeScript and Redux, it offers a scalable solution for managing inventory, processing transactions, and enhancing the shopping experience.',
-    url: 'https://www.kettlebell-gear.com/',
-    technologies:
-      'React.js, MongoDB, Node.js, Express.js, TypeScript, Redux, Tailwind CSS, Cloudinary, PayPal API, Google API, OAuth',
-    sourceCode: 'https://github.com/Samuellaudev/kettlebell-gear',
-  };
-
-  const projectFeatures = [
-    {
-      title: 'Complete shopping cart features',
-      content: [
-        'Showcase all products on the homepage and shopping page',
-        'Enable administrators to manage products through functions like addition, modification, and removal for efficient content editing',
-      ],
-      removed: false,
-    },
-    {
-      title: 'Product reviews, ratings and pagination',
-      content: [
-        'Enables users to provide feedback and ratings for products, while implementing pagination to efficiently manage and navigate through the vast array of products',
-      ],
-      removed: false,
-    },
-    {
-      title:
-        'Products, users and orders management system using JWT authorization with HttpOnly Cookie',
-      content: [
-        'Employs JWT authorization with HttpOnly Cookie, ensuring secure access and management of products, users, and orders, thereby enhancing data privacy and user authentication mechanisms',
-      ],
-      removed: false,
-    },
-    {
-      title: 'AWS S3 Image Upload and Presigned URLs',
-      content: [
-        'Easily upload images via AWS S3 and access them securely using pre-signed URLs for retrieval',
-      ],
-      removed: true,
-    },
-    {
-      title: 'Cloudinary Image Upload',
-      content: [
-        'Easily upload images via Cloudinary and access them using secured image URLs for retrieval',
-      ],
-      removed: false,
-    },
-    {
-      title: 'PayPal Payment Gateway',
-      content: [
-        'Enables secure payment transactions for checkout process, offering customers flexibility and convenience in completing their purchases while ensuring a smooth and reliable checkout experience',
-      ],
-      removed: false,
-    },
-    {
-      title: 'Google OAuth Login Authentication',
-      content: [
-        'Easily access the platform using one’s own Google credentials, streamlining the login process.',
-        'Streamlined account management for users and administrators: Users effortlessly manage their accounts, while administrators oversee authentication activities with ease.',
-      ],
-      removed: false,
-    },
-  ];
-
   return (
     <>
       <ScrollBar />
@@ -97,137 +25,8 @@ const MernStackKettlebellGearPage = () => {
             technologies={projectDetails.technologies}
             sourceCode={projectDetails.sourceCode}
           />
-
           <ProjectFeatures projectFeatures={projectFeatures} />
-
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">
-                Full shopping cart features
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Shopping.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_PlaceOrder.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Product.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Cart.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Responsive Design</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Responsive_Design/Page_Home.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Responsive_Design/Page_Shopping.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Responsive_Design/Page_PlaceOrder.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Responsive_Design/Page_UserProfile.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Admin Dashboard</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_ProductsList.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_OrderList.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_EditProduct.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">PayPal Payment Gateway</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/PayPal_Payment_Gateway/Page_Order.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row justify-between my-10">
-            <div className="flex flex-col mb-4">
-              <h2 className="font-semibold mb-3">Google OAuth Login</h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Image
-                  src="/images/projects/Kettlebell_Gear_MERN_Stack/Google_Oauth_Login/Page_Login.png"
-                  alt="Website image"
-                  width={650}
-                  height={650}
-                  className="rounded-sm mx-auto shadow-md dark:border"
-                />
-              </div>
-            </div>
-          </section>
+          <ProjectScreens projectScreens={projectScreens} />
         </div>
       </div>
     </>
@@ -235,3 +34,113 @@ const MernStackKettlebellGearPage = () => {
 };
 
 export default MernStackKettlebellGearPage;
+
+const paths = [
+  { title: 'Projects', link: '/projects' },
+  {
+    title: 'MERN Stack & Redux - eCommerce Platform',
+    link: '/mern-stack-kettlebell-gear',
+  },
+];
+
+const projectDetails = {
+  description:
+    'A dynamic eCommerce platform leveraging the MERN Stack & Redux for seamless online retail operations. Built with MongoDB, Express, React, Node.js, TypeScript and Redux, it offers a scalable solution for managing inventory, processing transactions, and enhancing the shopping experience.',
+  url: 'https://www.kettlebell-gear.com/',
+  technologies:
+    'React.js, MongoDB, Node.js, Express.js, TypeScript, Redux, Tailwind CSS, Cloudinary, PayPal API, Google API, OAuth',
+  sourceCode: 'https://github.com/Samuellaudev/kettlebell-gear',
+};
+
+const projectFeatures = [
+  {
+    title: 'Complete shopping cart features',
+    content: [
+      'Showcase all products on the homepage and shopping page',
+      'Enable administrators to manage products through functions like addition, modification, and removal for efficient content editing',
+    ],
+    removed: false,
+  },
+  {
+    title: 'Product reviews, ratings and pagination',
+    content: [
+      'Enables users to provide feedback and ratings for products, while implementing pagination to efficiently manage and navigate through the vast array of products',
+    ],
+    removed: false,
+  },
+  {
+    title:
+      'Products, users and orders management system using JWT authorization with HttpOnly Cookie',
+    content: [
+      'Employs JWT authorization with HttpOnly Cookie, ensuring secure access and management of products, users, and orders, thereby enhancing data privacy and user authentication mechanisms',
+    ],
+    removed: false,
+  },
+  {
+    title: 'AWS S3 Image Upload and Presigned URLs',
+    content: [
+      'Easily upload images via AWS S3 and access them securely using pre-signed URLs for retrieval',
+    ],
+    removed: true,
+  },
+  {
+    title: 'Cloudinary Image Upload',
+    content: [
+      'Easily upload images via Cloudinary and access them using secured image URLs for retrieval',
+    ],
+    removed: false,
+  },
+  {
+    title: 'PayPal Payment Gateway',
+    content: [
+      'Enables secure payment transactions for checkout process, offering customers flexibility and convenience in completing their purchases while ensuring a smooth and reliable checkout experience',
+    ],
+    removed: false,
+  },
+  {
+    title: 'Google OAuth Login Authentication',
+    content: [
+      'Easily access the platform using one’s own Google credentials, streamlining the login process.',
+      'Streamlined account management for users and administrators: Users effortlessly manage their accounts, while administrators oversee authentication activities with ease.',
+    ],
+    removed: false,
+  },
+];
+
+const projectScreens = [
+  {
+    title: 'Full shopping cart features',
+    images: [
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Shopping.png',
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_PlaceOrder.png',
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Product.png',
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Shopping_Cart_Feature/Page_Cart.png',
+    ],
+  },
+  {
+    title: 'Admin Dashboard',
+    images: [
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_ProductsList.png',
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_OrderList.png',
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Page_Admin_Dashboard/Page_EditProduct.png',
+    ],
+  },
+  {
+    title: 'PayPal Payment Gateway',
+    images: [
+      '/images/projects/Kettlebell_Gear_MERN_Stack/PayPal_Payment_Gateway/Page_Order.png',
+    ],
+  },
+  {
+    title: 'Google OAuth Login',
+    images: [
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Google_Oauth_Login/Page_Login.png',
+    ],
+  },
+  {
+    title: 'Responsive Design',
+    images: [
+      '/images/projects/Kettlebell_Gear_MERN_Stack/Responsive_Design/ResponsiveDesign.png',
+    ],
+  },
+];
