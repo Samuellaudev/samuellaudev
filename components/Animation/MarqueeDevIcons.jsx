@@ -21,7 +21,7 @@ const DevIcons = () => (
 );
 const MarqueeDevIcons = ({ reverse = false }) => {
   return (
-    <section className="relative flex overflow-hidden space-x-4 pt-24 mx-auto max-w-screen-xl justify-center items-center">
+    <section className="relative flex overflow-hidden space-x-4 pt-40 pb-20 md:pb-24 mx-auto max-w-screen-xl justify-center items-center">
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: reverse ? ['0%', '100%'] : ['0%', '-100%'] }}

@@ -2,7 +2,7 @@ import MarqueeButton from '@/components/Animation/MarqueeButton';
 
 const HeroSection = () => {
   return (
-    <section className="py-32 text-[#565b5f] dark:text-white">
+    <section className="pt-44 pb-32 md:py-52 text-[#565b5f] dark:text-white">
       <div className="mx-auto max-w-screen-xl px-4 md:flex md:flex-col md:items-center">
         <div className="mx-auto max-w-3xl text-center space-y-2">
           <h1
