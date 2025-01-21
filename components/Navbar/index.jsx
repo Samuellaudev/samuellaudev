@@ -11,6 +11,7 @@ import axios from 'axios';
 import MenuOverlay from '@/components/Navbar/MenuOverlay';
 import NavLink from '@/components/Navbar/NavLink';
 import SliderToggle from '@/components/Animation/SliderToggle';
+import ThemeSwitch from '@/components/Navbar/ThemeSwitch';
 import SearchBox from '@/components/SearchBox';
 import VerifyEmailReminder from '@/components/Email/VerifyEmailReminder';
 
@@ -86,7 +87,7 @@ const Navbar = () => {
                 />
               </li>
             ))}
-            <SliderToggle />
+            <ThemeSwitch />
           </ul>
         </div>
 
