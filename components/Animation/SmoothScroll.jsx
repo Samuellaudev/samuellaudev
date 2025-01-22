@@ -59,17 +59,8 @@ const SmoothScroll = ({ children }) => {
     <>
       <motion.div
         ref={scrollRef}
-        style={{
-          y: spring,
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          overflowY: 'hidden',
-          willChange: 'transform',
-        }}
-        className="scroll-container"
+        style={{ y: spring }}
+        className="scroll-container fixed top-0 left-0 w-full overflow-hidden will-change-transform"
       >
         {children}
       </motion.div>
