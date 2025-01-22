@@ -50,7 +50,7 @@ const SmoothScroll = ({ children }) => {
   const { scrollY } = useScroll();
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight]);
   const physics = useMemo(
-    () => ({ damping: 25, mass: 1.3, stiffness: 55 }),
+    () => ({ damping: 25, mass: 0.2, stiffness: 70 }),
     [],
   );
   const spring = useSpring(transform, physics);
