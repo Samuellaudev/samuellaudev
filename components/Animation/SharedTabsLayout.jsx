@@ -31,14 +31,14 @@ export default function SharedTabsLayout({ tabs }) {
   );
 
   return (
-    <Spotlight className="min-w-[250px] md:w-[450px] h-[60vh] max-h-[360px] rounded-lg dark:bg-gray-900 overflow-hidden flex flex-col mx-auto my-8 border-2 border-gray-200 dark:border-gray-800">
+    <Spotlight className="min-w-[250px] md:w-[450px] h-[60vh] max-h-[360px] flex flex-col mx-auto mt-8 rounded-lg bg-natural text-slate-400 dark:text-white bg-white dark:bg-gray-900 overflow-hidden border-2 border-gray-200 dark:border-gray-800">
       {/* Tab bar */}
-      <nav className="dark:bg-gray-900 py-4">
+      <nav className=" py-4 pr-2 md:pr-0 max-w-[323px] md:max-w-full">
         <ul className="flex w-full">{tabsList}</ul>
       </nav>
 
       {/* Main content */}
-      <main className="flex flex-1 dark:bg-gray-900 overflow-auto">
+      <main className="flex flex-1 overflow-auto">
         <AnimatePresence mode="wait">
           <motion.div
             key={selectedTab ? selectedTab.label : 'empty'}

@@ -8,13 +8,13 @@ const MarqueeButton = () => {
 
   const MarqueeText = () => (
     <>
-      <span className="text-md md:text-lg font-medium px-4">
+      <span className="text-white text-md md:text-lg font-medium px-4">
         Let&apos;s connect 💻
       </span>
-      <span className="text-md md:text-lg font-medium px-4">
+      <span className="text-white text-md md:text-lg font-medium px-4">
         Let&apos;s connect 💻
       </span>
-      <span className="text-md md:text-lg font-medium px-4">
+      <span className="text-white text-md md:text-lg font-medium px-4">
         Let&apos;s connect 💻
       </span>
     </>

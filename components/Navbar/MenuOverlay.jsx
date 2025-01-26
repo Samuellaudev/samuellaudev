@@ -4,6 +4,7 @@ import { ThemeContext } from '@/context/theme-provider';
 import NavLink from '@/components/Navbar/NavLink';
 import ThemeSwitch from '@/components/Navbar/ThemeSwitch';
 import HamburgerButton from '@/components/Animation/HamburgerButton';
+import clsx from 'clsx';
 
 const wrapperVariants = {
   open: {
@@ -22,7 +23,14 @@ const wrapperVariants = {
   },
 };
 
-const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
+const MenuOverlay = ({
+  isLogin,
+  username,
+  links,
+  pathname,
+  onClick,
+  hidden = true,
+}) => {
   const { navbarOpen, setNavbarOpen } = useContext(ThemeContext);
 
   const toggleNavbar = () => setNavbarOpen((prevState) => !prevState);
@@ -37,7 +45,10 @@ const MenuOverlay = ({ isLogin, username, links, pathname, onClick }) => {
         animate={navbarOpen ? 'open' : 'closed'}
         variants={wrapperVariants}
         style={{ originY: 'top', translateX: '-85%' }}
-        className="absolute flex flex-col min-w-[21.9rem] p-2 top-[160%] items-center md:hidden bg-white dark:bg-[#121212] border rounded-lg border-slate-800"
+        className={clsx(
+          'absolute flex flex-col min-w-[21.9rem] p-2 top-[160%] items-center bg-white dark:bg-[#121212] border rounded-lg border-slate-800',
+          hidden && 'md:hidden',
+        )}
       >
         {isLogin && (
           <>
