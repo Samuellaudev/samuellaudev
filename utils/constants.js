@@ -286,7 +286,8 @@ export const featuredProjects = [
       'PHP',
       'React.js',
       'TailwindCSS',
-      'WordPress'
+      'WordPress',
+      'Motion'
     ],
   },
 ];

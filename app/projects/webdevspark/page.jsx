@@ -47,7 +47,7 @@ const projectDetails = {
   description:
     'WebDevSpark is a WordPress Theme project. It is a fully functional site encompassing a wide range of features, such as custom post types, search functionality, WP REST API, Gutenberg Block Type and full mobile responsiveness. This is derived from the Udemy WordPress Developer course by Brad Schiff, with a modified layout and integration with TailwindCSS.',
   url: 'https://www.webdevspark.com/',
-  technologies: 'JavaScript, PHP, React.js, TailwindCSS, WordPress',
+  technologies: 'JavaScript, PHP, React.js, TailwindCSS, WordPress, Motion',
   sourceCode: 'https://github.com/Samuellaudev/webdevspark',
 };
 
