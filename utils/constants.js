@@ -231,7 +231,7 @@ export const featuredProjects = [
     description:
       'An dynamic eCommerce platform powered by the MERN Stack, streamlining online retail with MongoDB, Express, React, Node.js, TypeScript and Redux. Efficiently manages inventory, transactions, and improves the shopping journey.',
     gitUrl: 'https://github.com/Samuellaudev/kettlebell-gear',
-    projectUrl: 'https://www.kettlebell-gear.com/',
+    projectUrl: 'https://kettlebell-gear.netlify.app/',
     projectDetails: '/projects/mern-stack-kettlebell-gear',
     techStack: [
       'React.js',
