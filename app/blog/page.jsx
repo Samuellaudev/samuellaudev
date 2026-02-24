@@ -1,9 +1,8 @@
 import Posts from '@/components/Posts';
-import { revalidatePath } from 'next/cache';
+
+export const dynamic = 'force-dynamic';
 
 const Blog = () => {
-  revalidatePath('/blog', 'page');
-
   return (
     <div className="flex min-h-screen flex-col md:px-24">
       <Posts pageHeading="Latest Posts" />

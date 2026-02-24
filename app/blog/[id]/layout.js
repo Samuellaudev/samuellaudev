@@ -1,9 +1,9 @@
 const backendUrl = process.env.BACKEND_URL;
 
 export async function generateMetadata({ params }) {
-  const { id } = params;
+  const { id } = await params;
 
-  const res = await fetch(`${backendUrl}/api/posts/${id}`);
+  const res = await fetch(`${ backendUrl }/api/posts/${ id }`);
   const data = await res.json();
 
   const { title, description } = data;
@@ -16,5 +16,5 @@ export async function generateMetadata({ params }) {
 }
 
 export default function PageLayout({ children }) {
-  return <div className="page-layout">{children}</div>;
+  return <div className="page-layout">{ children }</div>;
 }

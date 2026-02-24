@@ -10,9 +10,9 @@ export const dynamic = 'force-dynamic';
 // @access Public
 export async function GET(request, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
-    const res = await fetch(`${backendUrl}/api/posts/${id}`);
+    const res = await fetch(`${ backendUrl }/api/posts/${ id }`);
     const data = await res.json();
 
     return NextResponse.json(data);
@@ -25,17 +25,17 @@ export async function GET(request, { params }) {
 // @route  DELETE /api/posts/:id
 // @access Private
 export async function DELETE(request, { params }) {
-  const { id } = params;
+  const { id } = await params;
 
   const cookieStore = cookies();
   const token = cookieStore.get('jwt');
 
   try {
-    await fetch(`${backendUrl}/api/posts/${id}`, {
+    await fetch(`${ backendUrl }/api/posts/${ id }`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
-        cookie: `jwt=${token.value}`,
+        cookie: `jwt=${ token.value }`,
       },
     });
 
@@ -50,18 +50,18 @@ export async function DELETE(request, { params }) {
 // @route  PUT /api/posts/:id
 // @access Private
 export async function PUT(request, { params }) {
-  const { id } = params;
+  const { id } = await params;
   const updatedPostData = await request.json();
 
   const cookieStore = cookies();
   const token = cookieStore.get('jwt');
 
   try {
-    await fetch(`${backendUrl}/api/posts/${id}`, {
+    await fetch(`${ backendUrl }/api/posts/${ id }`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        cookie: `jwt=${token.value}`,
+        cookie: `jwt=${ token.value }`,
       },
       body: JSON.stringify(updatedPostData),
     });
@@ -69,6 +69,6 @@ export async function PUT(request, { params }) {
     return NextResponse.json({ data: { id } });
   } catch (error) {
     console.log(error);
-    throw new Error('Failed to delete post!');
+    throw new Error('Failed to update post!');
   }
 }
