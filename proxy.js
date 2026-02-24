@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
-export async function middleware(req) {
+export async function proxy(req) {
   const cookieStore = cookies();
   const token = cookieStore.get('jwt');
 
